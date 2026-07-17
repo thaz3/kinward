@@ -11,8 +11,9 @@
 │ Scope: roles, permissions│  │ • Manage roles           │
 │ Last review: Apr 17      │  │ • Review permissions     │
 │ Next review: Jul 16      │  │ [ Continue access ]      │
-│ [ Review ] [ Suspend ]   │  │ [ Modify ] [ Suspend ]   │
-│ [ Revoke ]               │  │ [ Revoke ]               │
+│ [ Review access ]        │  │ Primary: Continue access │
+│ [ Suspend ] [ Revoke ]   │  │ More: Modify · Suspend · │
+│                          │  │ Revoke                   │
 └──────────────────────────┘  └──────────────────────────┘
 
 ┌──────────────────────────┐  ┌──────────────────────────┐
@@ -28,4 +29,6 @@
 └──────────────────────────┘  └──────────────────────────┘
 ```
 
-Suspended and revoked are written states, not color treatments. Revocation is irreversible; suspension does not erase history or unrelated roles.
+Screen 24 has one primary action: “Continue access.” Modify, Suspend, and Revoke are clearly labeled secondary lifecycle actions in a separate group, not competing primary buttons. The due state is shared with My Kinward and the relevant Care Recipient permission summary; viewing does not clear it, and all three placements clear together only after an authorized decision succeeds. A continued or modified grant receives its next 90-day review date.
+
+Pending, Active, Suspended, Revoked, Dormant, Denied, and Blocked are written states, not color treatments. Revocation is irreversible; suspension does not erase history or unrelated roles.

@@ -3,7 +3,7 @@
 > **Status:** Verified finding tracker; closed items preserve historical traceability
 > **Version:** 0.1
 > **Last updated:** 2026-07-16
-> **Governing or related decisions:** D-1 through D-7; F-01-R, F-02-R, F-17 through F-19
+> **Governing or related decisions:** D-1 through D-17; F-01-R, F-02-R, F-17 through F-19; V-1 through V-5
 
 Confirmed or probable defects requiring a documentation change. Items requiring product-owner approval are tracked separately in `KINWARD_DECISION_LOG.md`.
 
@@ -201,3 +201,76 @@ F-03, F-05, and F-06 were resolved through approved D-3, D-5, and D-7. Their pro
 - **Verification date:** 2026-07-16
 - **Closure basis:** Targeted read-only re-audit of D-8 through D-17 and OQ-01 through OQ-10
 - **Status:** Closed — Verified by targeted systems audit
+
+## Design Readiness Audit Tracking
+
+### V-1 — Care Recipient Context-Reset State
+
+- **Repair:** Added visual Screen 39, context-reset requirements, UF-25, and AT-041 covering reset, authorization, leakage prevention, announcement, and focus.
+- **Status:** Ready for Audit
+
+### V-2 — Backup Activation and Circle Head Continuity
+
+- **Repair:** Cross-linked visual Screens 29–31 and clarified that activation never creates Circle Head status, replacement acceptance, continuity bypass, self-activation, succession, or alternate recovery. Added AT-042.
+- **Status:** Ready for Audit
+
+### V-3 — Managed-Minor Age Band
+
+- **Repair:** Clarified that age band is display/experience information only and triggers no account, invitation, ownership, role, permission, or automatic adulthood transition. Updated AT-020 and added AT-043.
+- **Status:** Ready for Audit
+
+### V-4 — Per-Viewer Audit-Row Authorization
+
+- **Repair:** Added independent row authorization by event class, Circle, Care Recipient, actor-display policy, and safe event text across Screens 32, 33, and 37, the permission/data models, UF-26, and AT-044.
+- **Status:** Ready for Audit
+
+### V-5 — Verified-Email Boundary Watch
+
+- **Classification:** Boundary watch item, not an open defect. No phone-authentication, phone-invitation, phone-recovery, or SMS-authentication affordance is present in the low-fidelity visual planning set.
+- **Status:** Watch during future design review
+
+## Latest Design Readiness Repair Tracking
+
+The following documentation repairs preserve V-1 through V-4 history. The targeted design re-audit verdict was **PASSED — SIX DESIGN REPAIRS VERIFIED**.
+
+### DR-V1A — Late Recipient-Scoped Response Handling
+
+- **Repair:** Screen 39, UF-25, and AT-041 now cover in-flight Dad requests, pre-clear draft confirmation, cancelled switching, stale/late response discard during reset and after Mom authorization, clear-before-query behavior, and non-leaking destination failure.
+- **Verification result:** Passed — targeted design re-audit
+- **Audit verdict:** PASSED — SIX DESIGN REPAIRS VERIFIED
+- **Status:** Closed — Verified by targeted design re-audit
+
+### DR-V2A — Compound Backup/Last-Circle-Head State
+
+- **Repair:** Screens 29–31, backup/continuity rules, and AT-042 now cover the compound state with a blocked final Circle Head, no accepted replacement, no available activation approver, dormant/unactivated backup, zero authority, and no alternate recovery.
+- **Verification result:** Passed — targeted design re-audit
+- **Audit verdict:** PASSED — SIX DESIGN REPAIRS VERIFIED
+- **Status:** Closed — Verified by targeted design re-audit
+
+### DR-V3A — Managed-Minor Deferred-Transition Visible Copy
+
+- **Repair:** Screen 27 visibly states that Kinward does not automatically convert a managed minor profile and that minor-to-adult transition remains deferred; AT-043 excludes conversion, claim, ownership-transfer, birthday-invitation, and automatic-account affordances.
+- **Verification result:** Passed — targeted design re-audit
+- **Audit verdict:** PASSED — SIX DESIGN REPAIRS VERIFIED
+- **Status:** Closed — Verified by targeted design re-audit
+
+### DR-V4A — Per-Viewer Backup/Audit Detail Filtering
+
+- **Repair:** Screens 29–33 and 37 plus UF-26, the permission/data models, and AT-044 independently authorize event class, Circle, Care Recipient, actor, approver, reason, attempted/blocked value, resulting state, and safe display text.
+- **Verification result:** Passed — targeted design re-audit
+- **Audit verdict:** PASSED — SIX DESIGN REPAIRS VERIFIED
+- **Status:** Closed — Verified by targeted design re-audit
+
+### DR-D16A — My Kinward Review-Due Frame Coverage
+
+- **Repair:** Screen 3 now draws the D-16 “Access review due” item. Screen 3, the Care Recipient permission summary, and delegation detail share one persistent state that clears together only after a successful authorized decision; AT-036 verifies consistency.
+- **Verification result:** Passed — targeted design re-audit
+- **Audit verdict:** PASSED — SIX DESIGN REPAIRS VERIFIED
+- **Status:** Closed — Verified by targeted design re-audit
+
+### DR-META1 — 39-Screen Metadata Reconciliation
+
+- **Repair:** The README, specification, and index identify 39 low-fidelity planning screens across 9 flow files, with one indexed row per Screen 1–39.
+- **Verification result:** Passed — targeted design re-audit
+- **Audit verdict:** PASSED — SIX DESIGN REPAIRS VERIFIED
+- **Status:** Closed — Verified by targeted design re-audit

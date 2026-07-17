@@ -2,7 +2,7 @@
 
 > **Status:** Active document-governance policy; D-8 through D-17 propagation verified and closed for planning
 > **Version:** 0.1
-> **Last updated:** 2026-07-16
+> **Last updated:** 2026-07-17
 > **Governing or related decisions:** D-1 through D-17; F-01-R, F-02-R, F-17 through F-19
 
 ## Purpose
@@ -91,3 +91,16 @@ Do not create a new role, permission, medical rule, legal conclusion, privacy ex
 - **Propagation date:** 2026-07-16
 
 Closure records planning verification only. It does not authorize implementation, provisioning, real-data entry, the restricted real-family beta, document uploads, or a compliance claim. Gate A, B, C, and D requirements and all deferred branches remain in force.
+
+### GOV-003 — Low-Fidelity Design Repair Verification and High-Fidelity Phase Authorization
+
+- **Documents involved:** `milestone-one/WIREFRAME_SPEC.md`; `milestone-one/visual-wireframes/`; `MILESTONE_ONE_READINESS.md`; `KINWARD_FIX_PUNCH_LIST.md`
+- **Audit verdict:** PASSED — SIX DESIGN REPAIRS VERIFIED
+- **Verified repairs:** DR-V1A, DR-V2A, DR-V3A, DR-V4A, DR-D16A, and DR-META1
+- **Product-owner decision:** Approved to begin high-fidelity visual design for the non-medical Milestone One foundation.
+- **Authorized scope:** Visual styling, layout refinement, responsive behavior, component appearance, typography, spacing, visual hierarchy, interaction-state presentation, accessibility presentation, and draft high-fidelity prototypes based on the verified 39-screen low-fidelity set.
+- **Excluded scope:** Application or production-component implementation, backend development, authentication configuration, packages, databases, storage, infrastructure, environments, real information, document uploads, medical functionality, and restricted real-family beta activity.
+- **Status:** High-fidelity phase authorized by product owner — design only
+- **Decision date:** 2026-07-17
+
+High-fidelity outputs remain draft until reviewed. No final interface design is approved. Application coding remains unauthorized, Milestone One remains non-medical, and Gate A, Gate B, Gate C, and Gate D restrictions remain in force.

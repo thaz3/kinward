@@ -6,10 +6,11 @@
 ┌──────────────────────────┐  ┌──────────────────────────┐
 │ 32. Audit history        │  │ 33. Action not allowed   │
 │ Harbor · Dad             │  │ Harbor · Dad             │
-│ Jul 16 · Dad             │  │ ! Permission unchanged   │
+│ Each row authorized      │  │ ! Permission unchanged   │
+│ Jul 16 · Dad             │  │ Permission unchanged     │
 │ continued Riley access   │  │ You do not have permission│
 │ Result: Completed        │  │ for this role change.     │
-│ Jul 15 · Jordan          │  │ No private details are    │
+│ Jul 15 · Actor masked    │  │ No private details are    │
 │ role change denied       │  │ shown. This consequential │
 │ Result: Denied           │  │ attempt may be audited.   │
 │ [ Open safe details ]    │  │ [ Return to roles ]      │
@@ -31,11 +32,13 @@
 │ Harbor · Circle-wide     │  │ Harbor Circle            │
 │ Loading permitted Circle │  │ ! This information is not│
 │ information…             │  │ available to you.        │
-│ [ progress placeholder ] │  │ No record name, count, or│
+│ [ progress placeholder ] │  │ No event, actor, record, │
 │ No recipient names/counts│  │ existence clue is shown. │
 │ are shown before access  │  │ [ Return to overview ]   │
 │ is confirmed.            │  │ [ Switch context ]       │
 └──────────────────────────┘  └──────────────────────────┘
 ```
+
+Opening Screen 32 does not authorize its rows. Each event independently checks event class, Circle, affected Care Recipient, actor identity or masking, and safe event text. Circle-wide authority does not reveal recipient-specific denied writes; recipient access does not reveal unrelated Circle-administration events. Screens 33 and 37 expose no hidden role, record, attempted value, reason, identifier, filtered count, or event existence clue.
 
 Routine denied reads never appear in family-visible audit history. Consequential denied authority writes may appear only within the viewer’s authorized audit scope. Security and operational logs remain separate.

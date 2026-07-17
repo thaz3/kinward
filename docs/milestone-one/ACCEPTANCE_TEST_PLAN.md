@@ -220,11 +220,11 @@
 
 - **Starting state:** Kai profile is managed by Morgan and private by default.
 - **Actor:** Morgan and a different Circle member.
-- **Action:** Create Kai; try to create login, invitation, adult role, delegation, and Care Recipient access; share basic profile fields.
+- **Action:** Create Kai; change and cross the synthetic age band; try to create login, invitation, adult role, delegation, ownership record, and Care Recipient access; share basic profile fields.
 - **Expected result:** Basic profile and approved visibility work; all prohibited actions fail.
 - **Expected authorization result:** Managing-adult permission applies only to minor basic profile; invariant denials block adult capabilities.
 - **Expected audit event:** Create, managing relationship, visibility change, and safe denials.
-- **Pass/fail criteria:** Pass if no Auth user, credential, exact birth date, adult role, or recipient access exists.
+- **Pass/fail criteria:** Pass if no Auth user, credential, exact birth date, adult role, invitation, ownership record, or recipient access exists and age-band changes trigger no automatic transition or new permission.
 
 ### AT-021 — Unauthorized Cross-Circle Access
 
@@ -330,7 +330,7 @@
 
 ### AT-036 — In-App Delegation Review Due
 
-- **Pass/fail criteria:** Pass if all three D-16 placements persist until review, no external reminder is sent, and continue/modify/suspend/revoke records reviewer and decision and resets or ends the schedule correctly.
+- **Pass/fail criteria:** Pass if My Kinward Screen 3, the relevant Care Recipient permission summary, and delegation detail derive from one review-due state; all three persist after opening/viewing; none implies automatic renewal, extension, suspension, or revocation; no external reminder is sent; and all three clear together only after continue/modify/suspend/revoke succeeds, records reviewer and decision, and resets or ends the schedule correctly.
 
 ### AT-037 — Synthetic Audit Retention
 
@@ -347,6 +347,46 @@
 ### AT-040 — First-Family Device Matrix
 
 - **Pass/fail criteria:** Pass if both Care Recipients' actual iPhones, the nurse tester's actual Android, and one desktop keyboard configuration complete every D-13 accessibility check with exact versions recorded; both mobile platforms must work before pilot readiness.
+
+### AT-041 — Care Recipient Context Reset
+
+- **Starting state:** Jordan is authorized for Dad and has an in-flight Dad request/write plus a Dad-scoped heading, draft, field label, filter, count, badge, cached label, deep link, error, and permission result; Mom authorization is tested as both allowed and denied.
+- **Actor:** Jordan.
+- **Action:** Switch from Dad to Mom while the protected action is in progress; simulate a delayed Dad success/error during reset and after Mom authorization; separately cancel and confirm the unsaved-draft prompt.
+- **Expected result:** Cancelling the discard prompt keeps Dad context and draft. Confirming discard invalidates the draft and request before clearing state. Dad-scoped state clears before a neutral destination reset/loading state appears; every late Dad success/error is discarded; Mom protected content renders only after exact Mom authorization; denial returns a non-leaking state.
+- **Expected authorization result:** Server and RLS evaluate Mom independently and never reuse Dad permission evidence.
+- **Expected audit event:** No family audit for ordinary switching; any operational/security event contains no family content.
+- **Pass/fail criteria:** Pass only if delayed Dad responses cannot repaint during reset or after Mom authorization; prompt cancellation stays in Dad; confirmed discard permanently invalidates old work; no Dad-heading flash, draft, count/badge, cache, field-label, error, permission-result, or deep-link carryover occurs; and screen-reader announcement plus predictable focus on the confirmed Mom heading are present.
+
+### AT-042 — Backup Activation Does Not Bypass Circle Head Continuity
+
+- **Starting state:** Avery is Harbor's final active Circle Head and attempts to leave or lose the role; no verified replacement has accepted; Taylor is the dormant backup; no authorized Circle Head is available to approve activation.
+- **Actor:** Taylor and Avery.
+- **Action:** Attempt to treat Taylor as Circle Head, remove or replace Avery, let Avery leave, self-activate without approval, or invoke a hidden succession/recovery path.
+- **Expected result:** Avery remains blocked, Taylor remains dormant or unactivated, every continuity-bypass attempt fails, and missing approval ends at the calm neutral recovery-unavailable state with zero authority.
+- **Expected authorization result:** Backup activation supplies only fixed backup permissions and never a Circle Head assignment or continuity-invariant exception.
+- **Expected audit event:** Consequential denied writes are recorded only within authorized audit scope; no authority-grant event occurs for unavailable recovery.
+- **Pass/fail criteria:** Pass if the compound state grants zero authority, the final Circle Head remains blocked, the backup remains dormant/unactivated, no loop creates apparent authority, activation never creates Circle Head status or replacement acceptance, and no automatic succession, self-activation, incapacity/death determination, or alternate recovery mechanism exists.
+
+### AT-043 — Managed-Minor Age Band Has No Automatic Transition
+
+- **Starting state:** Kai is a managed minor profile controlled by Morgan with no account, invitation, ownership, adult role, or Care Recipient access.
+- **Actor:** Morgan.
+- **Action:** Change Kai's age band and simulate crossing each supported age-band boundary.
+- **Expected result:** Only the display/age-appropriate-experience value changes.
+- **Expected authorization result:** Managed-minor invariant denials remain unchanged.
+- **Expected audit event:** A safe basic-profile update may be recorded; no account, invitation, ownership, role, or permission event is created.
+- **Pass/fail criteria:** Pass if the visible Screen 27 copy states that automatic conversion does not occur and transition remains deferred; no automatic account, verified identity, invitation, Circle membership, ownership record, adult role, permission, delegation, upgrade, or transition workflow appears; and no “Convert to adult account,” “Claim profile,” “Transfer ownership,” “Invite on birthday,” or automatic-account action is offered or implied.
+
+### AT-044 — Per-Viewer Audit-Row Authorization
+
+- **Starting state:** One audit dataset contains an authorized Circle-administration event, a Dad-specific event, a consequential denied Dad write, a routine denied read held outside family audit, and backup activation/compound-block events with actor, approver, reason, proposed authority, attempted value, and resulting state fields that differ by viewer permission.
+- **Actor:** Avery as Circle Head without Dad-specific access and Dad as Care Recipient owner without unrelated Circle-administration access.
+- **Action:** Both viewers open the same audit route and request identical event identifiers, filters, empty states, and direct links.
+- **Expected result:** Avery receives only authorized Circle-administration rows; Dad receives only authorized Dad rows; actor and approver identities and every other unauthorized field are masked or omitted; routine denied reads remain absent.
+- **Expected authorization result:** Every row and display field independently checks event class, Circle, affected Care Recipient, actor identity, approver identity, reason, attempted/blocked value, resulting state, and safe event text.
+- **Expected audit event:** Audit reads use privacy-safe operational logging only.
+- **Pass/fail criteria:** Pass if Circle Head scope cannot reveal recipient-specific events, recipient scope cannot reveal unrelated Circle-administration events, consequential denied writes appear only in authorized scope, backup activation details do not leak, and no empty, denied, filtered, count, actor, approver, role, proposed-authority, attempted/blocked-value, reason, resulting-state, or identifier leakage occurs.
 
 ## Test Exit Criteria
 

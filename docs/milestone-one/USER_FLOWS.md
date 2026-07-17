@@ -224,11 +224,11 @@
 - **Actor:** Avery approves; Jordan strongly reauthenticates.
 - **Permission checks:** Dormant designation active, approver authorized, reason present, strong reauthentication successful, no dispute hold.
 - **Main steps:** Request activation; Avery reviews fixed scope and approves; Jordan reauthenticates; system activates atomically and records audit.
-- **Alternate paths:** Avery denies; later suspend or deactivate. No alternate recovery path exists in Milestone One.
-- **Failure and recovery:** Jordan attempts self-activation, no Circle Head can approve, the fresh provider-supported challenge fails, or the request expires; remain dormant. When no approver exists, show a neutral recovery-unavailable message and make no authority determination.
+- **Alternate paths:** Avery denies; later suspend or deactivate. Activation does not make Jordan a Circle Head and cannot satisfy Circle Head replacement acceptance or bypass the last-active-Circle-Head block.
+- **Failure and recovery:** Jordan attempts self-activation, no Circle Head can approve, the fresh provider-supported challenge fails, or the request expires; remain dormant. When no approver exists, show the terminal Milestone One recovery-unavailable state, grant no authority, and make no incapacity, death, succession, or legal-authority determination. The alternate recovery branch remains deferred.
 - **Audit events:** Request, approval/denial, reauthentication result, activation, later actions, suspension, and deactivation.
 - **Final state:** Jordan receives only fixed non-medical backup permissions while active.
-- **Acceptance criteria:** No Care Recipient access, ownership transfer, delegation change, self-expansion, Circle Head removal, or Circle deletion.
+- **Acceptance criteria:** No Care Recipient access, ownership transfer, delegation change, self-expansion, Circle Head status, final-Circle-Head removal or replacement, Circle deletion, or hidden succession path.
 
 ## UF-19 — User Switches Between Multiple Circles
 
@@ -272,10 +272,34 @@
 - **Actor:** Avery or another actor attempting removal or downgrade.
 - **Permission checks:** Count accepted active Circle Head assignments inside the exact Circle and require a verified replacement acceptance first.
 - **Main steps:** Attempt leave, self-removal, removal by another actor, and downgrade; block each; invite or assign a verified adult; wait for acceptance; then permit the original transition with recent authentication.
-- **Failure and recovery:** If no active Circle Head can complete transfer, use approved backup activation or keep the action unavailable pending a future reviewed recovery process.
+- **Failure and recovery:** Backup activation cannot complete or substitute for Circle Head transfer. If no verified adult accepts Circle Head, keep the leave/removal/downgrade action blocked. If no active Circle Head can approve backup activation, the neutral unavailable state is terminal for Milestone One and the future alternate recovery branch remains deferred.
 - **Audit events:** Consequential denied action, replacement acceptance, and later successful role or membership transition.
 - **Final state:** The Circle always has at least one accepted active Circle Head.
-- **Acceptance criteria:** Backup designation never becomes Circle Head automatically.
+- **Acceptance criteria:** Backup designation or activation never becomes Circle Head, never removes or replaces the final Circle Head, and never bypasses verified replacement acceptance.
+
+## UF-25 — Care Recipient Context Reset
+
+- **Starting condition:** Jordan is in Dad context with a protected Dad-scoped request or write still in progress plus a draft, filter, count, heading, cached label, deep link, permission result, or error and chooses Mom.
+- **Actor:** Jordan, whose Mom-specific authorization may be allowed or denied independently of Dad access.
+- **Permission checks:** Clear Dad-scoped client state first; then evaluate active Harbor membership and exact Mom-specific server and database permission without reusing Dad authorization.
+- **Main steps:** Begin in Dad; choose Mom; if a Dad draft is unsaved, prompt before clearing; after confirmation, cancel the Dad request where supported or invalidate its result, permanently invalidate the draft, clear Dad headings, filters, counts, badges, labels, deep-link state, cache, permission results, and errors; show a neutral reset/loading state; request Mom authorization; discard every late Dad success or error; render Mom content only after confirmation; announce the change and move focus to the Mom context heading.
+- **Alternate paths:** Cancelling the discard prompt keeps Dad context, request, and draft. If Mom is unauthorized, show a non-leaking denied/not-found state and offer a safe Circle-wide or previously authorized return.
+- **Failure and recovery:** Network or authorization failure renders no Dad or Mom protected content and retains no destination deep link.
+- **Audit events:** Ordinary authorized context switching creates no family audit event; appropriate privacy-safe operational/security logging contains no family content.
+- **Final state:** Only the confirmed destination context and permissions exist in the interface and client state.
+- **Acceptance criteria:** A delayed Dad response arriving during reset or after Mom authorization cannot repaint Dad state. No prior-recipient heading flash, draft, count/badge, cache, deep-link, field-label, error, or permission-result carryover occurs; prompt cancellation stays in Dad; confirmed discard invalidates the old work; focus is predictable.
+
+## UF-26 — Per-Viewer Audit-Row Authorization
+
+- **Starting condition:** The audit store contains Circle-administration and Dad-specific events, including a consequential denied Dad write, with actor identity that some viewers may see only masked.
+- **Actor:** Avery as Circle Head without Dad-specific access and Dad as Care Recipient owner without unrelated Circle-administration access.
+- **Permission checks:** Authorize each row and each display field independently by event class, Circle, affected Care Recipient, actor identity, approver identity, reason, attempted value, resulting state, and safe display text.
+- **Main steps:** Each actor opens the same audit route; the server evaluates every candidate row and field; return only authorized rows; mask or omit actor, approver, reason, proposed authority, attempted/blocked value, and resulting state where not permitted; omit unauthorized rows without counts or filtered-state clues.
+- **Alternate paths:** Empty and denied audit states use generic copy and never broaden the query.
+- **Failure and recovery:** A row-policy or query failure returns a safe generic audit error, never a partially broader event set.
+- **Audit events:** Audit reads may use privacy-safe operational logging; they do not create editable family audit content.
+- **Final state:** Avery sees only authorized Circle-administration rows; Dad sees only authorized Dad rows; neither infers excluded events.
+- **Acceptance criteria:** Opening the audit screen never authorizes all rows; routine denied reads remain absent; consequential denied writes appear only in authorized viewer scope.
 
 ## UF-23 — Review an “Until Revoked” Delegation
 

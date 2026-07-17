@@ -179,10 +179,16 @@ Activation requires all of:
 
 The backup cannot satisfy the approval condition by claiming Circle Head unavailability.
 
+Activation never assigns Circle Head, never satisfies verified replacement acceptance, and never permits removal or replacement of the final active Circle Head. It is not an escape hatch around the continuity invariant.
+
 If no Circle Head can approve, return a neutral unavailable state, grant no permission, and make no incapacity, succession, or legal-authority determination.
+
+In the compound case where the final active Circle Head is attempting to leave or lose the role, no verified replacement has accepted, and no authorized Circle Head can approve backup activation, both controls remain in force: departure stays blocked and backup activation stays unavailable. The backup remains dormant or unactivated, receives zero authority, cannot self-activate, and does not become Circle Head. No loop, automatic succession, or alternate recovery path may create actual or apparent authority.
 
 ## Audit Visibility
 
+- Audit-screen access and audit-row access are separate decisions. Authorize every candidate row independently before it enters a response.
+- For each row and each display field, verify the viewer may see the event class, Circle, affected Care Recipient when applicable, actor identity, approver identity, reason, attempted or blocked value, resulting state, and final safe event text. Mask or omit each unauthorized element.
 - A Care Recipient sees events affecting their record, grants, roles, and owner permissions.
 - Circle Heads see only Circle-administration events within assigned Circle scope.
 - A member sees their own invitations, assignments, grant actions, and denials when safe.
@@ -191,6 +197,8 @@ If no Circle Head can approve, return a neutral unavailable state, grant no perm
 - Activated backup sees only audit events for the fixed actions it may perform.
 - Support and internal accounts receive no family audit access.
 - Audit rows must not reveal another Care Recipient or Circle through labels, counts, filters, or error messages.
+- Circle-wide authority does not automatically reveal Care Recipient-specific denied writes. Recipient-specific access does not automatically reveal unrelated Circle-administration events.
+- Event text must not expose a hidden role, record, proposed authority, attempted or blocked value, denial reason, resulting state, or sensitive identifier. Mask actor or approver identity when full identity is not authorized. Filtered and empty states expose no hidden event count or existence clue.
 - Consequential denied authority writes enter family-visible audit history when the viewer is authorized for that event scope.
 - Routine denied reads never enter family-visible audit history; where appropriate they enter a separate privacy-safe security channel.
 - Operational logs remain separate from both channels and contain no private record content.

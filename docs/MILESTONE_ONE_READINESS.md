@@ -1,8 +1,8 @@
 # Kinward Milestone One Readiness
 
-> **Status:** Product-owner planning sign-off approved; D-8 through D-17 closed and verified by targeted systems audit; application coding not authorized
+> **Status:** High-fidelity design authorized by product owner — design only; application coding not authorized
 > **Version:** 0.1
-> **Last updated:** 2026-07-16
+> **Last updated:** 2026-07-17
 > **Governing decisions:** D-1 through D-17
 
 ## Purpose
@@ -105,7 +105,34 @@ D-8 through D-17 resolve OQ-01 through OQ-10 and are **Closed — Verified by ta
 
 The `docs/milestone-one/` package contains eight planning documents: `ACCEPTANCE_TEST_PLAN.md`, `DATA_MODEL.md`, `IMPLEMENTATION_PLAN.md`, `OPEN_DESIGN_QUESTIONS.md`, `PERMISSION_MODEL.md`, `TECHNICAL_ARCHITECTURE.md`, `USER_FLOWS.md`, and `WIREFRAME_SPEC.md`.
 
-A written wireframe specification and a first low-fidelity visual planning set exist. The visual wireframes are not approved and are not a final interface design. An approved final interface design has not yet been created, and no interface implementation is authorized.
+A written wireframe specification and verified 39-screen low-fidelity visual planning baseline exist. This verification does not make the low-fidelity frames a final interface design. No high-fidelity output or final interface design has been approved, and no interface implementation is authorized.
+
+## High-Fidelity Design Authorization
+
+**Product-owner decision:** Approved to begin high-fidelity visual design for the non-medical Milestone One foundation.
+
+**Status:** Authorized by product owner — design only
+
+**Date:** 2026-07-17
+
+**Basis:** The final targeted design re-audit verdict was **PASSED — SIX DESIGN REPAIRS VERIFIED**. It verified Screen 39 late-response protection, the compound backup/last-Circle-Head state, the Screen 3 access-review-due placement, the Screen 27 managed-minor transition boundary, per-viewer audit-row filtering, and the canonical 39-screen/9-flow metadata and accessibility baseline.
+
+### Authorized Scope
+
+- Visual styling and visual hierarchy.
+- Layout refinement and responsive behavior.
+- Component appearance.
+- Typography and spacing.
+- Interaction-state and accessibility presentation.
+- Draft high-fidelity prototypes based strictly on the verified 39-screen low-fidelity set.
+
+High-fidelity outputs remain draft until reviewed. Final interface design has not been approved.
+
+### Explicit Exclusions
+
+This authorization does not include application implementation, production component development, backend development, authentication configuration, framework initialization, package installation, database or storage work, infrastructure or environment provisioning, real family or health information, document uploads, medical functionality, or restricted real-family beta activity.
+
+Gate A, Gate B, Gate C, and Gate D restrictions remain in force. A separate explicit authorization is required before application coding.
 
 - [ ] Gate A requirements for affected coding reconfirmed against D-8 through D-17
 - [x] Targeted systems audit of D-8 through D-17 completed on 2026-07-16 with verdict PASSED WITH NON-BLOCKING NOTES

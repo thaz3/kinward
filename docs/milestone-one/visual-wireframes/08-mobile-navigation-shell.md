@@ -42,4 +42,4 @@ NARROW / 200% TEXT REFLOW
 └──────────────────┘
 ```
 
-Navigation destinations appear only when permitted, but hiding is never the authorization control. Switching Circle or Care Recipient clears protected prior context, drafts, filters, cached labels, and counts. Every destination has a programmatic name, current-page text, logical focus order, visible focus, and a large touch target.
+Navigation destinations appear only when permitted, but hiding is never the authorization control. Switching Care Recipient enters Screen 39 before destination content renders; switching Circle uses the same clear-before-query principle. Protected prior context, drafts, filters, cached labels, counts, badges, deep links, and permission results are cleared. Every destination has a programmatic name, current-page text, logical focus order, visible focus, and an interactive target of at least 48 × 48 CSS pixels.

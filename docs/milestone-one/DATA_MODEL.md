@@ -249,7 +249,7 @@ all security changes -> consent_records + audit_events
 - **Circle context:** Required.
 - **Care Recipient context:** Prohibited in Milestone One.
 - **Lifecycle state:** Active, suspended, archived, transfer-review.
-- **Constraints:** No exact birth date by default, credentials, adult roles, delegation, invitations, or protected recipient access.
+- **Constraints:** No exact birth date by default, credentials, adult roles, delegation, invitations, or protected recipient access. Age band is display and age-appropriate-experience information only; changing or crossing it triggers no account, invitation, ownership, role, or permission transition.
 - **Indexing:** Circle/status and managing relationship joins.
 - **Audit requirements:** Create, visibility, update, suspend, archive, and transfer-review request.
 - **Deletion/deactivation:** Archive; permanent deletion deferred to review.
@@ -354,18 +354,18 @@ all security changes -> consent_records + audit_events
 ### 20. Audit Events (`audit_events`)
 
 - **Purpose:** Append-only accountability for authority, permission, membership, lifecycle, and security changes.
-- **Key fields:** `id`, event type, actor user ID, on-behalf-of Care Recipient ID when applicable, Circle ID, optional Care Recipient ID, target type/ID, result, prior/next state identifiers, occurred time, correlation ID, retention classification.
+- **Key fields:** `id`, event class/type, actor user ID, actor-display policy or maskable reference, optional approver user ID and display policy, on-behalf-of Care Recipient ID when applicable, Circle ID, optional affected Care Recipient ID, target type/ID, reason classification, attempted or blocked value reference, result/resulting state, safe-display classification, prior/next state identifiers, occurred time, correlation ID, retention classification.
 - **Identifiers:** Audit UUID.
 - **Foreign keys:** Prefer durable identifiers; avoid cascading deletion that erases events.
 - **Ownership:** No family member owns or edits an event; visibility is scoped by governing permissions.
 - **Circle context:** Required for Circle events.
 - **Care Recipient context:** Required only when event affects that recipient.
 - **Lifecycle state:** Immutable; optional retention class without chosen final duration.
-- **Constraints:** Insert through constrained paths only; no update/delete for application roles; no copied sensitive content.
+- **Constraints:** Insert through constrained paths only; no update/delete for application roles; no copied sensitive content. Viewer queries authorize every row and display field independently by event class, Circle, affected Care Recipient, actor and approver display policy, reason, attempted/blocked value, resulting state, and safe text projection.
 - **Indexing:** Circle/time, Care Recipient/time, actor/time, target, event type, correlation ID.
 - **Audit requirements:** This is the audit record; monitor failed append attempts separately.
 - **Deletion/deactivation:** Retain for the life of an active synthetic test environment. Delete only as part of a documented complete synthetic-environment reset or retirement. Production and real-family retention remain Gate C decisions.
-- **Never combine:** Events from unauthorized Circles or Care Recipients in one viewer query.
+- **Never combine:** Events from unauthorized Circles or Care Recipients in one viewer query; screen-level access with row-level visibility; full actor identity with a viewer allowed only a masked identity.
 
 ## Leakage-Prevention Design
 

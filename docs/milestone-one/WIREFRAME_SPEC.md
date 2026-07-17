@@ -1,15 +1,17 @@
 # Kinward Milestone One Wireframe Specification
 
-> **Status:** Written planning specification with a first low-fidelity visual wireframe set; visual wireframes are not approved or final; no implementation authorized
+> **Status:** Verified 39-screen low-fidelity planning baseline; high-fidelity design authorized by product owner — design only; no implementation authorized
 > **Version:** 0.1
-> **Last updated:** 2026-07-16
+> **Last updated:** 2026-07-17
 > **Governing decisions:** D-1 through D-17; `MILESTONE_ONE_DECISIONS.md`; `MILESTONE_ONE_READINESS.md`
 
 ## Scope
 
 These mobile-first wireframe specifications cover only the approved non-medical Milestone One foundation. They intentionally exclude check-ins, symptoms, treatment, medication, diet, movement, medical alerts, legal-document validation, and real family information.
 
-A written wireframe specification and a first low-fidelity visual planning set exist. The visual wireframes are not approved and are not a final interface design. An approved final interface design has not yet been created.
+A written wireframe specification and verified 39-screen low-fidelity visual planning baseline exist. The final targeted design re-audit verdict was **PASSED — SIX DESIGN REPAIRS VERIFIED**. Product-owner authorization now permits draft high-fidelity visual design based strictly on this baseline, but no high-fidelity output or final interface design is approved and no application interface is implemented.
+
+The high-fidelity phase status is **Authorized by product owner — design only**. It permits visual styling, layout refinement, responsive behavior, component appearance, typography, spacing, visual hierarchy, interaction-state presentation, accessibility presentation, and draft high-fidelity prototypes. It excludes application or production-component implementation, backend development, authentication configuration, packages, databases, storage, infrastructure, environments, real information, document uploads, medical functionality, and restricted real-family beta activity. Gate A through Gate D remain in force.
 
 The visual planning set is indexed in `visual-wireframes/WIREFRAME_INDEX.md`.
 
@@ -18,7 +20,7 @@ Use synthetic labels in prototypes, such as the fictional Harbor Circle with adu
 ## Shared Interaction Rules
 
 - Start with a narrow phone viewport and expand without changing task order.
-- Use one clear page heading, one primary action, plain language, and touch targets at least 48 by 48 CSS pixels.
+- Use one clear page heading, one primary action, plain language, and interactive targets at least 48 × 48 CSS pixels. This is Kinward's approved product baseline even where an external standard permits a smaller minimum.
 - Keep the active Circle and active Care Recipient visible whenever either context applies.
 - Never rely on interface hiding for authorization; denied data is not requested or returned.
 - Use text plus icons for status. Never use color alone.
@@ -46,8 +48,8 @@ Use synthetic labels in prototypes, such as the fictional Harbor Circle with adu
 
 - **Purpose:** Give one account a safe launch point for multiple Circles.
 - **Intended users:** Authenticated adults.
-- **Information displayed:** Circles the user actively belongs to, pending invitations, current role summaries by Circle, and a create-Circle action.
-- **Available actions:** Open a Circle, create a Circle, review an invitation, switch account settings, or sign out.
+- **Information displayed:** Circles the user actively belongs to, pending invitations, current role summaries by Circle, a create-Circle action, and any “Access review due” item for an authorized “Until revoked” delegation. Each due item identifies the relevant Care Recipient and representative in privacy-appropriate language without implying automatic renewal, extension, suspension, or revocation.
+- **Available actions:** Open a Circle, create a Circle, review an invitation, review due access, switch account settings, or sign out. Opening a due item does not clear it.
 - **Role and permission requirements:** Show only memberships and invitations bound to the authenticated identity.
 - **Privacy boundaries:** Do not combine Care Recipient names, roles, counts, or activity across Circles beyond the minimum dashboard card chosen for that Circle.
 - **Empty state:** “You are not in a Circle yet. Create one or accept an invitation.”
@@ -110,7 +112,7 @@ Use synthetic labels in prototypes, such as the fictional Harbor Circle with adu
 - **Error state:** Reset to Circle-wide context when the prior selection becomes unauthorized.
 - **Destructive-action confirmation:** None.
 - **Accessibility behavior:** Implement as a labeled dialog or full-page list, not an unlabeled custom dropdown; announce the new context.
-- **Navigation:** Opens from the persistent context control; returns to the originating screen with protected state cleared.
+- **Navigation:** Opens from the persistent context control; a recipient change enters the dedicated Care Recipient Context Reset state and returns only after protected prior state is cleared and destination authorization is confirmed.
 
 ### 7. Invite a Circle Member
 
@@ -272,14 +274,15 @@ Planning note: Phone-based authentication and invitation delivery are deferred a
 
 - **Purpose:** Create an adult-managed, non-login minor profile with tightly limited basic information.
 - **Intended users:** One authorized adult Circle member who becomes managing adult.
-- **Information displayed:** Preferred display name, relationship, age band, visibility default, restrictions, and managing-adult responsibility.
+- **Information displayed:** Preferred display name, relationship, age band, visibility default, restrictions, and managing-adult responsibility. Age band is display and age-appropriate-experience information only.
 - **Available actions:** Create privately, optionally share approved basic fields with the Circle, archive, or cancel.
 - **Role and permission requirements:** Active adult membership and allowed minor-profile creation permission; exactly one managing adult.
-- **Privacy boundaries:** No credentials, exact birth date by default, adult role, delegation, Care Recipient access, or medical/emergency information.
+- **Privacy boundaries:** No credentials, exact birth date by default, adult role, delegation, Care Recipient access, or medical/emergency information. Selecting, changing, or crossing an age band creates no automatic transition, upgrade, invitation, independent account, ownership transfer, or adult-role path. Kinward does not automatically convert a managed minor profile into an adult account; transition rules remain deferred to their named decision and qualified-review gate.
 - **Empty state:** Blank profile with visibility set to managing adult only.
-- **Error state:** Duplicate profile, inactive managing adult, invalid age band, or prohibited invitation/login action.
+- **Error state:** Duplicate profile, inactive managing adult, invalid age band, or prohibited invitation/login/transition action.
 - **Destructive-action confirmation:** Archive or suspend requires confirmation; transfer and permanent deletion route to manual review outside Milestone One.
 - **Accessibility behavior:** Restrictions are explained before create; age band is a labeled control, not inferred from a date.
+- **Visible transition copy:** “Kinward does not automatically convert a managed minor profile into an adult account. Minor-to-adult transition rules remain deferred.” No convert, claim, transfer-ownership, birthday invitation, automatic-account, or transition action appears.
 - **Navigation:** Enters from Circle members; exits to minor profile summary or Circle overview.
 
 ### 19. Backup Circle Administrator Designation
@@ -300,14 +303,14 @@ Planning note: Phone-based authentication and invitation delivery are deferred a
 
 - **Purpose:** Activate fixed non-medical contingency permissions through an authorized path.
 - **Intended users:** Authorized Circle Head approving activation and the verified designated backup reauthenticating.
-- **Information displayed:** Designation, requested reason, approver, fixed allowed and prohibited actions, reauthentication status, and audit notice.
+- **Information displayed:** Designation, requested reason, approver, fixed allowed and prohibited actions, reauthentication status, and audit notice. In the compound state—one last active Circle Head attempting departure, no accepted replacement, and no authorized activation approver—the last-Circle-Head block remains active and activation remains unavailable.
 - **Available actions:** Request activation, approve or deny as Circle Head, strongly reauthenticate, activate, suspend, or deactivate.
-- **Role and permission requirements:** Existing dormant designation, authorized Circle Head approval, a fresh provider-supported challenge, reason, and atomic audit event. No alternate recovery branch exists in Milestone One.
-- **Privacy boundaries:** Backup cannot self-activate by claiming unavailability and never receives Care Recipient-specific or hidden authority.
+- **Role and permission requirements:** Existing dormant designation, authorized Circle Head approval, a fresh provider-supported challenge, reason, and atomic audit event. Activation grants only the fixed backup scope; it does not make the backup a Circle Head and cannot satisfy the requirement that another verified adult accept Circle Head.
+- **Privacy boundaries:** Backup cannot self-activate by claiming unavailability, never receives Care Recipient-specific or hidden authority, cannot remove or replace the final Circle Head, and cannot bypass the last-active-Circle-Head block. No automatic succession, incapacity determination, death determination, or alternate recovery mechanism exists in Milestone One.
 - **Empty state:** No eligible dormant designation blocks the flow.
-- **Error state:** Missing approver shows a neutral recovery-unavailable message; failed reauthentication, disputed Circle authority, expired request, or stale designation grants no access.
+- **Error state:** Missing approver routes to Screen 30, the terminal Milestone One recovery-unavailable state, which grants no authority. Failed reauthentication, disputed Circle authority, expired request, or stale designation also grants no access. See visual Screens 29–31 together.
 - **Destructive-action confirmation:** Activation, suspension, and deactivation each require a clear fixed-scope confirmation.
-- **Accessibility behavior:** Multi-party status is announced plainly; failure never suggests that authority was granted.
+- **Accessibility behavior:** Multi-party status is announced plainly; calm neutral copy states that the action cannot currently be completed; failure never suggests that authority was granted.
 - **Navigation:** Enters from backup detail; exits to activated-scope summary, denied request, or audit history.
 
 ### 21. Roles and Permissions Review
@@ -330,8 +333,8 @@ Planning note: Phone-based authentication and invitation delivery are deferred a
 - **Intended users:** Care Recipients for events affecting their record; Circle Heads for Circle-administration events; actors for their own actions.
 - **Information displayed:** Time, actor, action, target identifier or safe label, Circle, Care Recipient when permitted, result, on-behalf-of context, and before/after identifiers.
 - **Available actions:** Filter within authorized scope, open an event, or return; no edit or delete.
-- **Role and permission requirements:** Server-filtered audit visibility; append-only events.
-- **Privacy boundaries:** Events avoid copied sensitive content and do not reveal inaccessible Care Recipient existence or details.
+- **Role and permission requirements:** Opening the audit screen does not authorize its rows or every field within a row. The server independently authorizes every event row and display field by event class, Circle, affected Care Recipient when applicable, actor identity, approver identity, reason, attempted value, resulting state, and safe display text.
+- **Privacy boundaries:** Unauthorized row fields are masked or omitted. Each authorized row exposes no hidden role, record, proposed authority, denied or blocked value, reason, or sensitive identifier beyond the viewer's scope. Circle-wide authority does not reveal recipient-specific denied writes; recipient-specific access does not reveal unrelated Circle-administration events. Routine denied reads remain outside family-visible audit history, and consequential denied writes appear only within the viewer's authorized audit scope. Filtered and empty states disclose no hidden count or existence.
 - **Empty state:** “No audit events are available in this scope.”
 - **Error state:** Safe generic failure; never fall back to a broader event query.
 - **Destructive-action confirmation:** None; audit events are immutable.
@@ -364,7 +367,7 @@ Planning note: Phone-based authentication and invitation delivery are deferred a
 - **Empty state:** Shell shows My Kinward and setup action when no Circle exists.
 - **Error state:** Preserve safe shell and context reset; never display stale protected content.
 - **Destructive-action confirmation:** Sign out confirms only when unsaved setup exists.
-- **Accessibility behavior:** Skip link, landmarks, visible focus, 48-pixel targets, reduced motion, screen-reader page title, and logical back behavior.
+- **Accessibility behavior:** Skip link, landmarks, visible focus, targets at least 48 × 48 CSS pixels, reduced motion, screen-reader page title, and logical back behavior.
 - **Navigation:** Wraps all authenticated screens and clears context-specific client state on every Circle or Care Recipient change.
 
 ### 25. Empty, Loading, Error, Denied-Access, and No-Role States
@@ -381,6 +384,20 @@ Planning note: Phone-based authentication and invitation delivery are deferred a
 - **Accessibility behavior:** Loading status is announced once, errors receive focus, retry is keyboard accessible, and motion is not required.
 - **Navigation:** Available from every route; recovery returns to the nearest authorized parent or My Kinward.
 
+### 26. Care Recipient Context Reset — Visual Screen 39
+
+- **Purpose:** Safely interrupt a Dad-scoped protected action when the user switches to Mom and prevent any cross-recipient carryover or momentary display.
+- **Intended users:** An authenticated adult switching Care Recipient while a recipient-scoped page, draft, filter, deep link, count, cached label, or permission result is active.
+- **Information displayed:** The starting Dad frame may show an in-flight protected request or write. After switch initiation, a neutral “Changing Care Recipient…” state appears with the destination name only when the viewer is permitted to know it; no Dad heading, draft, filter, count, badge, cached label, field label, deep-link result, permission result, error, or Mom protected content.
+- **Available actions:** Wait for authorization confirmation or return to the nearest safe Circle-wide or previously authorized context.
+- **Role and permission requirements:** Cancel the Dad request where supported or mark its success/error result stale and discard it. A late Dad response arriving during reset or after Mom authorization succeeds cannot repaint any Dad state. Clear all Dad-scoped client state before issuing Mom-scoped protected queries. Render Mom protected content only after server and database authorization confirm the exact Mom scope; never reuse Dad permission results.
+- **Privacy boundaries:** No Dad information may flash in Mom context. An unauthorized Mom destination returns the same non-leaking denied/not-found state used for sensitive existence boundaries, with no Mom record, heading, count, or label.
+- **Empty state:** Neutral reset/loading state while destination authorization is pending; it is not a protected-content empty state.
+- **Error state:** Authorization failure clears the pending destination and deep-link state and offers a safe return without revealing whether Mom exists.
+- **Destructive-action confirmation:** If the interrupted Dad action contains an unsaved draft, show discard confirmation before clearing context. Cancelling the confirmation keeps Dad context and its draft. Confirming discard permanently invalidates the old request and draft before the switch continues; no draft is carried forward.
+- **Accessibility behavior:** Announce the context change, discard outcome, and neutral loading status to screen readers; use text plus reduced-motion-safe feedback rather than a spinner alone; and after authorization move focus predictably to the new Care Recipient context heading. At 200% text, primary content reflows without horizontal scrolling; error-summary focus and field associations are preserved, and authorized input remains after validation errors.
+- **Navigation:** Enters from Screen 13 or Screen 38 while in Dad context; exits to authorized Mom content after confirmation, or Screen 37 when authorization is denied.
+
 ## D-8 Through D-17 Screen Amendments
 
 - **Adult owner onboarding:** “Add a Care Recipient” creates only a pending inactive record and sends a dedicated ownership invitation to verified email. Before acceptance, no private fields are available. The invitation names the Circle and proposer, explains sole ownership and consequences, and allows decline. Acceptance also creates Circle membership.
@@ -396,3 +413,6 @@ Planning note: Phone-based authentication and invitation delivery are deferred a
 - Every consequential action includes server authorization, confirmation, and an audit expectation.
 - Every denied state prevents existence, count, label, and cached-state leakage.
 - Every flow supports phone use, keyboard use, screen readers, text resizing, high contrast, and reduced motion.
+- Kinward's approved product baseline is at least 48 × 48 CSS pixels for every interactive target, including where an external standard permits a smaller target.
+- Every screen preserves text labels in addition to color or icons, visible focus, screen-reader announcements, 200% primary-content reflow without horizontal scrolling, error summaries with field associations, reduced-motion-safe loading feedback, and one clear primary action.
+- The canonical visual-planning baseline contains 39 low-fidelity planning screens across 9 flow files and is verified for advancement into high-fidelity design. High-fidelity design is authorized by the product owner for design only; outputs remain draft until reviewed. Application coding is not authorized, and no final interface design or implemented application interface exists.

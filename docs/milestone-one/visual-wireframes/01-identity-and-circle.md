@@ -19,10 +19,15 @@
 │ Signed in: a•••@…        │  │ Circle name              │
 │ Pending invitation (1)   │  │ [ Harbor Circle        ] │
 │ [ Review invitation ]    │  │ You become first Circle  │
-│ Your Circles             │  │ Head. This grants no Care│
-│ Harbor — Circle Head     │  │ Recipient access.        │
-│ [ Open Harbor ]          │  │ [ Create Circle ]        │
-│ [ Create a Circle ]      │  │ [ Cancel ]               │
+│ Access review due        │  │ Head. This grants no Care│
+│ Dad · Riley access       │  │ Recipient access.        │
+│ Review is due; access is │  │ [ Create Circle ]        │
+│ not changed automatically│  │ [ Cancel ]               │
+│ FOCUS → [ Review access ]│  │                          │
+│ Your Circles             │  │                          │
+│ Harbor — Circle Head     │  │                          │
+│ [ Open Harbor ]          │  │                          │
+│ [ Create a Circle ]      │  │                          │
 └──────────────────────────┘  └──────────────────────────┘
 
 ┌──────────────────────────┐  ┌──────────────────────────┐
@@ -50,3 +55,5 @@
 ```
 
 Phone authentication, phone invitation binding, phone recovery, phone OTP, and SMS invitation delivery are absent and deferred.
+
+Screen 3's “Access review due” item is the same underlying D-16 state shown in the relevant Care Recipient permission summary and Screens 23–24. Opening or viewing any placement does not clear it. All three remain visible until an authorized continue, modify, suspend, or revoke decision completes successfully; they then clear together, and a continued or modified grant receives its next 90-day review date. No email, SMS, push, renewal, suspension, revocation, or extension is implied by the due item itself.
