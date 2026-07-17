@@ -1,0 +1,58 @@
+# Operating-system files
+.DS_Store
+Thumbs.db
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies and generated application output
+node_modules/
+.next/
+out/
+dist/
+build/
+coverage/
+.vercel/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Local databases and database journals
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+*.sqlite-journal
+*.sqlite3-journal
+
+# Temporary and cache files
+tmp/
+temp/
+.tmp/
+.temp/
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.cache/
+
+# Editor and IDE files
+.idea/
+.vscode/
+*.code-workspace
+
+# Local uploads, medical documents, scans, and test files
+uploads/
+private-uploads/
+medical-documents/
+scans/
+test-files/
+test-uploads/
+fixtures/files/
