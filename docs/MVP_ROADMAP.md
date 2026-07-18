@@ -1,13 +1,13 @@
 # Kinward MVP Roadmap
 
-> **Status:** Current supporting delivery plan; D-8 through D-17 closed and verified by targeted systems audit
-> **Version:** 0.1
-> **Last updated:** 2026-07-16
-> **Governing or related decisions:** D-1 through D-17; F-17 through F-19
+> **Status:** Current supporting delivery plan; Milestone One application coding authorized (D-18)
+> **Version:** 0.2
+> **Last updated:** 2026-07-17
+> **Governing or related decisions:** D-1 through D-18; F-17 through F-19
 
 ## Roadmap Purpose
 
-This roadmap sequences planning and validation before implementation. Dates and technical architecture are intentionally not set yet.
+This roadmap sequences planning, validation, and Milestone One implementation. Dates for later stages remain intentionally unset.
 
 The MVP should prove that a family can coordinate today's care while preserving privacy, medical boundaries, accessibility, and caregiver well-being.
 
@@ -15,7 +15,7 @@ The MVP should prove that a family can coordinate today's care while preserving 
 
 1. Non-medical Milestone One foundation.
 2. Wireframes and technical architecture.
-3. Local synthetic development.
+3. Local synthetic development. **← current (D-18)**
 4. Controlled synthetic hosted preview.
 5. Gate C security and privacy architecture review.
 6. Secure real-data environment preparation.
@@ -24,7 +24,7 @@ The MVP should prove that a family can coordinate today's care while preserving 
 9. Invite-only **Restricted real-care family pilot**.
 10. Later public-beta and release gates.
 
-This sequence does not authorize coding, provisioning, real-data entry, or beta launch. Patient and Caregiver Check-Ins and document uploads remain outside non-medical Milestone One. Gate C occurs before real-environment use because the restricted pilot may eventually contain real health information.
+D-18 authorizes step 3 within Milestone One foundation scope. It does not authorize real-data entry, beta launch, medical features, or document uploads. Patient and Caregiver Check-Ins remain outside non-medical Milestone One. Gate C occurs before real-environment use because the restricted pilot may eventually contain real health information.
 
 ## Phase 0: Resolve Product Governance
 

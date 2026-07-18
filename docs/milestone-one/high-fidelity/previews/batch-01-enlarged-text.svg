@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="8050" viewBox="0 0 1800 8050" role="img" aria-labelledby="title desc">
+<title id="title">Kinward Batch One static 200-percent text-resize evidence</title>
+<desc id="desc">All seven Batch One screens use direct two-times text roles on the same narrow frame width as the standard board: 36 pixel body, 32 pixel supporting text and labels, 44 pixel section headings, and 56 pixel page headings. Content grows vertically with stacked controls, complete labels, no clipping, and no horizontal scrolling. Static design evidence only, not runtime conformance.</desc>
+<defs><style>
+text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;fill:#20312A}.bg{fill:#ECEFEA}.phone{fill:#F7F6F2;stroke:#20312A;stroke-width:5}.decor{fill:#FFF;stroke:#C9D2CD;stroke-width:3}.control{fill:#FFF;stroke:#4C5F56;stroke-width:3}.primary{fill:#17634D}.ctx{fill:#DCECE6}.info{fill:#E2F0F8}.warn{fill:#FFF1C7}.neutral{fill:#E9EEF0}.danger{fill:#FFF;stroke:#A33A3A;stroke-width:3}.focus{fill:none;stroke:#7047B6;stroke-width:3}.sep{fill:none;stroke:#FFF;stroke-width:2}.h1{font-size:56px;font-weight:700}.h2{font-size:44px;font-weight:700}.body{font-size:36px}.support{font-size:32px;fill:#4C5F56}.label{font-size:32px;font-weight:700}.white{fill:#FFF}.red{fill:#A33A3A}.blue{fill:#155E8A}.cap{font-size:24px;font-weight:700}.title{font-size:48px;font-weight:700}.sub{font-size:24px;fill:#4C5F56}
+</style></defs>
+<rect class="bg" width="1800" height="8050"/>
+<text class="title" x="55" y="65">Batch 01  -  calibrated 200% text-resize evidence</text>
+<text class="sub" x="55" y="106">Same 520-unit narrow frame width as standard  -  exact 2x text roles  -  static design evidence, not runtime conformance</text>
+<text class="sub" x="55" y="140">Body 36  -  supporting 32  -  labels 32  -  section headings 44  -  page headings 56  -  controls grow and stack</text>
+
+<!-- Screen 2 -->
+<g transform="translate(55 215)"><text class="cap" y="-18">SCREEN 2  -  EMAIL VERIFICATION  -  200%</text><rect class="phone" rx="28" width="520" height="2280"/>
+<text class="h1" x="24" y="82">Verify your</text><text class="h1" x="24" y="148">email</text>
+<text class="body" x="24" y="218">We sent a code to</text><text class="label" x="24" y="270">a"""@example.test</text>
+<rect class="warn" x="24" y="315" rx="18" width="472" height="180"/><text class="h2" x="48" y="375">  Waiting for</text><text class="h2" x="48" y="427">verification</text><text class="support" x="48" y="475">No timer is required.</text>
+<text class="label" x="24" y="560">Verification code</text><rect class="control" x="24" y="585" rx="14" width="472" height="104"/><text class="body" x="48" y="650">123 456</text>
+<rect class="focus" x="19" y="735" rx="19" width="482" height="114"/><rect class="sep" x="23" y="739" rx="17" width="474" height="106"/><rect class="primary" x="26" y="742" rx="14" width="468" height="100"/><text class="label white" x="161" y="806">Verify email</text>
+<rect class="control" x="24" y="900" rx="14" width="472" height="104"/><text class="label blue" x="154" y="965">Resend code</text>
+<rect class="control" x="24" y="1050" rx="14" width="472" height="104"/><text class="label" x="149" y="1115">Change email</text>
+<rect class="neutral" x="24" y="1215" rx="18" width="472" height="300"/><text class="h2" x="48" y="1275">  Privacy boundary</text><text class="body" x="48" y="1340">No Circle information</text><text class="body" x="48" y="1386">is shown before</text><text class="body" x="48" y="1432">verification succeeds.</text><text class="support" x="48" y="1490">Verified email only.</text>
+<text class="body" x="24" y="1605">Complete action names</text><text class="body" x="24" y="1651">stack vertically.</text><text class="support" x="24" y="1725">Visible focus: 3 px violet ring</text><text class="support" x="24" y="1767">plus 2 px white separation.</text><text class="support" x="24" y="1850">Content continues by vertical scroll.</text><text class="support" x="24" y="1892">No clipping or</text><text class="support" x="24" y="1934">horizontal scrolling.</text></g>
+
+<!-- Screen 4 + confirmation -->
+<g transform="translate(640 215)"><text class="cap" y="-18">SCREEN 4  -  CREATE CIRCLE  -  200%</text><rect class="phone" rx="28" width="520" height="2280"/>
+<rect class="neutral" x="20" y="20" rx="16" width="480" height="135"/><text class="label" x="42" y="78">New Circle</text><text class="support" x="42" y="127">Not created</text>
+<text class="h1" x="24" y="235">Create a Family</text><text class="h1" x="24" y="301">Circle</text>
+<text class="label" x="24" y="380">Circle name</text><rect class="control" x="24" y="405" rx="14" width="472" height="104"/><text class="body" x="48" y="470">Harbor Circle</text>
+<rect class="info" x="24" y="555" rx="18" width="472" height="300"/><text class="h2" x="48" y="615">  Circle Head</text><text class="h2" x="48" y="667">boundary</text><text class="body" x="48" y="730">You become the first</text><text class="body" x="48" y="776">Circle Head. This grants</text><text class="body" x="48" y="822">no Care Recipient access.</text>
+<rect class="primary" x="24" y="905" rx="14" width="472" height="104"/><text class="label white" x="144" y="970">Create Circle</text>
+<rect class="control" x="24" y="1055" rx="14" width="472" height="104"/><text class="label" x="198" y="1120">Cancel</text>
+<text class="h2" x="24" y="1205">After input,</text><text class="h2" x="24" y="1257">Cancel opens:</text>
+<rect class="decor" x="24" y="1290" rx="20" width="472" height="835"/><text class="h2" x="48" y="1355">Discard this</text><text class="h2" x="48" y="1407">unsubmitted Circle?</text><text class="body" x="48" y="1475">The Circle name and</text><text class="body" x="48" y="1521">any settings you entered</text><text class="body" x="48" y="1567">will be lost.</text><text class="support" x="48" y="1630">No Circle has been created.</text>
+<rect class="focus" x="43" y="1685" rx="19" width="434" height="114"/><rect class="sep" x="47" y="1689" rx="17" width="426" height="106"/><rect class="primary" x="50" y="1692" rx="14" width="420" height="100"/><text class="label white" x="137" y="1756">Keep editing</text>
+<rect class="danger" x="48" y="1845" rx="14" width="424" height="104"/><text class="label red" x="124" y="1910">Discard draft</text><text class="support" x="48" y="2010">Safe action is initially focused.</text><text class="support" x="48" y="2052">Closing returns focus to Cancel.</text></g>
+
+<!-- Screen 6 -->
+<g transform="translate(1225 215)"><text class="cap" y="-18">SCREEN 6  -  INVITE  -  200%</text><rect class="phone" rx="28" width="520" height="2280"/>
+<rect class="ctx" x="20" y="20" rx="16" width="480" height="170"/><text class="label" x="42" y="78">Circle  -  Harbor Circle</text><text class="label" x="42" y="135">Care Recipient</text><text class="support" x="42" y="177">Circle-wide setup</text>
+<text class="h1" x="24" y="275">Invite an adult</text>
+<text class="label" x="24" y="355">Invitation recipient</text><text class="label" x="24" y="397">Verified email address</text><rect class="control" x="24" y="425" rx="14" width="472" height="104"/><text class="body" x="48" y="490">jordan@</text><text class="body" x="48" y="532">example.test</text>
+<rect class="warn" x="24" y="575" rx="18" width="472" height="180"/><text class="h2" x="48" y="635">  Expires after</text><text class="h2" x="48" y="687">seven days</text><text class="support" x="48" y="735">No access before acceptance.</text>
+<text class="h2" x="24" y="835">Access offered</text><rect class="decor" x="24" y="870" rx="18" width="472" height="555"/><text class="label" x="48" y="930">Circle membership</text><text class="body" x="48" y="985">Harbor Circle</text><text class="body" x="48" y="1031">Family Coordinator</text><text class="support" x="48" y="1085">Circle-wide coordination</text><text class="support" x="48" y="1127">grants no recipient access.</text><text class="label" x="48" y="1200">Care Recipient access</text><text class="body" x="48" y="1255">Dad  -  Care Lead only</text><text class="support" x="48" y="1310">No other Care Recipient</text><text class="support" x="48" y="1352">is included.</text>
+<rect class="info" x="24" y="1470" rx="18" width="472" height="330"/><text class="h2" x="48" y="1530">Not granted</text><text class="body" x="48" y="1590">Ownership, management,</text><text class="body" x="48" y="1636">delegation, or unlisted</text><text class="body" x="48" y="1682">Care Recipient access.</text><text class="support" x="48" y="1740">Relationship alone grants</text><text class="support" x="48" y="1782">no authority.</text>
+<rect class="primary" x="24" y="1845" rx="14" width="472" height="135"/><text class="label white" x="125" y="1905">Review invitation</text><text class="support white" x="96" y="1950">Review before sending</text>
+<rect class="control" x="24" y="2030" rx="14" width="472" height="104"/><text class="label" x="198" y="2095">Cancel</text><text class="support" x="24" y="2190">Membership-only path</text><text class="support" x="24" y="2232">is excluded.</text></g>
+
+<!-- Screen 7 + confirmation -->
+<g transform="translate(55 2705)"><text class="cap" y="-18">SCREEN 7  -  PENDING + CANCEL  -  200%</text><rect class="phone" rx="28" width="520" height="2460"/>
+<rect class="ctx" x="20" y="20" rx="16" width="480" height="125"/><text class="label" x="42" y="78">Circle  -  Harbor Circle</text><text class="support" x="42" y="125">Circle-wide</text>
+<text class="h1" x="24" y="225">Invitation</text><text class="h1" x="24" y="291">pending</text>
+<rect class="warn" x="24" y="335" rx="18" width="472" height="190"/><text class="h2" x="48" y="395">  Pending</text><text class="body" x="48" y="455">No active authority</text><text class="body" x="48" y="501">before acceptance.</text>
+<rect class="decor" x="24" y="570" rx="18" width="472" height="720"/><text class="label" x="48" y="630">Invitation recipient</text><text class="body" x="48" y="685">j"""@example.test</text><text class="label" x="48" y="765">Created</text><text class="body" x="48" y="820">July 16, 2026</text><text class="label" x="48" y="900">Expires</text><text class="body" x="48" y="955">July 23, 2026</text><text class="label" x="48" y="1035">Access offered</text><text class="body" x="48" y="1090">Family Coordinator</text><text class="body" x="48" y="1136">Harbor Circle-wide</text><text class="support" x="48" y="1200">No Care Recipient access.</text><text class="support" x="48" y="1242">No access until accepted.</text>
+<rect class="control" x="24" y="1335" rx="14" width="472" height="120"/><text class="label blue" x="118" y="1408">Resend invitation</text>
+<text class="h2" x="24" y="1540">Cancel confirmation</text><rect class="decor" x="24" y="1580" rx="20" width="472" height="710"/><text class="h2" x="48" y="1645">Cancel this</text><text class="h2" x="48" y="1697">invitation?</text><text class="body" x="48" y="1765">The link will stop working.</text><text class="body" x="48" y="1811">No membership or authority</text><text class="body" x="48" y="1857">will be created.</text>
+<rect class="focus" x="43" y="1915" rx="19" width="434" height="114"/><rect class="sep" x="47" y="1919" rx="17" width="426" height="106"/><rect class="primary" x="50" y="1922" rx="14" width="420" height="100"/><text class="label white" x="114" y="1986">Keep invitation</text>
+<rect class="danger" x="48" y="2075" rx="14" width="424" height="104"/><text class="label red" x="105" y="2140">Cancel invitation</text><text class="support" x="48" y="2245">Safe action is initially focused.</text><text class="support" x="24" y="2355">All dates and action</text><text class="support" x="24" y="2397">names are complete.</text></g>
+
+<!-- Screen 8 -->
+<g transform="translate(640 2705)"><text class="cap" y="-18">SCREEN 8  -  PROPOSE RECIPIENT  -  200%</text><rect class="phone" rx="28" width="520" height="2460"/>
+<rect class="ctx" x="20" y="20" rx="16" width="480" height="125"/><text class="label" x="42" y="78">Circle  -  Harbor Circle</text><text class="support" x="42" y="125">Circle-wide</text>
+<text class="h1" x="24" y="225">Add a Care</text><text class="h1" x="24" y="291">Recipient</text>
+<rect class="control" x="24" y="340" rx="16" width="472" height="150"/><text class="h2" x="48" y="430">  Add myself</text>
+<rect x="24" y="535" rx="16" width="472" height="230" fill="#DCECE6" stroke="#17634D" stroke-width="3"/><text class="h2" x="48" y="605">  Propose another</text><text class="h2" x="86" y="657">adult</text><text class="body" x="86" y="720">Selected</text>
+<text class="label" x="24" y="845">Owner verified email</text><rect class="control" x="24" y="875" rx="14" width="472" height="145"/><text class="body" x="48" y="940">r"""@</text><text class="body" x="48" y="986">example.test</text>
+<rect class="info" x="24" y="1070" rx="18" width="472" height="500"/><text class="h2" x="48" y="1130">  Sole ownership</text><text class="body" x="48" y="1200">No private Care Recipient</text><text class="body" x="48" y="1246">information may be entered</text><text class="body" x="48" y="1292">before the owner accepts.</text><text class="body" x="48" y="1360">Circle Head status and</text><text class="body" x="48" y="1406">family relationship grant</text><text class="body" x="48" y="1452">no private access.</text><text class="support" x="48" y="1520">No pending shell exists yet.</text>
+<rect class="primary" x="24" y="1630" rx="14" width="472" height="170"/><text class="label white" x="99" y="1693">Send ownership</text><text class="label white" x="146" y="1737">invitation</text><text class="support white" x="95" y="1780">Review before sending</text>
+<rect class="control" x="24" y="1850" rx="14" width="472" height="104"/><text class="label" x="198" y="1915">Cancel</text>
+<rect class="neutral" x="24" y="2020" rx="18" width="472" height="260"/><text class="h2" x="48" y="2080">Privacy boundary</text><text class="body" x="48" y="2145">No diagnosis, schedule,</text><text class="body" x="48" y="2191">care, or medical details.</text><text class="support" x="48" y="2250">Content grows vertically.</text><text class="support" x="24" y="2355">Complete labels;</text><text class="support" x="24" y="2397">no horizontal scrolling.</text></g>
+
+<!-- Screen 9 -->
+<g transform="translate(1225 2705)"><text class="cap" y="-18">SCREEN 9  -  OWNERSHIP INVITE  -  200%</text><rect class="phone" rx="28" width="520" height="2460"/>
+<rect class="neutral" x="20" y="20" rx="16" width="480" height="170"/><text class="label" x="42" y="78">Identity checked first</text><text class="support" x="42" y="127">No details before the</text><text class="support" x="42" y="169">matching email is verified.</text>
+<text class="h1" x="24" y="275">Ownership</text><text class="h1" x="24" y="341">invitation</text>
+<rect class="ctx" x="24" y="385" rx="16" width="472" height="170"/><text class="label" x="48" y="445">+ Email verified</text><text class="body" x="48" y="505">Harbor Circle</text>
+<text class="body" x="24" y="625">Avery proposed you</text><text class="body" x="24" y="671">as sole owner of "Dad."</text>
+<rect class="info" x="24" y="725" rx="18" width="472" height="1150"/><text class="h2" x="48" y="790">Before you decide</text>
+<text class="body" x="48" y="860">+ You become the sole</text><text class="body" x="80" y="906">owner of this profile.</text><text class="support" x="80" y="952">Avery does not remain</text><text class="support" x="80" y="994">an owner.</text>
+<text class="body" x="48" y="1065">+ You control who gets</text><text class="body" x="80" y="1111">access and may manage</text><text class="body" x="80" y="1157">or revoke it.</text>
+<text class="body" x="48" y="1228">+ Family relationship alone</text><text class="body" x="80" y="1274">grants no authority.</text>
+<text class="body" x="48" y="1345">+ Your consent is required</text><text class="body" x="80" y="1391">before private information</text><text class="body" x="80" y="1437">becomes available.</text>
+<text class="body" x="48" y="1508">+ Acceptance activates sole</text><text class="body" x="80" y="1554">ownership and required</text><text class="body" x="80" y="1600">Circle membership together.</text>
+<text class="support" x="48" y="1680">No joint ownership.</text><text class="support" x="48" y="1722">No second ordinary invitation.</text><text class="support" x="48" y="1764">No private data</text><text class="support" x="48" y="1806">before acceptance.</text>
+<rect class="primary" x="24" y="1930" rx="14" width="472" height="120"/><text class="label white" x="113" y="2003">Review and accept</text>
+<rect class="danger" x="24" y="2100" rx="14" width="472" height="104"/><text class="label red" x="184" y="2165">Decline</text>
+<rect class="control" x="24" y="2250" rx="14" width="472" height="104"/><text class="label" x="142" y="2315">Return safely</text><text class="support" x="24" y="2390">Complete consequences</text><text class="support" x="24" y="2432">remain readable.</text></g>
+
+<!-- Screen 10 + confirmation -->
+<g transform="translate(640 5390)"><text class="cap" y="-18">SCREEN 10  -  OWNERSHIP PENDING + CANCEL  -  200%</text><rect class="phone" rx="28" width="520" height="2460"/>
+<rect class="ctx" x="20" y="20" rx="16" width="480" height="170"/><text class="label" x="42" y="78">Circle  -  Harbor Circle</text><text class="label" x="42" y="135">Pending "Dad"</text><text class="support" x="42" y="177">Inactive</text>
+<text class="h1" x="24" y="275">Ownership</text><text class="h1" x="24" y="341">pending</text>
+<rect class="warn" x="24" y="385" rx="18" width="472" height="180"/><text class="h2" x="48" y="445">  Awaiting decision</text><text class="support" x="48" y="515">No authority is active.</text>
+<rect class="decor" x="24" y="610" rx="18" width="472" height="650"/><text class="label" x="48" y="670">Proposed owner</text><text class="body" x="48" y="725">r"""@example.test</text><text class="label" x="48" y="805">Sent</text><text class="body" x="48" y="860">July 16, 2026</text><text class="label" x="48" y="940">Expires</text><text class="body" x="48" y="995">July 23, 2026</text><text class="label" x="48" y="1075">Private record</text><text class="body" x="48" y="1130">Inactive</text><text class="support" x="48" y="1190">No private information</text><text class="support" x="48" y="1232">can be added.</text>
+<text class="h2" x="24" y="1350">Cancel confirmation</text><rect class="decor" x="24" y="1390" rx="20" width="472" height="850"/><text class="h2" x="48" y="1455">Cancel this</text><text class="h2" x="48" y="1507">ownership proposal?</text><text class="body" x="48" y="1575">The invitation will stop</text><text class="body" x="48" y="1621">working.</text><text class="body" x="48" y="1685">No Care Recipient,</text><text class="body" x="48" y="1731">ownership, authority,</text><text class="body" x="48" y="1777">or membership is created.</text>
+<rect class="focus" x="43" y="1835" rx="19" width="434" height="114"/><rect class="sep" x="47" y="1839" rx="17" width="426" height="106"/><rect class="primary" x="50" y="1842" rx="14" width="420" height="100"/><text class="label white" x="120" y="1906">Keep proposal</text>
+<rect class="danger" x="48" y="1995" rx="14" width="424" height="104"/><text class="label red" x="111" y="2060">Cancel proposal</text><text class="support" x="48" y="2160">Safe action is initially focused.</text><text class="support" x="24" y="2335">Vertical growth preserves all content.</text></g>
+
+<text class="support" x="55" y="7960">Static design evidence for 200% browser text resizing.</text>
+<text class="support" x="55" y="8005">No runtime browser, iOS, Android, screen-reader, or assistive-technology conformance claim.</text>
+</svg>

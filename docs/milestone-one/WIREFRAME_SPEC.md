@@ -1,17 +1,15 @@
 # Kinward Milestone One Wireframe Specification
 
-> **Status:** Verified 39-screen low-fidelity planning baseline; high-fidelity design authorized by product owner — design only; no implementation authorized
-> **Version:** 0.1
+> **Status:** Verified 39-screen low-fidelity planning baseline; high-fidelity package is Milestone One visual source of truth; application coding authorized (D-18)
+> **Version:** 0.2
 > **Last updated:** 2026-07-17
-> **Governing decisions:** D-1 through D-17; `MILESTONE_ONE_DECISIONS.md`; `MILESTONE_ONE_READINESS.md`
+> **Governing decisions:** D-1 through D-18; `MILESTONE_ONE_DECISIONS.md`; `MILESTONE_ONE_READINESS.md`
 
 ## Scope
 
 These mobile-first wireframe specifications cover only the approved non-medical Milestone One foundation. They intentionally exclude check-ins, symptoms, treatment, medication, diet, movement, medical alerts, legal-document validation, and real family information.
 
-A written wireframe specification and verified 39-screen low-fidelity visual planning baseline exist. The final targeted design re-audit verdict was **PASSED — SIX DESIGN REPAIRS VERIFIED**. Product-owner authorization now permits draft high-fidelity visual design based strictly on this baseline, but no high-fidelity output or final interface design is approved and no application interface is implemented.
-
-The high-fidelity phase status is **Authorized by product owner — design only**. It permits visual styling, layout refinement, responsive behavior, component appearance, typography, spacing, visual hierarchy, interaction-state presentation, accessibility presentation, and draft high-fidelity prototypes. It excludes application or production-component implementation, backend development, authentication configuration, packages, databases, storage, infrastructure, environments, real information, document uploads, medical functionality, and restricted real-family beta activity. Gate A through Gate D remain in force.
+A written wireframe specification, verified 39-screen low-fidelity visual planning baseline, and verified thirty-nine-screen high-fidelity design package exist. D-18 authorizes application implementation of matching Milestone One screens. Medical features, document uploads, real-family beta activity, production deployment, and public release remain unauthorized. Gate B, Gate C, and Gate D remain in force for later stages.
 
 The visual planning set is indexed in `visual-wireframes/WIREFRAME_INDEX.md`.
 

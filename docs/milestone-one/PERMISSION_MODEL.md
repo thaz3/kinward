@@ -1,9 +1,9 @@
 # Kinward Milestone One Permission Model
 
-> **Status:** Updated authorization proposal reflecting D-8 through D-17; closed and verified by targeted systems audit; no implementation authorized
-> **Version:** 0.1
-> **Last updated:** 2026-07-16
-> **Governing decisions:** D-1 through D-17; `PERMISSIONS.md`; `MILESTONE_ONE_DECISIONS.md`
+> **Status:** Updated authorization model reflecting D-8 through D-17; Milestone One application coding authorized (D-18)
+> **Version:** 0.2
+> **Last updated:** 2026-07-17
+> **Governing decisions:** D-1 through D-18; `PERMISSIONS.md`; `MILESTONE_ONE_DECISIONS.md`; `MILESTONE_ONE_READINESS.md`
 
 ## Authorization Principle
 

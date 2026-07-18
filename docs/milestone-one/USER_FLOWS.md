@@ -13,6 +13,7 @@
 - Milestone One identity and invitation binding use verified email only.
 - Consequential authority actions require authentication within the prior 15 minutes; backup activation requires a fresh provider-supported challenge every time.
 - UI visibility never replaces server-side and database authorization.
+- **GOV-004 traceability correction:** UF-01 is first-Circle creation; UF-03 is adult Care Recipient ownership proposal/acceptance; UF-04 is ordinary adult Circle invitation; UF-05 covers invitation lifecycle. The former conflicting screen-index identifiers remain recorded in `DOCUMENT_GOVERNANCE.md`; no behavior changed.
 
 ## UF-01 — New User Creates Their First Circle
 
@@ -20,7 +21,7 @@
 - **Actor:** Avery.
 - **Permission checks:** Authenticated account; Circle creation enabled; no existing transaction with the same idempotency key.
 - **Main steps:** Open My Kinward; choose Create Circle; enter “Harbor Circle”; review creator-as-first-Circle-Head statement; confirm creation.
-- **Alternate paths:** Cancel before creation; retry a recoverable failure without creating a duplicate.
+- **Alternate paths:** Cancel with no entered or modified data returns directly. Cancel after entering a Circle name or changing a setting opens an unsaved-changes confirmation; the safe default returns to editing, while deliberate discard leaves without creating a Circle. Retry a recoverable failure without creating a duplicate.
 - **Failure and recovery:** Authentication expires or name validation fails; preserve non-sensitive input and require reauthentication or correction.
 - **Audit events:** `circle.created`, `membership.created`, and `circle_role.assigned` for Circle Head in one atomic outcome.
 - **Final state:** Avery has one active membership and one active Circle Head assignment; no Care Recipient access exists yet.

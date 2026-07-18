@@ -1,0 +1,306 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="7600" viewBox="0 0 1800 7600" role="img" aria-labelledby="title desc">
+<title id="title">Kinward representative calibrated 200-percent text-resize evidence</title>
+<desc id="desc">Static design evidence representing a calibrated 200-percent text-size relationship for Screens 3, 13, 32, 38, and 39. Uses exact two-times type roles on a narrow frame: 36 pixel body, 32 pixel supporting and labels, 44 pixel section headings, and 56 pixel page headings. Primary Evergreen actions use explicit white fills. Runtime conformance requires later implementation testing.</desc>
+<defs><style>
+text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;fill:#20312A}
+.bg{fill:#ECEFEA}
+.phone{fill:#F7F6F2;stroke:#20312A;stroke-width:5}
+.decor{fill:#FFF;stroke:#C9D2CD;stroke-width:3}
+.control{fill:#FFF;stroke:#4C5F56;stroke-width:3}
+.primary{fill:#17634D}
+.ctx{fill:#DCECE6}
+.info{fill:#E2F0F8}
+.warn{fill:#FFF1C7}
+.neutral{fill:#E9EEF0}
+.danger{fill:#FFF;stroke:#A33A3A;stroke-width:3}
+.focus{fill:none;stroke:#7047B6;stroke-width:3}
+.sep{fill:none;stroke:#FFF;stroke-width:2}
+.h1{font-size:56px;font-weight:700}
+.h2{font-size:44px;font-weight:700}
+.body{font-size:36px}
+.support{font-size:32px;fill:#4C5F56}
+.label{font-size:32px;font-weight:700}
+.red{fill:#A33A3A}
+.blue{fill:#155E8A}
+.cap{font-size:22px;font-weight:700}
+.title{font-size:44px;font-weight:700}
+.sub{font-size:24px;fill:#4C5F56}
+</style></defs>
+<rect class="bg" width="1800" height="7600"/>
+<text class="title" x="50" y="60">Representative package - calibrated 200% text-resize evidence</text>
+<text class="sub" x="50" y="100">Screens 3, 13, 32, 38, 39 - exact 2x roles on 520-unit frames - static design evidence only</text>
+<text class="sub" x="50" y="134">Body 36 - supporting/labels 32 - section headings 44 - page headings 56 - primary labels use explicit white fill</text>
+
+<!-- SCREEN 3 -->
+<g transform="translate(50 200)">
+<text class="cap" y="-18">SCREEN 3 - MY KINWARD - 200%</text>
+<rect class="phone" rx="28" width="520" height="2920"/>
+<text class="h1" x="24" y="78">My Kinward</text>
+<text class="support" x="24" y="130">Signed in:</text>
+<text class="label" x="24" y="174">a...@example.test</text>
+
+<rect class="warn" x="24" y="210" rx="18" width="472" height="520"/>
+<text class="h2" x="48" y="275">Access review</text>
+<text class="h2" x="48" y="330">due</text>
+<text class="label" x="48" y="400">Dad - Riley access</text>
+<text class="body" x="48" y="460">Access is not changed</text>
+<text class="body" x="48" y="508">automatically.</text>
+<rect class="focus" x="43" y="545" rx="19" width="434" height="114"/>
+<rect class="sep" x="47" y="549" rx="17" width="426" height="106"/>
+<rect class="primary" x="50" y="552" rx="14" width="420" height="100"/>
+<text class="label" fill="#FFFFFF" x="140" y="616">Review access</text>
+
+<rect class="info" x="24" y="780" rx="18" width="472" height="430"/>
+<text class="h2" x="48" y="845">Pending</text>
+<text class="h2" x="48" y="900">invitation</text>
+<text class="body" x="48" y="970">Harbor Circle</text>
+<text class="body" x="48" y="1018">Not active until</text>
+<text class="body" x="48" y="1066">accepted</text>
+<rect class="control" x="48" y="1110" rx="14" width="424" height="100"/>
+<text class="label blue" x="112" y="1174">Review invitation</text>
+
+<text class="h2" x="24" y="1300">Active Circles</text>
+<rect class="decor" x="24" y="1340" rx="18" width="472" height="420"/>
+<text class="h2" x="48" y="1410">Harbor Circle</text>
+<text class="body" x="48" y="1480">Circle Head</text>
+<text class="support" x="48" y="1535">Active membership</text>
+<rect class="control" x="48" y="1585" rx="14" width="424" height="100"/>
+<text class="label blue" x="145" y="1649">Open Harbor</text>
+
+<rect class="control" x="24" y="1820" rx="14" width="472" height="110"/>
+<text class="label" x="120" y="1890">Create a Circle</text>
+
+<rect class="ctx" x="24" y="2010" rx="18" width="472" height="280"/>
+<text class="h2" x="48" y="2080">Context</text>
+<text class="body" x="48" y="2150">Active Circle cards</text>
+<text class="body" x="48" y="2198">appear below review</text>
+<text class="body" x="48" y="2246">and invitation items.</text>
+
+<text class="support" x="24" y="2400">Review-due, pending invitation,</text>
+<text class="support" x="24" y="2445">and active Circle remain distinct.</text>
+<text class="support" x="24" y="2520">Primary label fill is explicit white.</text>
+<text class="support" x="24" y="2565">Controls stack; no horizontal scroll.</text>
+<text class="support" x="24" y="2640">Targets remain at least 48 px high.</text>
+<text class="support" x="24" y="2685">Visible focus uses violet ring.</text>
+</g>
+
+<!-- SCREEN 13 -->
+<g transform="translate(640 200)">
+<text class="cap" y="-18">SCREEN 13 - CHOOSE CONTEXT - 200%</text>
+<rect class="phone" rx="28" width="520" height="2920"/>
+<rect class="ctx" x="20" y="20" rx="16" width="480" height="170"/>
+<text class="label" x="42" y="80">Circle</text>
+<text class="label" x="42" y="130">Harbor Circle</text>
+
+<text class="h1" x="24" y="275">Choose</text>
+<text class="h1" x="24" y="341">context</text>
+<text class="body" x="24" y="420">Only contexts you</text>
+<text class="body" x="24" y="468">can access are listed.</text>
+
+<rect x="24" y="530" rx="16" width="472" height="250" fill="#DCECE6" stroke="#17634D" stroke-width="3"/>
+<text class="h2" x="48" y="610">Selected</text>
+<text class="h2" x="48" y="665">Circle-wide</text>
+<text class="body" x="48" y="730">Current choice</text>
+
+<rect class="control" x="24" y="830" rx="16" width="472" height="190"/>
+<text class="h2" x="48" y="920">Dad</text>
+<text class="support" x="48" y="980">Care Recipient</text>
+
+<rect class="control" x="24" y="1070" rx="16" width="472" height="190"/>
+<text class="h2" x="48" y="1160">Mom</text>
+<text class="support" x="48" y="1220">Care Recipient</text>
+
+<rect class="primary" x="24" y="1320" rx="14" width="472" height="120"/>
+<text class="label" fill="#FFFFFF" x="120" y="1395">Switch context</text>
+
+<rect class="control" x="24" y="1490" rx="14" width="472" height="110"/>
+<text class="label" x="198" y="1560">Cancel</text>
+
+<rect class="info" x="24" y="1680" rx="18" width="472" height="420"/>
+<text class="h2" x="48" y="1750">Target sizes</text>
+<text class="body" x="48" y="1825">Every radio card and</text>
+<text class="body" x="48" y="1873">action exceeds 48 px.</text>
+<text class="body" x="48" y="1945">Context names wrap</text>
+<text class="body" x="48" y="1993">inside growing cards.</text>
+
+<text class="support" x="24" y="2220">Full-page labeled radio group.</text>
+<text class="support" x="24" y="2265">No custom dropdown.</text>
+<text class="support" x="24" y="2340">Additional authorized contexts</text>
+<text class="support" x="24" y="2385">continue by vertical scroll.</text>
+<text class="support" x="24" y="2460">Primary Evergreen action uses</text>
+<text class="support" x="24" y="2505">explicit white label fill.</text>
+<text class="support" x="24" y="2580">No clipped labels or overlap.</text>
+</g>
+
+<!-- SCREEN 32 -->
+<g transform="translate(1230 200)">
+<text class="cap" y="-18">SCREEN 32 - AUDIT HISTORY - 200%</text>
+<rect class="phone" rx="28" width="520" height="2920"/>
+<rect class="ctx" x="20" y="20" rx="16" width="480" height="170"/>
+<text class="label" x="42" y="80">Harbor Circle</text>
+<text class="label" x="42" y="130">Care Recipient - Dad</text>
+
+<text class="h1" x="24" y="275">Audit</text>
+<text class="h1" x="24" y="341">history</text>
+<text class="body" x="24" y="420">Only authorized</text>
+<text class="body" x="24" y="468">events and fields</text>
+<text class="body" x="24" y="516">appear.</text>
+
+<rect class="control" x="24" y="565" rx="14" width="472" height="110"/>
+<text class="label" x="48" y="635">Filter - All permitted</text>
+
+<rect class="decor" x="24" y="720" rx="18" width="472" height="700"/>
+<text class="support" x="48" y="780">CIRCLE-WIDE</text>
+<text class="support" x="48" y="825">JUL 16</text>
+<text class="h2" x="48" y="900">Family</text>
+<text class="h2" x="48" y="955">Coordinator</text>
+<text class="h2" x="48" y="1010">role updated</text>
+<text class="body" x="48" y="1085">Actor:</text>
+<text class="body" x="48" y="1133">Alexandra</text>
+<text class="body" x="48" y="1181">Montgomery-</text>
+<text class="body" x="48" y="1229">Santos</text>
+<text class="support" x="48" y="1290">Scope: Harbor Circle</text>
+<text class="support" x="48" y="1335">Result: Active</text>
+<rect class="control" x="48" y="1370" rx="14" width="424" height="100"/>
+<text class="label blue" x="95" y="1434">View permitted details</text>
+
+<rect class="decor" x="24" y="1480" rx="18" width="472" height="680"/>
+<text class="support" x="48" y="1540">CARE RECIPIENT</text>
+<text class="support" x="48" y="1585">DAD - JUL 15</text>
+<text class="h2" x="48" y="1660">Access review</text>
+<text class="h2" x="48" y="1715">recorded</text>
+<text class="body" x="48" y="1790">Actor unavailable</text>
+<text class="body" x="48" y="1838">in your scope</text>
+<text class="support" x="48" y="1905">Long metadata wraps.</text>
+<text class="support" x="48" y="1950">Unauthorized fields</text>
+<text class="support" x="48" y="1995">are omitted without</text>
+<text class="support" x="48" y="2040">a hidden count.</text>
+<rect class="control" x="48" y="2090" rx="14" width="424" height="100"/>
+<text class="label blue" x="95" y="2154">View permitted details</text>
+
+<rect class="neutral" x="24" y="2230" rx="18" width="472" height="280"/>
+<text class="h2" x="48" y="2300">Filtered result</text>
+<text class="body" x="48" y="2375">No permitted events</text>
+<text class="body" x="48" y="2423">match.</text>
+<text class="support" x="48" y="2480">Clear filter - no total</text>
+
+<text class="support" x="24" y="2620">Circle-wide and recipient</text>
+<text class="support" x="24" y="2665">rows remain separate.</text>
+<text class="support" x="24" y="2740">Masked actor text stays</text>
+<text class="support" x="24" y="2785">complete when wrapped.</text>
+</g>
+
+<!-- SCREEN 38 -->
+<g transform="translate(320 3350)">
+<text class="cap" y="-18">SCREEN 38 - COMPLETE ENLARGED NAVIGATION - 200%</text>
+<rect class="phone" rx="28" width="520" height="3000"/>
+<rect class="ctx" x="20" y="20" rx="16" width="480" height="210"/>
+<text class="label" x="42" y="80">Circle</text>
+<text class="label" x="42" y="130">Harbor Circle</text>
+<text class="label" x="42" y="185">Care Recipient - Dad</text>
+
+<text class="h1" x="24" y="320">Navigation</text>
+<rect class="control" x="24" y="360" rx="14" width="472" height="110"/>
+<text class="label" x="130" y="430">Close navigation</text>
+
+<rect x="24" y="520" rx="16" width="472" height="230" fill="#DCECE6" stroke="#17634D" stroke-width="3"/>
+<rect class="primary" x="24" y="520" width="10" height="230"/>
+<text class="h2" x="58" y="600">Overview</text>
+<text class="body" x="58" y="665">Current page</text>
+<text class="support" x="58" y="715">Selected destination</text>
+
+<rect class="control" x="24" y="800" rx="16" width="472" height="160"/>
+<text class="h2" x="58" y="900">Members</text>
+
+<rect class="control" x="24" y="1010" rx="16" width="472" height="160"/>
+<text class="h2" x="58" y="1110">Roles</text>
+
+<rect class="control" x="24" y="1220" rx="16" width="472" height="160"/>
+<text class="h2" x="58" y="1320">Audit history</text>
+
+<rect class="control" x="24" y="1430" rx="16" width="472" height="160"/>
+<text class="h2" x="58" y="1530">Settings</text>
+
+<rect class="info" x="24" y="1660" rx="18" width="472" height="420"/>
+<text class="h2" x="48" y="1730">Complete labels</text>
+<text class="body" x="48" y="1805">Every destination is a</text>
+<text class="body" x="48" y="1853">distinct target with a</text>
+<text class="body" x="48" y="1901">persistent text label.</text>
+<text class="support" x="48" y="1975">Current state uses text</text>
+<text class="support" x="48" y="2020">plus shape, not color alone.</text>
+
+<text class="support" x="24" y="2200">Only permitted destinations</text>
+<text class="support" x="24" y="2245">appear.</text>
+<text class="support" x="24" y="2320">No gestures, abbreviations,</text>
+<text class="support" x="24" y="2365">or icon-only destinations.</text>
+<text class="support" x="24" y="2440">Labels wrap inside vertically</text>
+<text class="support" x="24" y="2485">growing targets.</text>
+<text class="support" x="24" y="2560">No horizontal scrolling.</text>
+<text class="support" x="24" y="2635">Source order is preserved.</text>
+<text class="support" x="24" y="2710">Close returns to the page.</text>
+</g>
+
+<!-- SCREEN 39 -->
+<g transform="translate(960 3350)">
+<text class="cap" y="-18">SCREEN 39 - COMPLETE CONTEXT RESET - 200%</text>
+<rect class="phone" rx="28" width="520" height="3950"/>
+<text class="support" x="24" y="45">1 - Dad context</text>
+<text class="support" x="24" y="90">Switch to Mom initiated</text>
+
+<rect class="warn" x="24" y="130" rx="18" width="472" height="520"/>
+<text class="h2" x="48" y="200">2 - Unsaved</text>
+<text class="h2" x="48" y="255">changes in Dad</text>
+<text class="body" x="48" y="330">Keep working cancels</text>
+<text class="body" x="48" y="378">and remains in Dad.</text>
+<rect class="primary" x="48" y="430" rx="14" width="424" height="100"/>
+<text class="label" fill="#FFFFFF" x="95" y="494">Keep working in Dad</text>
+<rect class="danger" x="48" y="555" rx="14" width="424" height="100"/>
+<text class="label red" x="120" y="619">Discard and switch</text>
+
+<rect class="neutral" x="24" y="710" rx="18" width="472" height="340"/>
+<text class="h2" x="48" y="780">3-4 - Previous</text>
+<text class="h2" x="48" y="835">context cleared</text>
+<text class="body" x="48" y="910">Switching context...</text>
+<text class="body" x="48" y="958">Checking access.</text>
+<text class="support" x="48" y="1015">No Dad or Mom</text>
+<text class="support" x="48" y="1060">protected content shown.</text>
+
+<rect class="info" x="24" y="1100" rx="18" width="472" height="300"/>
+<text class="h2" x="48" y="1170">5 - Late Dad</text>
+<text class="h2" x="48" y="1225">response</text>
+<text class="body" x="48" y="1300">Discarded without</text>
+<text class="body" x="48" y="1348">rendering.</text>
+
+<rect class="ctx" x="24" y="1450" rx="18" width="472" height="340"/>
+<text class="h2" x="48" y="1520">6 - Authorized</text>
+<text class="h2" x="48" y="1575">destination</text>
+<text class="body" x="48" y="1650">Harbor Circle - Mom</text>
+<text class="body" x="48" y="1698">Context ready</text>
+<text class="support" x="48" y="1755">Rendered after</text>
+<text class="support" x="48" y="1800">authorization only.</text>
+
+<rect class="neutral" x="24" y="1840" rx="18" width="472" height="520"/>
+<text class="h2" x="48" y="1910">7 - Information</text>
+<text class="h2" x="48" y="1965">unavailable</text>
+<text class="body" x="48" y="2040">The selected context</text>
+<text class="body" x="48" y="2088">cannot be opened.</text>
+<text class="support" x="48" y="2155">No name, count,</text>
+<text class="support" x="48" y="2200">or reason leaks.</text>
+<rect class="primary" x="48" y="2260" rx="14" width="424" height="100"/>
+<text class="label" fill="#FFFFFF" x="110" y="2324">Return to Circle-wide</text>
+
+<text class="support" x="24" y="2480">Cancel path keeps Dad draft</text>
+<text class="support" x="24" y="2525">and request intact.</text>
+<text class="support" x="24" y="2600">Confirmed discard invalidates</text>
+<text class="support" x="24" y="2645">the old request first.</text>
+<text class="support" x="24" y="2720">Safe Keep working action uses</text>
+<text class="support" x="24" y="2765">explicit white label fill.</text>
+<text class="support" x="24" y="2840">Dad and Mom protected content</text>
+<text class="support" x="24" y="2885">never coexist or flash.</text>
+<text class="support" x="24" y="2960">Complete sequence remains</text>
+<text class="support" x="24" y="3005">readable at 200% text size.</text>
+</g>
+
+<text class="support" x="50" y="7480">Static design evidence representing a calibrated 200% text-size relationship.</text>
+<text class="support" x="50" y="7525">Runtime conformance requires later implementation testing on browser, iOS, and Android.</text>
+</svg>

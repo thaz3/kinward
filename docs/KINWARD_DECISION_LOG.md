@@ -1,9 +1,9 @@
 # Kinward Decision Log
 
-> **Status:** Approved product-owner decisions; D-8 through D-17 closed and verified by targeted systems audit
-> **Version:** 0.1
-> **Last updated:** 2026-07-16
-> **Governing or related decisions:** D-1 through D-17
+> **Status:** Approved product-owner decisions; D-8 through D-17 closed and verified; D-18 Milestone One coding authorized
+> **Version:** 0.2
+> **Last updated:** 2026-07-17
+> **Governing or related decisions:** D-1 through D-18
 
 Product-owner decisions arising from the Kinward planning audit. Each status records the current disposition. Professional medical, legal, privacy, security, accessibility, and child-safety review remains required at the stages stated below.
 
@@ -168,6 +168,20 @@ Product-owner decisions arising from the Kinward planning audit. Each status rec
 - **Gate:** Gate A for environment architecture; Gate C before any real information; separate secure-document readiness before scans or reports.
 - **Status:** Closed — Verified by targeted systems audit; Gate C restriction remains in force
 
+## D-18 — Milestone One Application Coding Authorization
+
+- **Decision ID:** D-18
+- **Question requiring approval:** May Kinward begin application implementation of the approved non-medical Milestone One foundation?
+- **Why it matters:** D-6 and Gate A require explicit product-owner coding authorization before frameworks, packages, databases, authentication, or application code. Prior authorizations covered planning, architecture, wireframes, and high-fidelity design only.
+- **Approved decision:** Application implementation of the approved Kinward Milestone One scope is authorized, using the verified thirty-nine-screen high-fidelity design package and governing product documentation.
+- **Authorized scope:** User accounts and verified-email identity; multiple Family Circles; multiple Care Recipients per Circle; Circle membership and invitations; Circle-wide and Care Recipient-specific roles; Self-Managed, Shared Management, and Delegated Management modes; managed minor profiles; role- and grant-based permission enforcement; delegation records; authority and permission audit history; and the accessible mobile-first application shell.
+- **Required invariants:** Deny-by-default authorization; Care Recipient ownership; Circle and recipient isolation; neutral denial behavior; context clearing; stale-response protection; accessibility requirements; and the approved audit trail.
+- **Explicit exclusions:** Patient or Caregiver Check-Ins; symptoms, medications, treatment tracking, medical alerts, diet, or exercise; medical interpretation or recommendations; document or medical-record uploads; real-family beta activity; production deployment; and public release. Any expansion beyond Milestone One requires separate product-owner approval.
+- **Gate A confirmation:** Product-owner approval is recorded by this decision. Privacy and permission review against approved Kinward requirements, WCAG 2.2 Level AA baseline, and synthetic-data-only development were previously confirmed in `MILESTONE_ONE_READINESS.md`. Gate B, Gate C, and Gate D restrictions remain in force for later stages.
+- **Documents affected:** `AGENTS.md`; `MILESTONE_ONE_READINESS.md`; `DOCUMENT_GOVERNANCE.md`; `milestone-one/IMPLEMENTATION_PLAN.md`; `milestone-one/TECHNICAL_ARCHITECTURE.md`; `README.md`; `MVP_ROADMAP.md`
+- **Decision date:** 2026-07-17
+- **Status:** Approved — Milestone One application coding authorized
+
 ## Propagation Record
 
 These decisions are approved in this log. The corresponding revisions below were applied on 2026-07-16 and were verified by the applicable targeted read-only systems audits under F-01-R, F-02-R, F-17, F-18, F-19, and F-A-04:
@@ -182,7 +196,9 @@ These decisions are approved in this log. The corresponding revisions below were
 
 D-7 resolves the stale routing vocabulary. The canonical role is Family Coordinator; no new administrator, routing, or superuser role is created.
 
-D-8 through D-17 resolve OQ-01 through OQ-10. After the F-A-04 email-only invitation-binding propagation repair, the 2026-07-16 targeted read-only re-audit verified and closed them for planning purposes. D-1 through D-7 are unchanged. “Closed” does not mean implementation is complete or authorized.
+D-8 through D-17 resolve OQ-01 through OQ-10. After the F-A-04 email-only invitation-binding propagation repair, the 2026-07-16 targeted read-only re-audit verified and closed them for planning purposes. D-1 through D-7 are unchanged. “Closed” does not mean implementation is complete.
+
+D-18 authorizes Milestone One application coding within the stated foundation scope and exclusions. It does not authorize medical features, document uploads, real-family beta activity, production deployment, or public release.
 
 ## 2026-07-16 Targeted Systems Audit Record
 
@@ -192,3 +208,12 @@ D-8 through D-17 resolve OQ-01 through OQ-10. After the F-A-04 email-only invita
 - **Open-question results:** OQ-01 through OQ-10 were correctly resolved and linked to D-8 through D-17 and are closed for planning purposes.
 - **Coverage and scope:** Acceptance-test coverage is complete; Milestone One scope is unchanged.
 - **Restrictions:** The restricted real-family beta remains unauthorized. Gate requirements, deferred branches, professional-review requirements, real-data restrictions, and the separate secure-document readiness requirement remain in force.
+
+## 2026-07-17 Documentation-Only Traceability Record
+
+- **Record:** GOV-004
+- **Issue:** Tier 3 screen indexes used UF identifiers that conflicted with the substantive flow definitions in `milestone-one/USER_FLOWS.md`.
+- **Canonical mapping propagated:** Screen 4 → UF-01; Screens 6–7 → UF-04, with UF-05 where invitation lifecycle applies; Screens 8–12 → UF-03.
+- **Disposition:** Documentation-only correction. No decision, role, permission, ownership, invitation, acceptance, or screen behavior changed.
+- **Related unresolved item:** GOV-005 records the membership-only adult invitation ambiguity. Batch One excludes that path; no future policy is approved or rejected.
+- **Status:** Ready for targeted Batch One design re-audit; not product approval and not implementation authorization.

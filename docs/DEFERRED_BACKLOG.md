@@ -2,7 +2,7 @@
 
 > **Status:** Current deferred and future work; D-8 through D-17 closed and verified by targeted systems audit
 > **Version:** 0.1
-> **Last updated:** 2026-07-16
+> **Last updated:** 2026-07-17
 > **Governing or related decisions:** D-1 through D-17; F-01-R, F-02-R, F-17 through F-19
 
 Valid future concerns, beta and public-launch requirements, and non-blocking improvements. Medical, legal, privacy, and authority questions remain open for qualified review.
@@ -67,6 +67,7 @@ Valid future concerns, beta and public-launch requirements, and non-blocking imp
 
 ## Non-Blocking Improvements
 
+- **Membership-only adult invitation path:** Decide whether an adult may be invited into a Circle without any Circle-wide role or Care Recipient-specific assignment. Current invitation behavior is unchanged. Until an approved decision is propagated, high-fidelity Batch One demonstrates only invitations with already-supported authorized assignments and does not present a membership-only option. **Source:** GOV-005; `milestone-one/USER_FLOWS.md` UF-04 and UF-05; `milestone-one/PERMISSION_MODEL.md`
 - **Delegation approval timeout:** Define cancellation or expiration when a sensitive-role approval receives no response. Revisit before the delegation feature slice. **Source:** Audit sections 9 and 13
 - **Illness and treatment-pattern scope:** Decide how the MVP expands beyond chemotherapy-centered testing. **Source:** `TEST_FAMILY_OVERVIEW.md` section 18 decision 15
 - **Success measures:** Define privacy-preserving product measures and analytics before beta. **Source:** `PRODUCT_SPEC.md` section 11; `TEST_FAMILY_OVERVIEW.md` section 18 decision 16

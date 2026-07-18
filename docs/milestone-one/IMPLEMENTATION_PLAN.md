@@ -1,13 +1,13 @@
 # Kinward Milestone One Implementation Plan
 
-> **Status:** Updated sequencing reflecting D-8 through D-17; closed and verified by targeted systems audit; application coding not authorized
-> **Version:** 0.1
-> **Last updated:** 2026-07-16
-> **Governing decisions:** D-1 through D-17; `MILESTONE_ONE_READINESS.md`; all files in `docs/milestone-one/`
+> **Status:** Milestone One application coding authorized (D-18); follow slices in order
+> **Version:** 0.2
+> **Last updated:** 2026-07-17
+> **Governing decisions:** D-1 through D-18; `MILESTONE_ONE_READINESS.md`; all files in `docs/milestone-one/`
 
 ## Planning Boundary
 
-This plan describes future implementation slices only. It does not authorize code, packages, database deployment, infrastructure, environment provisioning, real-data entry, or out-of-scope features. Before coding, complete targeted audit of D-8 through D-17, confirm the applicable Gate A requirements, and obtain explicit coding authorization.
+This plan sequences Milestone One implementation slices. D-18 authorizes application coding within the approved non-medical foundation. It does not authorize medical features, real-data entry, production deployment, public release, or out-of-scope features. Targeted audit of D-8 through D-17 is complete. Gate A coding authorization is recorded in D-18 / GOV-006.
 
 ## Slice 1 — Application Shell and Accessibility Foundation
 
@@ -182,7 +182,7 @@ This plan describes future implementation slices only. It does not authorize cod
 - Each slice includes synthetic fixtures, allow and deny tests, accessible states, and audit behavior.
 - No slice may introduce medical or care-content tables, routes, screens, or permissions.
 - No slice may use support bypass, generic administrator, Circle Coordinator, Primary Circle Administrator, or wildcard permission.
-- No application coding begins without a separate authorization confirming applicable Gate A requirements.
+- No application coding expands beyond D-18 without separate product-owner approval. Gate A for Milestone One foundation coding is satisfied by D-18.
 - Local implementation and hosted preview remain synthetic-only and isolated. No plan provisions the future pilot.
 - Gate C security and privacy architecture review and signed beta readiness precede any real information.
 - Secure document sharing is a separate later slice and never enters non-medical Milestone One automatically.

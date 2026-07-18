@@ -56,4 +56,6 @@
 
 Phone authentication, phone invitation binding, phone recovery, phone OTP, and SMS invitation delivery are absent and deferred.
 
+For Screen 4, `Cancel` leaves directly only before the Circle name or any setting is changed. After input, `Cancel` opens the governing unsaved-changes confirmation: `Keep editing` is the safe/default action and `Discard draft` deliberately leaves without creating a Circle. The prompt describes loss of unsubmitted input, not deletion of Kinward data.
+
 Screen 3's “Access review due” item is the same underlying D-16 state shown in the relevant Care Recipient permission summary and Screens 23–24. Opening or viewing any placement does not clear it. All three remain visible until an authorized continue, modify, suspend, or revoke decision completes successfully; they then clear together, and a continued or modified grant receives its next 90-day review date. No email, SMS, push, renewal, suspension, revocation, or extension is implied by the due item itself.

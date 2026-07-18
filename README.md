@@ -1,15 +1,17 @@
 # Kinward
 
-> **Status:** Current project overview; D-8 through D-17 closed and verified by targeted systems audit
-> **Version:** 0.1
-> **Last updated:** 2026-07-16
-> **Governing or related decisions:** D-1 through D-17
+> **Status:** Current project overview; Milestone One application coding authorized (D-18)
+> **Version:** 0.2
+> **Last updated:** 2026-07-17
+> **Governing or related decisions:** D-1 through D-18
 
 Kinward is a private family care-coordination application created by First & 8th. It is intended to help families coordinate care, responsibilities, schedules, and support during cancer treatment and other serious illnesses.
 
 ## Project Status
 
-Kinward is currently in the product-planning phase. This repository contains planning documents only. No application, database, infrastructure, dependencies, or production code has been created.
+Kinward is in Milestone One application implementation. Coding is limited to the approved non-medical foundation under D-18. Local and hosted preview environments use synthetic data only.
+
+The Milestone One high-fidelity package is the visual source of truth for the thirty-nine approved foundation screens. Patient and Caregiver Check-Ins, medical features, document uploads, real-family beta activity, production deployment, and public release remain unauthorized.
 
 ## Product Promise
 

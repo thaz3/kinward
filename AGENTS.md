@@ -1,9 +1,9 @@
 # Kinward Contributor Guidance
 
-> **Status:** Active contributor constraints; D-8 through D-17 closed and verified by targeted systems audit
-> **Version:** 0.1
-> **Last updated:** 2026-07-16
-> **Governing or related decisions:** D-1 through D-17; `docs/DOCUMENT_GOVERNANCE.md`
+> **Status:** Active contributor constraints; Milestone One application coding authorized (D-18)
+> **Version:** 0.2
+> **Last updated:** 2026-07-17
+> **Governing or related decisions:** D-1 through D-18; `docs/DOCUMENT_GOVERNANCE.md`
 
 ## Project Purpose
 
@@ -13,9 +13,11 @@ Kinward is a coordination tool. It must never diagnose, interpret symptoms, reco
 
 ## Current Phase
 
-This repository is in product-planning only. Do not add application code, frameworks, dependencies, databases, infrastructure, generated scaffolding, or production configuration unless the project owner explicitly begins the implementation phase.
+Milestone One application implementation is authorized under D-18. Work must stay within the approved non-medical foundation and the verified thirty-nine-screen high-fidelity design package. Follow `docs/milestone-one/IMPLEMENTATION_PLAN.md` slices in order unless the product owner directs otherwise.
 
-Approved D-8 through D-17 requirements are **Closed — Verified by targeted systems audit** for planning purposes, not implementation authorization. Milestone One remains non-medical. The restricted real-family beta remains unauthorized.
+Do not implement Patient or Caregiver Check-Ins; symptoms, medications, treatment tracking, medical alerts, diet, or exercise; medical interpretation or recommendations; document or medical-record uploads; real-family beta activity; production deployment; or public release. Any expansion beyond Milestone One requires separate product-owner approval.
+
+Approved D-8 through D-17 requirements remain **Closed — Verified by targeted systems audit**. Milestone One remains non-medical. Local and hosted preview environments use synthetic data only. The restricted real-family beta remains unauthorized until Gate C and a signed `docs/REAL_FAMILY_BETA_READINESS.md`.
 
 ## Product Principles
 
@@ -73,10 +75,10 @@ Approved D-8 through D-17 requirements are **Closed — Verified by targeted sys
 ## Planning Sources of Truth
 
 - Follow the tier hierarchy and propagation rules in `docs/DOCUMENT_GOVERNANCE.md`.
-- Tier 1: checked `docs/MILESTONE_ONE_DECISIONS.md` selections and approved `docs/KINWARD_DECISION_LOG.md` entries.
+- Tier 1: checked `docs/MILESTONE_ONE_DECISIONS.md` selections and approved `docs/KINWARD_DECISION_LOG.md` entries (including D-18 coding authorization).
 - Tier 2: `docs/PRODUCT_SPEC.md`, `docs/FAMILY_ROLES.md`, `docs/PERMISSIONS.md`, `docs/MEDICAL_SAFETY.md`, and this file.
 - Tier 3: `docs/MVP_ROADMAP.md`, `docs/PRE_BUILD_DECISIONS.md`, `docs/TEST_FAMILY_OVERVIEW.md`, and `README.md`.
-- Tier 3 also includes the milestone-one design package and `docs/REAL_FAMILY_BETA_READINESS.md`.
+- Tier 3 also includes the milestone-one design package, `docs/MILESTONE_ONE_READINESS.md`, and `docs/REAL_FAMILY_BETA_READINESS.md`.
 - Tier 4: punch lists, deferred backlogs, and audit reports.
 
 When documents conflict, do not silently interpret them. Record and escalate the conflict under `docs/DOCUMENT_GOVERNANCE.md`; the applicable Tier 1 decision governs until propagation is complete.

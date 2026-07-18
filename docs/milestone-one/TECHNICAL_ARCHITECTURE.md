@@ -1,13 +1,13 @@
 # Kinward Milestone One Technical Architecture
 
-> **Status:** Updated proposal reflecting D-8 through D-17; closed and verified by targeted systems audit; no implementation or infrastructure authorized
-> **Version:** 0.1
-> **Last updated:** 2026-07-16
-> **Governing decisions:** D-1 through D-17; `MILESTONE_ONE_READINESS.md`; `PERMISSIONS.md`
+> **Status:** Approved Milestone One architecture; application coding authorized (D-18); production and real-data infrastructure not authorized
+> **Version:** 0.2
+> **Last updated:** 2026-07-17
+> **Governing decisions:** D-1 through D-18; `MILESTONE_ONE_READINESS.md`; `PERMISSIONS.md`
 
 ## Scope and Constraints
 
-This proposal covers only the non-medical Milestone One foundation using Next.js, TypeScript, Supabase/PostgreSQL, and a mobile-first Progressive Web App design. It does not authorize framework initialization, package installation, database deployment, application coding, or production infrastructure.
+This architecture covers only the non-medical Milestone One foundation using Next.js, TypeScript, Supabase/PostgreSQL, and a mobile-first Progressive Web App design. D-18 authorizes framework initialization, package installation, synthetic local and hosted-preview database work, and application coding within Milestone One scope. It does not authorize production infrastructure, real-family environments, or medical modules.
 
 The architecture must not contain check-in, symptom, treatment, medication, diet, movement, medical-alert, document-validation, analytics, or real-family-data modules.
 
