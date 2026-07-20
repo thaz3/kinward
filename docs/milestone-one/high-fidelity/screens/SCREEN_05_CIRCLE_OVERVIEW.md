@@ -1,6 +1,6 @@
 # Screen 5 — Circle overview
 
-> **Draft high-fidelity design — not approved for implementation.**
+> **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
 **Viewport:** 390 × 844 mobile. **Source:** `01-identity-and-circle.md`, Screen 5. **Flow:** UF-02. **Tests:** AT-001, AT-002, AT-003.
 

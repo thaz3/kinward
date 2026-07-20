@@ -1,6 +1,6 @@
 # Screen 24 — Delegation access review due
 
-> **Draft high-fidelity design — not approved for implementation.**
+> **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
 **Viewport:** 390 × 844 mobile. **Source:** `05-delegation-lifecycle.md`, Screen 24. **Flow:** UF-23. **Tests:** AT-011, AT-036.
 

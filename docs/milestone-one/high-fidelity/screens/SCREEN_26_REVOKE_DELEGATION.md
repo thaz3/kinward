@@ -1,6 +1,6 @@
 # Screen 26 — Revoke delegation
 
-> **Draft pending final package audit — not approved for implementation.**
+> **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
 **Purpose:** Permanently end a delegation while preserving authorized audit history. **Decisions:** D-4, D-5. **Low fidelity:** `05-delegation-lifecycle.md`, Screen 26. **Flow/tests:** UF-08; AT-013.
 

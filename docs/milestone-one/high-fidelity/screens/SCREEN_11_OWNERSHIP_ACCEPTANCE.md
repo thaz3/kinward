@@ -1,6 +1,6 @@
 # Screen 11 — Ownership acceptance
 
-> **Draft pending final package audit — not approved for implementation.**
+> **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
 **Purpose:** Record the invited adult’s explicit consent and activate their sole ownership. **Decisions:** D-8, D-9, D-12. **Low fidelity:** `02-care-recipient-ownership.md`, Screen 11. **Flow/tests:** UF-03; AT-027, AT-030.
 

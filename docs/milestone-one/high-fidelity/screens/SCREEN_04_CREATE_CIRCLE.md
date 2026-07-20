@@ -1,6 +1,6 @@
 # Screen 4 — Create a Family Circle
 
-> **Draft high-fidelity expansion — not product-owner approved and not approved for implementation.**
+> **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
 **Purpose:** Let an authenticated adult create a Circle and become its first Circle Head without implying Care Recipient authority.
 

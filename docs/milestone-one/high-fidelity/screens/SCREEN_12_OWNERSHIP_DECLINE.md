@@ -1,6 +1,6 @@
 # Screen 12 — Ownership decline
 
-> **Draft pending final package audit — not approved for implementation.**
+> **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
 **Purpose:** Let the invited adult decline without activating a Care Recipient or Circle membership. **Decisions:** D-8, D-9. **Low fidelity:** `02-care-recipient-ownership.md`, Screen 12. **Flow/tests:** UF-03; AT-028.
 

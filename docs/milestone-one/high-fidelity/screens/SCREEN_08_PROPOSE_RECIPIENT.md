@@ -1,6 +1,6 @@
 # Screen 8 — Propose an adult Care Recipient
 
-> **Draft high-fidelity expansion — not product-owner approved and not approved for implementation.**
+> **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
 **Purpose:** Start either self-addition or a dedicated adult sole-ownership proposal without creating private Care Recipient information.
 

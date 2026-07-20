@@ -1,6 +1,6 @@
 # Screen 10 — Pending Care Recipient ownership
 
-> **Draft high-fidelity expansion — not product-owner approved and not approved for implementation.**
+> **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
 **Purpose:** Show an authorized proposer the inactive ownership proposal without implying an active Care Recipient record.
 

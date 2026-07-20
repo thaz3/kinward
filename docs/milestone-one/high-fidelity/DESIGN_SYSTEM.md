@@ -1,6 +1,6 @@
 # Kinward Visual Design System
 
-> **Draft high-fidelity design — not approved for implementation.**
+> **Verified Milestone One design-system reference — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
 ## Product character
 

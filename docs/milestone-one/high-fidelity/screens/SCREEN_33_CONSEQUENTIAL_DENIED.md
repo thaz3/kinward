@@ -1,6 +1,6 @@
 # Screen 33 — Consequential denied action
 
-> **Draft pending final package audit — not approved for implementation.**
+> **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
 **Purpose:** Explain a denied protected write without leaking the target or expanding authority. **Decisions:** D-2, D-3, D-5, D-14. **Low fidelity:** `07-audit-and-system-states.md`, Screen 33. **Flow/tests:** UF-21, UF-26; AT-022, AT-035, AT-044.
 

@@ -1,8 +1,8 @@
 # Kinward Contributor Guidance
 
-> **Status:** Active contributor constraints; Milestone One application coding authorized (D-18)
+> **Status:** Active contributor constraints; Milestone One application coding authorized (D-18); verified 39-screen high-fidelity baseline (GOV-007 Closed — PASS)
 > **Version:** 0.2
-> **Last updated:** 2026-07-17
+> **Last updated:** 2026-07-20
 > **Governing or related decisions:** D-1 through D-18; `docs/DOCUMENT_GOVERNANCE.md`
 
 ## Project Purpose
@@ -13,7 +13,7 @@ Kinward is a coordination tool. It must never diagnose, interpret symptoms, reco
 
 ## Current Phase
 
-Milestone One application implementation is authorized under D-18. Work must stay within the approved non-medical foundation and the verified thirty-nine-screen high-fidelity design package. Follow `docs/milestone-one/IMPLEMENTATION_PLAN.md` slices in order unless the product owner directs otherwise.
+Milestone One application implementation is authorized under D-18. Work must stay within the approved non-medical foundation and the verified thirty-nine-screen high-fidelity design package (GOV-007 Closed — PASS). Follow `docs/milestone-one/IMPLEMENTATION_PLAN.md` slices in order unless the product owner directs otherwise.
 
 Do not implement Patient or Caregiver Check-Ins; symptoms, medications, treatment tracking, medical alerts, diet, or exercise; medical interpretation or recommendations; document or medical-record uploads; real-family beta activity; production deployment; or public release. Any expansion beyond Milestone One requires separate product-owner approval.
 

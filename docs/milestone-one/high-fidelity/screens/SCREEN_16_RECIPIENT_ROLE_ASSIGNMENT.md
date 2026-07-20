@@ -1,6 +1,6 @@
 # Screen 16 — Care Recipient-specific role assignment
 
-> **Draft pending final package audit — not approved for implementation.**
+> **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
 **Purpose:** Assign one approved role for exactly one Care Recipient. **Decisions:** D-1, D-2, D-3, D-10. **Low fidelity:** `03-roles-and-management-modes.md`, Screen 16. **Flow/tests:** UF-05; AT-002–AT-004, AT-017.
 

@@ -1,6 +1,6 @@
 # Screen 20 — Delegation scope selection
 
-> **Draft pending final package audit — not approved for implementation.**
+> **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
 **Purpose:** Select the representative’s exact, bounded capabilities. **Decisions:** D-3, D-4, D-5. **Low fidelity:** `04-delegation-setup.md`, Screen 20. **Flow/tests:** UF-07; AT-008.
 

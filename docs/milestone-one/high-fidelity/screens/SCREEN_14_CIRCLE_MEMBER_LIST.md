@@ -1,6 +1,6 @@
 # Screen 14 — Circle member list
 
-> **Draft pending final package audit — not approved for implementation.**
+> **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
 **Purpose:** Review Circle membership and Circle-wide roles without implying Care Recipient access. **Decisions:** D-1, D-2, D-10. **Low fidelity:** `03-roles-and-management-modes.md`, Screen 14. **Flow/tests:** UF-03, UF-05; AT-002, AT-004.
 

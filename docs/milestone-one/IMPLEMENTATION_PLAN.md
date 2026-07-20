@@ -1,24 +1,24 @@
 # Kinward Milestone One Implementation Plan
 
-> **Status:** Milestone One application coding authorized (D-18); follow slices in order
+> **Status:** Milestone One application coding authorized (D-18); follow slices in order; verified 39-screen high-fidelity baseline (GOV-007 Closed — PASS)
 > **Version:** 0.2
-> **Last updated:** 2026-07-17
-> **Governing decisions:** D-1 through D-18; `MILESTONE_ONE_READINESS.md`; all files in `docs/milestone-one/`
+> **Last updated:** 2026-07-20
+> **Governing decisions:** D-1 through D-18; `MILESTONE_ONE_READINESS.md`; GOV-007 Closed — PASS; all files in `docs/milestone-one/`
 
 ## Planning Boundary
 
-This plan sequences Milestone One implementation slices. D-18 authorizes application coding within the approved non-medical foundation. It does not authorize medical features, real-data entry, production deployment, public release, or out-of-scope features. Targeted audit of D-8 through D-17 is complete. Gate A coding authorization is recorded in D-18 / GOV-006.
+This plan sequences Milestone One implementation slices. D-18 authorizes application coding within the approved non-medical foundation. It does not authorize medical features, real-data entry, production deployment, public release, or out-of-scope features. Targeted audit of D-8 through D-17 is complete. Gate A coding authorization is recorded in D-18 / GOV-006. GOV-007 Closed — PASS confirms the verified thirty-nine-screen high-fidelity baseline.
 
 ## Slice 1 — Application Shell and Accessibility Foundation
 
 - **Objective:** Establish the mobile-first route shell and reusable WCAG 2.2 AA interaction patterns.
 - **Prerequisites:** Approved WCAG 2.2 AA baseline and D-13 first-family matrix; record exact installed device and software versions before test execution.
-- **Governing documents:** `WIREFRAME_SPEC.md` screens 24–25; milestone decision 21.
-- **Screens:** Accessible shell and universal empty/loading/error/denied/no-role states.
+- **Governing documents:** `WIREFRAME_SPEC.md` sections 24–25 (not high-fidelity Screens 24–25); milestone decision 21; verified high-fidelity design system and Screens 34–38.
+- **Screens (final index mapping):** Visual Screen 38 (mobile navigation shell); Visual Screens 34–37 for universal empty / form-error / loading / permission-denied states. All five screens are verified. Do not map Slice 1 to high-fidelity Screens 24–25 (access review due / suspend delegation).
 - **Data entities:** None beyond safe session/context envelopes.
 - **Authorization rules:** Navigation never substitutes for route and data authorization; protected context clears on switch.
 - **Tests:** AT-026 and AT-027.
-- **Completion criteria:** Semantic shell, focus management, resizing, contrast, reduced motion, and safe states have objective acceptance criteria.
+- **Completion criteria:** Semantic shell, focus management, resizing, contrast, reduced motion, and safe states have objective acceptance criteria against the verified Screens 34–38 baseline.
 - **Audit checkpoint:** Confirm no user interaction logging contains family content.
 
 ## Slice 2 — Authentication and User Profiles

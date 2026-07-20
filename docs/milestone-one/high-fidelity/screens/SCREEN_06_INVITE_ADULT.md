@@ -1,6 +1,6 @@
 # Screen 6 — Invite an adult member
 
-> **Draft high-fidelity expansion — not product-owner approved and not approved for implementation.**
+> **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
 **Purpose:** Create a verified-email-bound adult invitation with explicit Circle-wide and Care Recipient-specific scope boundaries.
 

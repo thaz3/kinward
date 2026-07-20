@@ -1,6 +1,6 @@
 # Component Appearance Specification
 
-> **Draft high-fidelity design — not approved for implementation.**
+> **Verified Milestone One design-system reference — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
 All interactive controls have a minimum 48 × 48 CSS-pixel target. Content may wrap and increase target height. Interactive boundaries use Ink 700 (or another verified 3:1 treatment); Mineral 300 is decorative only. Focus uses the 3 px violet outer ring plus an uninterrupted 2 px white separation defined in `COLOR_AND_CONTRAST.md`, including around filled controls.
 

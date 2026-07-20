@@ -1,6 +1,6 @@
 # Screen 35 — Form error and recovery state
 
-> **Draft high-fidelity design — not approved for implementation.**
+> **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
 **Viewport:** 390 × 844 mobile. **Source:** `07-audit-and-system-states.md`, Screen 35. **Flow:** applicable approved form flow; no new flow. **Tests:** AT-003, AT-015, AT-029, AT-030.
 

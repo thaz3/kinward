@@ -1,6 +1,6 @@
 # Screen 23 — Delegation detail
 
-> **Draft pending final package audit — not approved for implementation.**
+> **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
 **Purpose:** Review the representative, exact scope, dates, status, and lifecycle actions. **Decisions:** D-3–D-5, D-16. **Low fidelity:** `05-delegation-lifecycle.md`, Screen 23. **Flow/tests:** UF-07, UF-08; AT-008–AT-013.
 

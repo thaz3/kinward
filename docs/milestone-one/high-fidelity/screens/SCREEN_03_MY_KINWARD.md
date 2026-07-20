@@ -1,6 +1,6 @@
 # Screen 3 — My Kinward, with Access review due
 
-> **Draft high-fidelity design — not approved for implementation.**
+> **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
 **Viewports:** 320 px narrow and enlarged-text example; 390 × 844 standard. **Source:** `01-identity-and-circle.md`, Screen 3. **Flows:** UF-01, UF-23. **Tests:** AT-001, AT-036.
 

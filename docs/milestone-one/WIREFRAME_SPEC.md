@@ -1,15 +1,15 @@
 # Kinward Milestone One Wireframe Specification
 
-> **Status:** Verified 39-screen low-fidelity planning baseline; high-fidelity package is Milestone One visual source of truth; application coding authorized (D-18)
+> **Status:** Verified 39-screen low-fidelity planning baseline; verified 39-screen high-fidelity package (GOV-007 Closed — PASS); application coding authorized (D-18)
 > **Version:** 0.2
-> **Last updated:** 2026-07-17
-> **Governing decisions:** D-1 through D-18; `MILESTONE_ONE_DECISIONS.md`; `MILESTONE_ONE_READINESS.md`
+> **Last updated:** 2026-07-20
+> **Governing decisions:** D-1 through D-18; `MILESTONE_ONE_DECISIONS.md`; `MILESTONE_ONE_READINESS.md`; GOV-007 Closed — PASS
 
 ## Scope
 
 These mobile-first wireframe specifications cover only the approved non-medical Milestone One foundation. They intentionally exclude check-ins, symptoms, treatment, medication, diet, movement, medical alerts, legal-document validation, and real family information.
 
-A written wireframe specification, verified 39-screen low-fidelity visual planning baseline, and verified thirty-nine-screen high-fidelity design package exist. D-18 authorizes application implementation of matching Milestone One screens. Medical features, document uploads, real-family beta activity, production deployment, and public release remain unauthorized. Gate B, Gate C, and Gate D remain in force for later stages.
+A written wireframe specification, verified 39-screen low-fidelity visual planning baseline, and verified thirty-nine-screen high-fidelity design package exist. D-18 authorizes application implementation of matching Milestone One screens within foundation scope. Medical features, document uploads, real-family beta activity, production deployment, and public release remain unauthorized. Gate B, Gate C, and Gate D remain in force for later stages.
 
 The visual planning set is indexed in `visual-wireframes/WIREFRAME_INDEX.md`.
 
@@ -413,4 +413,4 @@ Planning note: Phone-based authentication and invitation delivery are deferred a
 - Every flow supports phone use, keyboard use, screen readers, text resizing, high contrast, and reduced motion.
 - Kinward's approved product baseline is at least 48 × 48 CSS pixels for every interactive target, including where an external standard permits a smaller target.
 - Every screen preserves text labels in addition to color or icons, visible focus, screen-reader announcements, 200% primary-content reflow without horizontal scrolling, error summaries with field associations, reduced-motion-safe loading feedback, and one clear primary action.
-- The canonical visual-planning baseline contains 39 low-fidelity planning screens across 9 flow files and is verified for advancement into high-fidelity design. High-fidelity design is authorized by the product owner for design only; outputs remain draft until reviewed. Application coding is not authorized, and no final interface design or implemented application interface exists.
+- The canonical visual-planning baseline contains 39 low-fidelity planning screens across 9 flow files and is verified for advancement into high-fidelity design. The high-fidelity package contains thirty-nine verified screen specifications (GOV-007 Closed — PASS). Application coding is authorized under D-18 / GOV-006 within the non-medical foundation. Medical features, uploads, real-family beta, production deployment, and public release remain unauthorized.

@@ -1,6 +1,6 @@
 # Screen 1 — Welcome and verified-email sign-in
 
-> **Draft high-fidelity design — not approved for implementation.**
+> **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
 **Viewport:** 390 × 844 mobile. **Source:** `../visual-wireframes/01-identity-and-circle.md`, Screen 1. **Flow:** UF-01. **Tests:** AT-014, AT-015, AT-030.
 

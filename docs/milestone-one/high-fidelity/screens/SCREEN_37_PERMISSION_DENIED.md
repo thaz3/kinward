@@ -1,6 +1,6 @@
 # Screen 37 — Permission denied
 
-> **Draft pending final package audit — not approved for implementation.**
+> **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
 **Purpose:** Deny protected reads, writes, and audit rows without existence leakage. **Decisions:** D-1–D-5, D-14. **Low fidelity:** `07-audit-and-system-states.md`, Screen 37. **Flow/tests:** UF-21, UF-26; AT-022, AT-027, AT-044.
 

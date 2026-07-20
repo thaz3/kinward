@@ -198,7 +198,7 @@ D-7 resolves the stale routing vocabulary. The canonical role is Family Coordina
 
 D-8 through D-17 resolve OQ-01 through OQ-10. After the F-A-04 email-only invitation-binding propagation repair, the 2026-07-16 targeted read-only re-audit verified and closed them for planning purposes. D-1 through D-7 are unchanged. “Closed” does not mean implementation is complete.
 
-D-18 authorizes Milestone One application coding within the stated foundation scope and exclusions. It does not authorize medical features, document uploads, real-family beta activity, production deployment, or public release.
+D-18 authorizes Milestone One application coding within the stated foundation scope and exclusions. It does not authorize medical features, document uploads, real-family beta activity, production deployment, or public release. GOV-007 Closed — PASS (2026-07-20) confirms that the thirty-nine-screen high-fidelity design package named by D-18 is the verified Milestone One visual baseline.
 
 ## 2026-07-16 Targeted Systems Audit Record
 

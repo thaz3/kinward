@@ -1,9 +1,9 @@
 # Kinward Milestone One Readiness
 
-> **Status:** Milestone One application coding authorized (D-18); non-medical foundation only
+> **Status:** Milestone One application coding authorized (D-18); verified 39-screen high-fidelity baseline (GOV-007 Closed — PASS)
 > **Version:** 0.2
-> **Last updated:** 2026-07-17
-> **Governing decisions:** D-1 through D-18
+> **Last updated:** 2026-07-20
+> **Governing decisions:** D-1 through D-18; GOV-007 Closed — PASS
 
 ## Purpose
 
@@ -104,7 +104,7 @@ D-8 through D-17 resolve OQ-01 through OQ-10 and are **Closed — Verified by ta
 
 The `docs/milestone-one/` package contains eight planning documents: `ACCEPTANCE_TEST_PLAN.md`, `DATA_MODEL.md`, `IMPLEMENTATION_PLAN.md`, `OPEN_DESIGN_QUESTIONS.md`, `PERMISSION_MODEL.md`, `TECHNICAL_ARCHITECTURE.md`, `USER_FLOWS.md`, and `WIREFRAME_SPEC.md`.
 
-A written wireframe specification, verified 39-screen low-fidelity visual planning baseline, and verified thirty-nine-screen high-fidelity design package exist as the visual and behavioral source of truth for Milestone One implementation.
+A written wireframe specification, verified 39-screen low-fidelity visual planning baseline, and verified thirty-nine-screen high-fidelity design package exist as the visual and behavioral source of truth for Milestone One implementation. GOV-007 Closed — PASS (2026-07-20) closed the final package re-audit for the twenty-one formerly draft screens. Coding is authorized under D-18 / GOV-006.
 
 ## High-Fidelity Design Authorization
 
@@ -139,7 +139,7 @@ The high-fidelity authorization itself did not include application implementatio
 
 **Governing decision:** D-18; GOV-006
 
-**Visual source of truth:** Verified thirty-nine-screen high-fidelity design package and governing product documentation.
+**Visual source of truth:** Verified thirty-nine-screen high-fidelity design package (GOV-007 Closed — PASS) and governing product documentation.
 
 ### Authorized Scope
 

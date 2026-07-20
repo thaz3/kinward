@@ -1,6 +1,6 @@
 # Screen 34 — Empty states
 
-> **Draft pending final package audit — not approved for implementation.**
+> **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
 **Purpose:** Provide a safe next step when an authorized collection is truly empty. **Decisions:** D-1–D-3, D-14. **Low fidelity:** `07-audit-and-system-states.md`, Screen 34. **Flow/tests:** All applicable; AT-001–AT-030.
 

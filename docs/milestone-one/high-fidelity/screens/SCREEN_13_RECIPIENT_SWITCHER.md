@@ -1,6 +1,6 @@
 # Screen 13 — Care Recipient switcher
 
-> **Draft high-fidelity design — not approved for implementation.**
+> **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
 **Viewports:** 320 px narrow and enlarged-text example; 390 × 844 standard. **Source:** `02-care-recipient-ownership.md`, Screen 13. **Flows:** UF-02, UF-05. **Tests:** AT-002, AT-003.
 

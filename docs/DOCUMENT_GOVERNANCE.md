@@ -1,9 +1,9 @@
 # Kinward Document Governance
 
-> **Status:** Active document-governance policy; D-18 Milestone One coding authorized
+> **Status:** Active document-governance policy; D-18 Milestone One coding authorized; GOV-007 Closed — PASS
 > **Version:** 0.2
-> **Last updated:** 2026-07-17
-> **Governing or related decisions:** D-1 through D-18; F-01-R, F-02-R, F-17 through F-19
+> **Last updated:** 2026-07-20
+> **Governing or related decisions:** D-1 through D-18; GOV-007 Closed — PASS; F-01-R, F-02-R, F-17 through F-19
 
 ## Purpose
 
@@ -103,7 +103,7 @@ Closure records planning verification only. It does not authorize implementation
 - **Status:** High-fidelity phase authorized by product owner — design only
 - **Decision date:** 2026-07-17
 
-High-fidelity outputs remain draft until reviewed. No final interface design is approved. Application coding remains unauthorized, Milestone One remains non-medical, and Gate A, Gate B, Gate C, and Gate D restrictions remain in force.
+Historical GOV-003 note: high-fidelity outputs were draft until reviewed, and this record did not authorize coding. Coding authorization arrived later under D-18 / GOV-006. Package-verification status for the twenty-one repaired draft screens remains open under GOV-007. Milestone One remains non-medical, and Gate B, Gate C, and Gate D restrictions remain in force.
 
 ### GOV-004 — Milestone One UF-01, UF-03, and UF-04 Screen Traceability
 
@@ -139,13 +139,27 @@ High-fidelity outputs remain draft until reviewed. No final interface design is 
 - **Status:** Milestone One application coding authorized by product owner
 - **Decision date:** 2026-07-17
 
-Gate B, Gate C, and Gate D restrictions remain in force for later stages. The restricted real-family beta remains unauthorized. Secure document sharing remains outside Milestone One. GOV-005 remains open; membership-only adult invitation remains excluded without deciding future policy.
+Gate B, Gate C, and Gate D restrictions remain in force for later stages. The restricted real-family beta remains unauthorized. Secure document sharing remains outside Milestone One. GOV-005 remains open; membership-only adult invitation remains excluded without deciding future policy. GOV-007 is Closed — PASS (2026-07-20).
+
+### GOV-007 — High-Fidelity Package Verification Versus D-18 Wording
+
+- **Conflict ID:** GOV-007
+- **Documents involved:** `KINWARD_DECISION_LOG.md` D-18; GOV-006; `MILESTONE_ONE_READINESS.md`; `milestone-one/high-fidelity/HIGH_FIDELITY_INDEX.md`; `milestone-one/high-fidelity/FINAL_AUDIT_PREPARATION.md`; high-fidelity specifications for Screens 11, 12, 14–23, 25, 26, 28–30, 33, 34, 36, and 37
+- **Conflict:** D-18 and GOV-006 authorize Milestone One coding and name a “verified thirty-nine-screen high-fidelity design package,” while package inventory previously classified twenty-one screens as repaired draft pending targeted final artifact re-audit.
+- **Source-of-truth tiers:** D-18 is Tier 1 for coding authorization and authorized scope. Package verification required a targeted final artifact re-audit before inventory could match D-18 wording.
+- **Final audit:** Targeted final high-fidelity artifact re-audit of Screens 11, 12, 14–23, 25, 26, 28–30, 33, 34, 36, and 37 against consistency, completeness, accessibility presentation, permission-safety, and visual-design evidence in `FINAL_AUDIT_PREPARATION.md` and the matching G1–G3 boards/crops.
+- **Audit verdict:** **PASSED**
+- **Verified screens closed by this audit:** 11, 12, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 25, 26, 28, 29, 30, 33, 34, 36, 37 (twenty-one repaired screens). Combined with previously verified representative and Batch One screens, the complete thirty-nine-screen high-fidelity package is the verified Milestone One visual baseline.
+- **Temporary restriction:** Removed upon PASS.
+- **Owner and gate:** Kinward product owner; targeted final high-fidelity artifact re-audit.
+- **Status:** Closed — PASS
+- **Closure date:** 2026-07-20
 
 ## 2026-07-17 Full High-Fidelity Package Authorization Record
 
-- **Product-owner authorization:** The verified eleven-screen representative package, verified seven-screen Batch One package, and verified design-system/accessibility direction are the visual source of truth for completing the remaining twenty-one static Milestone One high-fidelity screens.
+- **Product-owner authorization:** The verified eleven-screen representative package, verified seven-screen Batch One package, and verified design-system/accessibility direction authorized completing the remaining twenty-one static Milestone One high-fidelity screens.
 - **Authorized output:** Static Markdown specifications, SVG review boards, PNG review evidence, traceability, and design-governance documentation for all 39 screens.
-- **Package status:** The eleven representative and seven Batch One screens retain verified status. Screens 11, 12, 14–23, 25, 26, 28–30, 33, 34, 36, and 37 are draft pending final package audit.
-- **Audit boundary:** Assembly does not mean the 21 new screens are approved or verified, and the complete package has not passed the final consistency, completeness, accessibility, permission-safety, and visual-design audit.
-- **Implementation boundary:** Historical note — this high-fidelity package authorization covered design only. Application coding is separately authorized by D-18 / GOV-006 within Milestone One foundation scope and exclusions.
-- **Open governance:** GOV-004 trace remains preserved. GOV-005 remains open and the membership-only adult invitation path remains excluded without deciding future policy.
+- **Package status (updated 2026-07-20):** All thirty-nine screens are verified. The twenty-one formerly draft screens (11, 12, 14–23, 25, 26, 28–30, 33, 34, 36, 37) passed the targeted final artifact re-audit under GOV-007.
+- **Audit boundary:** Runtime browser, device, keyboard, screen-reader, authorization, concurrency, and stale-response behavior remain implementation verification requirements; they are not claimed by this static package PASS.
+- **Implementation boundary:** Application coding is authorized by D-18 / GOV-006 within Milestone One foundation scope and exclusions. The verified thirty-nine-screen high-fidelity package is the visual source of truth.
+- **Open governance:** GOV-004 trace remains preserved. GOV-005 remains open and the membership-only adult invitation path remains excluded without deciding future policy. GOV-007 is Closed — PASS.

@@ -1,6 +1,6 @@
 # Screen 17 — Self-Managed mode
 
-> **Draft pending final package audit — not approved for implementation.**
+> **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
 **Purpose:** Confirm that an adult Care Recipient remains in direct control. **Decisions:** D-2, D-3. **Low fidelity:** `03-roles-and-management-modes.md`, Screen 17. **Flow/tests:** UF-06; AT-006.
 

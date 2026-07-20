@@ -1,6 +1,6 @@
 # Screen 21 — Delegation expiration selection
 
-> **Draft pending final package audit — not approved for implementation.**
+> **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
 **Purpose:** Choose a bounded duration or explicitly continue to the governed until-revoked choice. **Decisions:** D-4, D-5, D-16. **Low fidelity:** `04-delegation-setup.md`, Screen 21. **Flow/tests:** UF-07; AT-009, AT-010.
 

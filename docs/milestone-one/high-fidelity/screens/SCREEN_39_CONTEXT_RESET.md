@@ -1,6 +1,6 @@
 # Screen 39 — Care Recipient context reset
 
-> **Draft high-fidelity design — not approved for implementation.**
+> **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
 **Viewports:** 320 px narrow and enlarged-text example; 390 × 844 standard. **Source:** `09-care-recipient-context-reset.md`, Screen 39. **Flow:** UF-25. **Test:** AT-041.
 

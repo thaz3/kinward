@@ -1,6 +1,6 @@
 # Screen 29 — Backup activation / fresh verification
 
-> **Draft pending final package audit — not approved for implementation.**
+> **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
 **Purpose:** Show the governed activation requirements and the compound-state dead end without granting authority. **Decisions:** D-6, D-7, D-15. **Low fidelity:** `06-minor-backup-and-continuity.md`, Screen 29. **Flow/tests:** UF-18, UF-22; AT-019, AT-032, AT-042, AT-044.
 
