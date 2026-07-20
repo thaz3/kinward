@@ -10,6 +10,7 @@ Thumbs.db
 # Dependencies and generated application output
 node_modules/
 .next/
+*.tsbuildinfo
 out/
 dist/
 build/

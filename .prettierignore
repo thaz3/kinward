@@ -1,0 +1,8 @@
+.next
+coverage
+node_modules
+package-lock.json
+docs
+AGENTS.md
+README.md
+docs/milestone-one/high-fidelity/previews

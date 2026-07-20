@@ -1,0 +1,49 @@
+{
+  "name": "kinward",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:db": "node tests/database/run-local.mjs",
+    "test:db:vitest": "vitest run --config vitest.database.config.ts",
+    "db:start": "npx --yes supabase@2.109.1 start",
+    "db:reset": "npx --yes supabase@2.109.1 db reset",
+    "db:status": "npx --yes supabase@2.109.1 status -o env",
+    "db:stop": "npx --yes supabase@2.109.1 stop",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.12.3",
+    "@supabase/supabase-js": "^2.110.7",
+    "next": "16.2.10",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "axe-core": "^4.11.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "16.2.10",
+    "jsdom": "^26.0.0",
+    "postgres": "^3.4.7",
+    "prettier": "^3.0.0",
+    "typescript": "^5.9.3",
+    "vitest": "4.1.10"
+  }
+}

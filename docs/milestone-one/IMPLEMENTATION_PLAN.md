@@ -37,11 +37,11 @@ This plan sequences Milestone One implementation slices. D-18 authorizes applica
 
 - **Objective:** Support multiple Circles per user and role-based Circle control.
 - **Prerequisites:** Slices 1–2 and Circle RLS proof.
-- **Governing documents:** Milestone decisions 1 and 10; `USER_FLOWS.md` UF-01, UF-02, UF-19–20.
+- **Governing documents:** Milestone decisions 1 and 10; `USER_FLOWS.md` UF-01 and UF-19–20. UF-02 is the invitation-based second-Circle join path and begins in Slice 4, not Slice 3.
 - **Screens:** My Kinward, Create Circle, Circle overview, Circle switcher in shell.
 - **Data entities:** Family Circles and Circle memberships.
 - **Authorization rules:** Creator becomes first Circle Head through assignment; creator metadata is not permanent authority.
-- **Tests:** AT-001, AT-002, and AT-021.
+- **Tests:** AT-001 and AT-021. Slice 3 proves only the AT-002 authority boundary that Circle Head status grants no Care Recipient access; full AT-002 requires Care Recipient records and remains assigned to Slice 5.
 - **Completion criteria:** One account can create and switch Circles with no cross-Circle state or data leakage.
 - **Audit checkpoint:** Circle, membership, and first Circle Head events commit atomically.
 

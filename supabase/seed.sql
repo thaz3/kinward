@@ -1,0 +1,2 @@
+-- Intentionally empty. Executable tests create and remove obviously synthetic fixtures.
+-- Real-family, patient, beta, production, and preview data are prohibited here.
