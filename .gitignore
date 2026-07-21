@@ -43,6 +43,7 @@ temp/
 *.swo
 *~
 .cache/
+kinward-synthetic-invitation-mailbox/
 
 # Editor and IDE files
 .idea/

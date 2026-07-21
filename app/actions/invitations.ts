@@ -5,13 +5,15 @@ import { requireAuthenticatedAdult } from "@/lib/auth/session";
 import { circleIdSchema, getAuthorizedCircle } from "@/lib/circles";
 import {
   generateInvitationToken,
-  invitationDeliveryMarker,
   invitationIdSchema,
   invitationTokenSchema,
   invitedEmailSchema,
   hashInvitationToken,
 } from "@/lib/invitations";
-import { deliverInvitationSynthetically } from "@/lib/invitations/delivery";
+import {
+  deliverInvitationSynthetically,
+  findSyntheticInvitationRecipient,
+} from "@/lib/invitations/delivery";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
 export type InvitationActionState = {
@@ -146,6 +148,15 @@ export async function resendInvitation(formData: FormData) {
     redirect(`/circles/${circle.id}/invitations/${invitationId.data}?error=1`);
   }
 
+  const invitedEmail = await findSyntheticInvitationRecipient(
+    invitationId.data,
+  );
+  if (!invitedEmail) {
+    redirect(
+      `/circles/${circle.id}/invitations/${invitationId.data}?delivery=pending`,
+    );
+  }
+
   const { token, digest } = generateInvitationToken();
   const result = await supabase.rpc("resend_circle_invitation", {
     p_invitation_id: invitationId.data,
@@ -156,15 +167,17 @@ export async function resendInvitation(formData: FormData) {
     redirect(`/circles/${circle.id}/invitations/${invitationId.data}?error=1`);
   }
   const newId = invitationIdSchema.parse(result.data);
-  // Plaintext destination email is not retained. Resend records a synthetic capture
-  // for the new token using an approved example domain only.
-  await supabase.rpc("capture_invitation_delivery", {
-    p_invitation_id: newId,
-    p_destination_domain: "example.test",
-    p_delivery_marker: invitationDeliveryMarker(token),
-    p_correlation_id: key.data,
+  const delivery = await deliverInvitationSynthetically({
+    supabase,
+    invitationId: newId,
+    invitedEmail,
+    token,
   });
-  redirect(`/circles/${circle.id}/invitations/${newId}?resent=1`);
+  redirect(
+    `/circles/${circle.id}/invitations/${newId}?resent=1${
+      delivery.status === "captured" ? "" : "&delivery=pending"
+    }`,
+  );
 }
 
 export async function acceptInvitation(formData: FormData) {

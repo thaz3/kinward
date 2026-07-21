@@ -21,7 +21,10 @@ export default function RootLayout({
 }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      {/* Browser writing assistants can add attributes to body before React
+          hydrates. Those extension-owned attributes are outside Kinward's
+          render tree and should not trigger the development error overlay. */}
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }

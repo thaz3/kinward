@@ -182,6 +182,15 @@ Product-owner decisions arising from the Kinward planning audit. Each status rec
 - **Decision date:** 2026-07-17
 - **Status:** Approved — Milestone One application coding authorized
 
+## D-19 — Local Synthetic Invitation Delivery Sink
+
+- **Decision ID:** D-19
+- **Question requiring approval:** May local development and automated tests capture complete token-bearing invitation messages so invitation acceptance can be exercised without real outbound email?
+- **Approved decision:** A local-only synthetic invitation delivery sink is approved as a prerequisite to Slice 5. It may capture complete messages only for reserved synthetic `example.test` and `example.com` recipients. Plaintext tokens and invitation URLs exist only in the isolated disposable mailbox, never in Kinward domain tables, application logs, audit events, source control, or test output. The sink has no outbound transport, is explicitly enabled, is restricted to loopback application origins and operating-system temporary storage, and is unavailable in production and public hosted previews. Test-environment reset clears the mailbox.
+- **Explicit exclusions:** Real recipient addresses, real outbound email, production enablement, public-preview exposure, and any expansion of Milestone One scope remain unauthorized.
+- **Decision date:** 2026-07-21
+- **Status:** Approved — implemented as Slice 5 prerequisite
+
 ## Propagation Record
 
 These decisions are approved in this log. The corresponding revisions below were applied on 2026-07-16 and were verified by the applicable targeted read-only systems audits under F-01-R, F-02-R, F-17, F-18, F-19, and F-A-04:

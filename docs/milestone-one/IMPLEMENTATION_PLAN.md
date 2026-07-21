@@ -60,7 +60,7 @@ This plan sequences Milestone One implementation slices. D-18 authorizes applica
 ## Slice 5 — Care Recipients
 
 - **Objective:** Add multiple separately owned adult Care Recipient contexts per Circle.
-- **Prerequisites:** Circle membership model, D-9 dedicated ownership invitation and consent flow, and recipient RLS proof.
+- **Prerequisites:** Circle membership model, D-9 dedicated ownership invitation and consent flow, recipient RLS proof, and the D-19 local-only synthetic invitation delivery sink.
 - **Governing documents:** D-2; milestone decisions 9 and 11; `USER_FLOWS.md` UF-03 and UF-15.
 - **Screens:** Add Care Recipient, pending owner acceptance, Care Recipient switcher.
 - **Data entities:** Pending and active Care Recipients, ownership invitations, ownership acceptances, consent history, and membership.

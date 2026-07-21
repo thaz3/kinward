@@ -11,7 +11,8 @@ function isSafeInvitationPath(value: string): boolean {
   }
   return (
     /^\/invitations\/accept\/[A-Za-z0-9_-]+$/.test(value) ||
-    /^\/invitations\/mine\/[0-9a-f-]{36}$/i.test(value)
+    /^\/invitations\/mine\/[0-9a-f-]{36}$/i.test(value) ||
+    /^\/ownership\/accept\/[A-Za-z0-9_-]+$/.test(value)
   );
 }
 

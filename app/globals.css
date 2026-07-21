@@ -640,6 +640,27 @@ nav a {
   color: var(--ink-700);
   font-weight: 400;
 }
+.radio-card-list {
+  display: grid;
+  gap: 0.75rem;
+}
+.radio-card {
+  display: block;
+  border: 2px solid var(--mineral-300);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  min-height: 3rem;
+}
+.radio-card:has(input:checked) {
+  border-color: var(--evergreen-700);
+  background: var(--evergreen-100);
+}
+.radio-card-help {
+  display: block;
+  color: var(--ink-700);
+  font-weight: 400;
+  margin-top: 0.25rem;
+}
 
 @media (prefers-reduced-motion: reduce) {
   *,
