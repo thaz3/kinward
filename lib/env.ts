@@ -7,6 +7,7 @@ const publicEnvironmentSchema = z.object({
 
 const serverEnvironmentSchema = publicEnvironmentSchema.extend({
   KINWARD_AUTH_COOKIE_SECRET: z.string().min(32),
+  KINWARD_APP_ORIGIN: z.url(),
 });
 
 export type PublicEnvironment = z.infer<typeof publicEnvironmentSchema>;

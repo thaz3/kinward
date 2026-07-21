@@ -41,6 +41,7 @@ describe("Slice 2 authentication actions", () => {
       "sb_publishable_synthetic_test_key";
     process.env.KINWARD_AUTH_COOKIE_SECRET =
       "synthetic-test-only-cookie-secret-0001";
+    process.env.KINWARD_APP_ORIGIN = "https://kinward.example.test";
   });
 
   it("validates email before contacting the provider", async () => {
@@ -64,11 +65,38 @@ describe("Slice 2 authentication actions", () => {
     );
     expect(auth.signInWithOtp).toHaveBeenCalledWith({
       email: "avery@example.test",
-      options: { shouldCreateUser: true },
+      options: {
+        shouldCreateUser: true,
+        emailRedirectTo:
+          "https://kinward.example.test/auth/confirm?next=%2Fmy-kinward",
+      },
     });
     const cookieCall = cookieStore.set.mock.calls[0];
     expect(cookieCall[1]).not.toContain("avery@example.test");
     expect(cookieCall[2]).toMatchObject({ httpOnly: true, sameSite: "lax" });
+  });
+
+  it("categorizes missing local configuration as service unavailable", async () => {
+    delete process.env.KINWARD_AUTH_COOKIE_SECRET;
+    const { requestEmailCode } = await import("@/app/actions/auth");
+    const form = new FormData();
+    form.set("email", "new.account@example.test");
+    const result = await requestEmailCode({ status: "idle" }, form);
+    expect(result.fieldErrors).toBeUndefined();
+    expect(result.message).toMatch(/authentication service is unavailable/i);
+    expect(auth.signInWithOtp).not.toHaveBeenCalled();
+  });
+
+  it("categorizes provider delivery failures without blaming fields", async () => {
+    auth.signInWithOtp.mockResolvedValue({ error: new Error("offline") });
+    const { requestEmailCode } = await import("@/app/actions/auth");
+    const form = new FormData();
+    form.set("email", "new.account@example.test");
+    const result = await requestEmailCode({ status: "idle" }, form);
+    expect(result.fieldErrors).toBeUndefined();
+    expect(result.message).toMatch(
+      /verification message could not be prepared/i,
+    );
   });
 
   it("rejects an invalid or expired verification without creating a session", async () => {

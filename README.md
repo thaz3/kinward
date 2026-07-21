@@ -11,6 +11,28 @@ Kinward is a private family care-coordination application created by First & 8th
 
 Kinward is in Milestone One application implementation. Coding is limited to the approved non-medical foundation under D-18. Local and hosted preview environments use synthetic data only.
 
+## Local synthetic account access
+
+Use only reserved `example.test` or `example.com` addresses. The local mail
+capture service does not send real email.
+
+1. Run `npm run local:setup`. This starts local Supabase and Mailpit and writes
+   the local public URL, publishable key, callback origin, and a server-only
+   cookie secret to the gitignored `.env.local` file.
+2. For a clean synthetic database, run `npm run db:reset`, then run
+   `npm run local:setup` again.
+3. Run `npm run dev` and open `http://127.0.0.1:3000/sign-in`.
+4. Enter a new reserved address such as `product.owner@example.test`.
+5. Open Mailpit at `http://127.0.0.1:54324` and select the verification
+   message. Use its six-digit code or open its one-time verification link.
+6. Confirm that My Kinward shows the zero-Circle state. Authentication alone
+   creates no Circle membership, role, Care Recipient access, or authority.
+7. Use **Sign out**, then repeat steps 3–5 with the same address to sign in
+   again.
+
+If the application was already running when `.env.local` was created, restart
+`npm run dev` so the server loads the local authentication configuration.
+
 The verified thirty-nine-screen high-fidelity package (GOV-007 Closed — PASS) is the visual source of truth for the Milestone One foundation screens. Patient and Caregiver Check-Ins, medical features, document uploads, real-family beta activity, production deployment, and public release remain unauthorized.
 
 ## Product Promise

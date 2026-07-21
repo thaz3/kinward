@@ -25,6 +25,14 @@ export default async function SignInPage({
           <p>Your session is unavailable or has expired. Nothing changed.</p>
         </div>
       )}
+      {params.reason === "verification" && (
+        <div className="neutral-alert" role="status">
+          <h2>Verification link unavailable</h2>
+          <p>
+            The verification link is invalid or has expired. Request a new one.
+          </p>
+        </div>
+      )}
       {params.reason === "invitation" && (
         <div className="neutral-alert" role="status">
           <h2>Sign in to continue</h2>

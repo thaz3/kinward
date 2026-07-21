@@ -27,7 +27,8 @@ enabled = false
 enabled = false
 
 [local_smtp]
-enabled = false
+enabled = true
+port = 54324
 
 [storage]
 enabled = false
@@ -35,7 +36,10 @@ enabled = false
 [auth]
 enabled = true
 site_url = "http://127.0.0.1:3000"
-additional_redirect_urls = ["http://127.0.0.1:3000"]
+additional_redirect_urls = [
+  "http://127.0.0.1:3000/auth/confirm",
+  "http://localhost:3000/auth/confirm"
+]
 enable_signup = true
 enable_anonymous_sign_ins = false
 
@@ -45,6 +49,10 @@ enable_confirmations = false
 max_frequency = "1s"
 otp_length = 6
 otp_expiry = 3600
+
+[auth.email.template.magic_link]
+subject = "Your Kinward verification"
+content_path = "./supabase/templates/magic-link.html"
 
 [analytics]
 enabled = false

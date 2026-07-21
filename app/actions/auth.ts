@@ -16,6 +16,7 @@ import {
 } from "@/lib/auth/security-log";
 import { safeAuthRedirect } from "@/lib/auth/redirects";
 import { toAuthenticatedAdult } from "@/lib/auth/account";
+import { getPublicEnvironment, getServerEnvironment } from "@/lib/env";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
 export type AuthActionState = Readonly<{
@@ -32,11 +33,18 @@ const codeSchema = z
   .trim()
   .regex(/^\d{6}$/);
 
-function genericUnavailable(): AuthActionState {
+function authenticationUnavailable(): AuthActionState {
   return {
     status: "error",
     message:
-      "We couldn’t complete this request. Check your information and try again.",
+      "The local authentication service is unavailable. Try again after it is started.",
+  };
+}
+
+function verificationMessageUnavailable(): AuthActionState {
+  return {
+    status: "error",
+    message: "A verification message could not be prepared. Try again.",
   };
 }
 
@@ -51,18 +59,30 @@ export async function requestEmailCode(
       message: "Check the highlighted fields.",
       fieldErrors: { email: "Enter a valid email address." },
     };
+  const publicEnvironment = getPublicEnvironment();
+  const serverEnvironment = getServerEnvironment();
   const supabase = await createSupabaseServerClient();
   const sealedEmail = sealPendingEmail(parsed.data);
-  if (!supabase || !sealedEmail) return genericUnavailable();
+  if (!publicEnvironment || !serverEnvironment || !supabase || !sealedEmail)
+    return authenticationUnavailable();
+  const next = safeAuthRedirect(formData.get("next")?.toString());
+  const callback = new URL(
+    "/auth/confirm",
+    serverEnvironment.KINWARD_APP_ORIGIN,
+  );
+  callback.searchParams.set("next", next);
   const { error } = await supabase.auth.signInWithOtp({
     email: parsed.data,
-    options: { shouldCreateUser: true },
+    options: {
+      shouldCreateUser: true,
+      emailRedirectTo: callback.toString(),
+    },
   });
   if (error) {
     writeAuthSecurityLog(
       createAuthSecurityLog({ event: "auth.failed", result: "denied" }),
     );
-    return genericUnavailable();
+    return verificationMessageUnavailable();
   }
   (await cookies()).set(PENDING_EMAIL_COOKIE, sealedEmail, {
     httpOnly: true,
@@ -74,7 +94,6 @@ export async function requestEmailCode(
   writeAuthSecurityLog(
     createAuthSecurityLog({ event: "auth.requested", result: "success" }),
   );
-  const next = safeAuthRedirect(formData.get("next")?.toString());
   redirect(
     next === "/my-kinward"
       ? "/verify"
@@ -96,7 +115,7 @@ export async function verifyEmailCode(
   const cookieStore = await cookies();
   const email = openPendingEmail(cookieStore.get(PENDING_EMAIL_COOKIE)?.value);
   const supabase = await createSupabaseServerClient();
-  if (!email || !supabase) return genericUnavailable();
+  if (!email || !supabase) return authenticationUnavailable();
   const { data, error } = await supabase.auth.verifyOtp({
     email,
     token: parsed.data,
@@ -128,12 +147,22 @@ export async function resendEmailCode(): Promise<AuthActionState> {
   const cookieStore = await cookies();
   const email = openPendingEmail(cookieStore.get(PENDING_EMAIL_COOKIE)?.value);
   const supabase = await createSupabaseServerClient();
-  if (!email || !supabase) return genericUnavailable();
+  const serverEnvironment = getServerEnvironment();
+  if (!email || !supabase || !serverEnvironment)
+    return authenticationUnavailable();
+  const callback = new URL(
+    "/auth/confirm",
+    serverEnvironment.KINWARD_APP_ORIGIN,
+  );
+  callback.searchParams.set("next", "/my-kinward");
   const { error } = await supabase.auth.signInWithOtp({
     email,
-    options: { shouldCreateUser: true },
+    options: {
+      shouldCreateUser: true,
+      emailRedirectTo: callback.toString(),
+    },
   });
-  if (error) return genericUnavailable();
+  if (error) return verificationMessageUnavailable();
   return {
     status: "success",
     message: "If the address can receive a code, a new message is on its way.",

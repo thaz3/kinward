@@ -17,6 +17,7 @@
     "test:db": "node tests/database/run-local.mjs",
     "test:db:vitest": "vitest run --config vitest.database.config.ts",
     "db:start": "npx --yes supabase@2.109.1 start",
+    "local:setup": "npm run db:start && node scripts/configure-local-auth.mjs",
     "mailbox:clear": "node scripts/reset-synthetic-mailbox.mjs",
     "db:reset": "npm run mailbox:clear && npx --yes supabase@2.109.1 db reset",
     "db:status": "npx --yes supabase@2.109.1 status -o env",

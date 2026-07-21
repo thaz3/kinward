@@ -25,7 +25,11 @@ export function SignInForm({ nextPath }: { nextPath?: string }) {
           role="alert"
           tabIndex={-1}
         >
-          <h2>Check the highlighted fields</h2>
+          <h2>
+            {emailError
+              ? "Check the highlighted fields"
+              : "Sign-in unavailable"}
+          </h2>
           <p>{state.message}</p>
           {emailError && <a href="#email">Email — {emailError}</a>}
         </div>
