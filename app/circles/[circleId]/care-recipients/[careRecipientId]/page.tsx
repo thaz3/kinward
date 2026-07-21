@@ -93,6 +93,14 @@ export default async function CareRecipientPage({
           <p>
             <Link
               className="button secondary"
+              href={`/circles/${circle.id}/care-recipients/${recipient.id}/roles`}
+            >
+              Manage Care Recipient roles
+            </Link>
+          </p>
+          <p>
+            <Link
+              className="button secondary"
               href={`/circles/${circle.id}/switch-recipient`}
             >
               Switch Care Recipient context
