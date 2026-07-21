@@ -1,4 +1,5 @@
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
+import { createHash, randomBytes } from "node:crypto";
 import postgres from "postgres";
 
 const url = process.env.KINWARD_TEST_SUPABASE_URL;
@@ -32,6 +33,22 @@ export type SyntheticUser = {
   email: string;
   client: SupabaseClient;
 };
+
+export function hashInvitationToken(token: string): string {
+  return createHash("sha256").update(token, "utf8").digest("hex");
+}
+
+export function generateInvitationToken(): {
+  token: string;
+  digest: string;
+} {
+  const token = randomBytes(32).toString("base64url");
+  return { token, digest: hashInvitationToken(token) };
+}
+
+export function invitationDeliveryMarker(token: string): string {
+  return createHash("sha256").update(`delivery:${token}`, "utf8").digest("hex");
+}
 
 export async function createSyntheticUser(
   label: string,

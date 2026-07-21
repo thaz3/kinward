@@ -5,7 +5,7 @@ import { requestEmailCode, type AuthActionState } from "@/app/actions/auth";
 
 const INITIAL_AUTH_STATE: AuthActionState = { status: "idle" };
 
-export function SignInForm() {
+export function SignInForm({ nextPath }: { nextPath?: string }) {
   const [state, action, pending] = useActionState(
     requestEmailCode,
     INITIAL_AUTH_STATE,
@@ -17,6 +17,7 @@ export function SignInForm() {
   const emailError = state.fieldErrors?.email;
   return (
     <form action={action} className="form-stack" noValidate>
+      {nextPath ? <input type="hidden" name="next" value={nextPath} /> : null}
       {state.status === "error" && (
         <div
           ref={summaryRef}

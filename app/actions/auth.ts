@@ -74,7 +74,12 @@ export async function requestEmailCode(
   writeAuthSecurityLog(
     createAuthSecurityLog({ event: "auth.requested", result: "success" }),
   );
-  redirect("/verify");
+  const next = safeAuthRedirect(formData.get("next")?.toString());
+  redirect(
+    next === "/my-kinward"
+      ? "/verify"
+      : `/verify?next=${encodeURIComponent(next)}`,
+  );
 }
 
 export async function verifyEmailCode(

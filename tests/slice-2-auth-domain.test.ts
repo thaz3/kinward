@@ -51,6 +51,9 @@ describe("Slice 2 verified adult identity", () => {
 
   it("accepts only allowlisted post-auth redirects", () => {
     expect(safeAuthRedirect("/account")).toBe("/account");
+    expect(safeAuthRedirect("/invitations/accept/abc_def-123")).toBe(
+      "/invitations/accept/abc_def-123",
+    );
     expect(safeAuthRedirect("https://malicious.example/collect")).toBe(
       "/my-kinward",
     );

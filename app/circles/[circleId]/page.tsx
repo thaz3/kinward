@@ -48,11 +48,33 @@ export default async function CircleOverviewPage({
           access.
         </p>
       </section>
+      {circle.isCircleHead ? (
+        <section className="content-card" aria-labelledby="invite-heading">
+          <h2 id="invite-heading">Invitations</h2>
+          <p>
+            Invite an adult with a verified email. No access begins before
+            acceptance.
+          </p>
+          <p>
+            <a className="button primary" href={`/circles/${circle.id}/invite`}>
+              Invite an adult member
+            </a>
+          </p>
+          <p>
+            <a
+              className="button secondary"
+              href={`/circles/${circle.id}/invitations`}
+            >
+              Review pending invitations
+            </a>
+          </p>
+        </section>
+      ) : null}
       <section className="content-card" aria-labelledby="slice-boundary">
         <h2 id="slice-boundary">Circle foundation</h2>
         <p>
-          Invitations, Care Recipients, and other Circle features are not
-          available in this implementation slice.
+          Care Recipients and later Circle features are not available in this
+          implementation slice.
         </p>
       </section>
     </AppShell>

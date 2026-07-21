@@ -10,7 +10,13 @@ import {
 
 const INITIAL_AUTH_STATE: AuthActionState = { status: "idle" };
 
-export function VerificationForm({ maskedEmail }: { maskedEmail: string }) {
+export function VerificationForm({
+  maskedEmail,
+  nextPath,
+}: {
+  maskedEmail: string;
+  nextPath?: string;
+}) {
   const [verifyState, verifyAction, verifying] = useActionState(
     verifyEmailCode,
     INITIAL_AUTH_STATE,
@@ -41,6 +47,7 @@ export function VerificationForm({ maskedEmail }: { maskedEmail: string }) {
         </div>
       )}
       <form action={verifyAction} className="form-stack" noValidate>
+        {nextPath ? <input type="hidden" name="next" value={nextPath} /> : null}
         <div className="field-group">
           <label htmlFor="code">Verification code</label>
           <input

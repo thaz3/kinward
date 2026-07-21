@@ -4,7 +4,11 @@ import { getPublicEnvironment } from "@/lib/env";
 
 export async function refreshSupabaseSession(request: NextRequest) {
   const environment = getPublicEnvironment();
-  if (!environment) return NextResponse.next({ request });
+  if (!environment) {
+    const response = NextResponse.next({ request });
+    response.headers.set("Cache-Control", "private, no-store");
+    return response;
+  }
 
   let response = NextResponse.next({ request });
   const supabase = createServerClient(
