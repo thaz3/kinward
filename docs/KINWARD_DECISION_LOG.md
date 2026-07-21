@@ -1,9 +1,9 @@
 # Kinward Decision Log
 
-> **Status:** Approved product-owner decisions; D-8 through D-17 closed and verified; D-18 Milestone One coding authorized
+> **Status:** Approved product-owner decisions; D-8 through D-17 closed and verified; D-18 Milestone One coding authorized; D-20 Circle Head acceptance boundary approved
 > **Version:** 0.2
-> **Last updated:** 2026-07-17
-> **Governing or related decisions:** D-1 through D-18
+> **Last updated:** 2026-07-21
+> **Governing or related decisions:** D-1 through D-20
 
 Product-owner decisions arising from the Kinward planning audit. Each status records the current disposition. Professional medical, legal, privacy, security, accessibility, and child-safety review remains required at the stages stated below.
 
@@ -190,6 +190,16 @@ Product-owner decisions arising from the Kinward planning audit. Each status rec
 - **Explicit exclusions:** Real recipient addresses, real outbound email, production enablement, public-preview exposure, and any expansion of Milestone One scope remain unauthorized.
 - **Decision date:** 2026-07-21
 - **Status:** Approved — implemented as Slice 5 prerequisite
+
+## D-20 — Circle Head Assignment Consent Boundary
+
+- **Decision ID:** D-20
+- **Question requiring approval:** May Slice 6 directly assign or promote a new Circle Head, or reuse an existing membership or invitation acceptance as Circle Head consent?
+- **Approved decision:** Slice 6 must not directly assign or promote a new Circle Head. New Circle Head assignment requires a separately governed verified-adult proposal-and-acceptance workflow. Circle membership is not Circle Head consent, Family Coordinator acceptance is not Circle Head consent, and the ordinary Circle invitation flow cannot substitute for Circle Head acceptance. Slice 6 may display and protect existing Circle Head assignments. The final active Circle Head cannot be suspended or removed. No replacement workflow may create a new Head without approved verified acceptance.
+- **Relationship to D-14:** This decision preserves D-14's continuity rule and clarifies the prerequisite acceptance mechanism; it does not alter D-14's original meaning or create a replacement flow.
+- **Documents affected:** `milestone-one/IMPLEMENTATION_PLAN.md`; `milestone-one/high-fidelity/screens/SCREEN_15_CIRCLE_ROLE_ASSIGNMENT.md`; Slice 6 implementation and tests
+- **Decision date:** 2026-07-21
+- **Status:** Approved — governs Slice 6 Circle Head boundaries
 
 ## Propagation Record
 

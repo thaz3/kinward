@@ -3,7 +3,7 @@
 > **Status:** Milestone One application coding authorized (D-18); follow slices in order; verified 39-screen high-fidelity baseline (GOV-007 Closed — PASS)
 > **Version:** 0.2
 > **Last updated:** 2026-07-20
-> **Governing decisions:** D-1 through D-18; `MILESTONE_ONE_READINESS.md`; GOV-007 Closed — PASS; all files in `docs/milestone-one/`
+> **Governing decisions:** D-1 through D-20; `MILESTONE_ONE_READINESS.md`; GOV-007 Closed — PASS; all files in `docs/milestone-one/`
 
 ## Planning Boundary
 
@@ -73,11 +73,12 @@ This plan sequences Milestone One implementation slices. D-18 authorizes applica
 
 - **Objective:** Represent canonical Circle-wide role assignments and lifecycle.
 - **Prerequisites:** Membership and role/permission catalog.
-- **Governing documents:** F-02-R closure; milestone decisions 1, 12, and 13; `FAMILY_ROLES.md`.
+- **Governing documents:** F-02-R closure; D-14 and D-20; milestone decisions 1, 12, and 13; `FAMILY_ROLES.md`.
 - **Screens:** Assign Circle-wide roles and roles review.
 - **Data entities:** Circle role assignments, role definitions, role permissions, restrictions.
 - **Authorization rules:** Circle Head is canonical active authority; Family Coordinator is distinct; no generic administrator or Care Recipient implication.
-- **Tests:** Circle-wide portions of AT-004, AT-005, and AT-017.
+- **Tests:** Circle-wide portions of AT-004, AT-005, and AT-017 only where applicable. Care Lead and all recipient-specific behavior remain deferred to Slice 7; Slice 6 does not claim full recipient-specific acceptance-test coverage.
+- **Circle Head boundary:** Display and protect existing assignments only. New Circle Head acceptance and promotion are not implemented. Circle membership, Family Coordinator acceptance, and the ordinary Circle invitation flow are not Circle Head consent.
 - **Completion criteria:** Multiple active assignments union only within Circle scope and remove cleanly.
 - **Audit checkpoint:** Assignment, suspension, and removal events preserve actor and prior/next states.
 

@@ -3,6 +3,7 @@ import { AppShell } from "@/components/app-shell";
 import { PermissionDeniedState } from "@/components/system-states";
 import { requireAuthenticatedAdult } from "@/lib/auth/session";
 import { getAuthorizedCircle } from "@/lib/circles";
+import { canViewCircleRoles } from "@/lib/circle-roles";
 import {
   listOwnedCareRecipients,
   listPendingCareRecipients,
@@ -37,6 +38,7 @@ export default async function CircleOverviewPage({
   const pending = circle.isCircleHead
     ? ((await listPendingCareRecipients(account.userId, circle.id)) ?? [])
     : [];
+  const mayViewCircleRoles = await canViewCircleRoles(circle.id);
 
   return (
     <AppShell
@@ -48,6 +50,20 @@ export default async function CircleOverviewPage({
         destinations: [{ href: `/circles/${circle.id}`, label: "Overview" }],
       }}
     >
+      {mayViewCircleRoles ? (
+        <section className="content-card" aria-labelledby="roles-heading">
+          <h2 id="roles-heading">Members and Circle-wide roles</h2>
+          <p>
+            Review active members and approved Circle-wide role assignments.
+          </p>
+          <Link
+            className="button secondary"
+            href={`/circles/${circle.id}/members`}
+          >
+            Review members and roles
+          </Link>
+        </section>
+      ) : null}
       <section className="content-card" aria-labelledby="membership-heading">
         <h2 id="membership-heading">Your Circle membership</h2>
         <p>

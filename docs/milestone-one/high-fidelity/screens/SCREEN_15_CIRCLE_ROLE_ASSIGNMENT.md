@@ -2,7 +2,7 @@
 
 > **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
-**Purpose:** Assign an approved Circle-wide responsibility while preserving its exact boundary. **Decisions:** D-1, D-2, D-10, D-14. **Low fidelity:** `03-roles-and-management-modes.md`, Screen 15. **Flow/tests:** UF-05; AT-004, AT-017, AT-025.
+**Purpose:** Assign an approved Circle-wide responsibility while preserving its exact boundary. **Decisions:** D-1, D-2, D-10, D-14, D-20. **Low fidelity:** `03-roles-and-management-modes.md`, Screen 15. **Flow/tests:** the older UF-05 reference does not authorize reuse of the ordinary Circle invitation flow for Circle Head or role-management acceptance; Circle-wide portions of AT-004, AT-005, and AT-017 apply. Care Lead and recipient-specific behavior remain deferred to Slice 7.
 
 ## Audience, entry, and context
 
