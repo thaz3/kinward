@@ -194,20 +194,25 @@ describe("Slice 8 management mode security", () => {
         mom_mode: string;
         dad_active: number;
         mom_active: number;
-        grant_tables: number;
+        dad_grants: number;
+        mom_grants: number;
       }[]
     >`select
       (select mode_code from public.care_management_modes where care_recipient_id = ${dadId} and status = 'active') dad_mode,
       (select mode_code from public.care_management_modes where care_recipient_id = ${momId} and status = 'active') mom_mode,
       (select count(*)::int from public.care_management_modes where care_recipient_id = ${dadId} and status = 'active') dad_active,
       (select count(*)::int from public.care_management_modes where care_recipient_id = ${momId} and status = 'active') mom_active,
-      (select count(*)::int from information_schema.tables where table_schema = 'public' and table_name in ('shared_management_grants', 'delegated_management_grants')) grant_tables`;
+      (select count(*)::int from public.shared_management_grants where care_recipient_id = ${dadId})
+        + (select count(*)::int from public.delegated_management_grants where care_recipient_id = ${dadId}) dad_grants,
+      (select count(*)::int from public.shared_management_grants where care_recipient_id = ${momId})
+        + (select count(*)::int from public.delegated_management_grants where care_recipient_id = ${momId}) mom_grants`;
     expect(state[0]).toEqual({
       dad_mode: "shared_management",
       mom_mode: "delegated_management",
       dad_active: 1,
       mom_active: 1,
-      grant_tables: 0,
+      dad_grants: 0,
+      mom_grants: 0,
     });
     const history = await sql<
       { superseded: number }[]

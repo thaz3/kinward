@@ -64,10 +64,32 @@ export default async function ManagementModeSummaryPage({
           </p>
         ) : null}
         {current.modeCode === "shared_management" ? (
-          <p>No one shares management of this record yet.</p>
+          <>
+            <p>
+              No one shares management of this record yet until you add them.
+            </p>
+            <p>
+              <Link
+                className="button primary"
+                href={`/circles/${circleId}/care-recipients/${careRecipientId}/management/shared`}
+              >
+                Set up Shared Management
+              </Link>
+            </p>
+          </>
         ) : null}
         {current.modeCode === "delegated_management" ? (
-          <p>No Designated Care Representative is active.</p>
+          <>
+            <p>No Designated Care Representative is active.</p>
+            <p>
+              <Link
+                className="button primary"
+                href={`/circles/${circleId}/care-recipients/${careRecipientId}/management/delegated`}
+              >
+                Start Delegated Management setup
+              </Link>
+            </p>
+          </>
         ) : null}
       </section>
       <p>
