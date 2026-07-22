@@ -1,8 +1,8 @@
 # Kinward Milestone One User Flows
 
 > **Status:** Updated product flows reflecting D-8 through D-17; closed and verified by targeted systems audit; no implementation authorized
-> **Version:** 0.1
-> **Last updated:** 2026-07-16
+> **Version:** 0.2
+> **Last updated:** 2026-07-22
 > **Governing decisions:** D-1 through D-17; `MILESTONE_ONE_DECISIONS.md`; `PERMISSIONS.md`
 
 ## Flow Rules
@@ -101,10 +101,12 @@
 
 ## UF-08 — Care Recipient Chooses Delegated Management
 
+- **Primary implementation slice:** Slice 10 for the complete flow. Slice 9 owns only the owner-authorized Screens 19–20 prefix: representative selection, explicit scope review, and persistence of a zero-authority `Pending` grant.
+
 - **Starting condition:** Dad owns the record; synthetic adult Riley is an active verified member.
 - **Actor:** Dad creates; Riley accepts.
 - **Permission checks:** Owner authority, eligible representative, explicit scope, consent, lifecycle choice, and contact identity.
-- **Main steps:** Choose Delegated Management; select Riley; select scopes; select expiration; review; consent; Riley accepts.
+- **Main steps:** Slice 9 chooses Delegated Management, selects Riley, snapshots explicit scopes, and persists `Pending` through Screen 20 with no authority. Slice 10 selects expiration or “Until revoked,” reviews, records required consent, obtains Riley’s acceptance, and activates only after every condition succeeds.
 - **Alternate paths:** Multiple representatives receive separate grants; “all current permissions” stores the current scope snapshot.
 - **Failure and recovery:** Riley declines, identity mismatches, or scope changes before acceptance; delegation remains pending or cancelled with no access.
 - **Audit events:** `management_mode.changed`, `delegation.created`, `delegation.consent_recorded`, `delegation.accepted`, `delegation.activated`.
@@ -112,6 +114,8 @@
 - **Acceptance criteria:** Delegation creates no legal authority and no spouse or family exception.
 
 ## UF-09 — Delegation Uses Suggested 90-Day Expiration
+
+- **Primary implementation slice:** Slice 10.
 
 - **Starting condition:** Dad is creating a valid delegation.
 - **Actor:** Dad.
@@ -125,6 +129,8 @@
 
 ## UF-10 — Delegation Uses “Until Revoked”
 
+- **Primary implementation slice:** Slice 10.
+
 - **Starting condition:** Dad is creating a delegation and does not choose an expiration.
 - **Actor:** Dad.
 - **Permission checks:** Owner authority and explicit no-expiration confirmation.
@@ -137,6 +143,8 @@
 
 ## UF-11 — Delegation Is Suspended
 
+- **Primary implementation slice:** Slice 10.
+
 - **Starting condition:** Riley has an active, unexpired delegation for Dad.
 - **Actor:** Dad.
 - **Permission checks:** Owner authority, current active status, recent authentication.
@@ -148,6 +156,8 @@
 - **Acceptance criteria:** Riley’s unrelated Circle-wide role, if any, remains separate.
 
 ## UF-12 — Delegation Is Revoked
+
+- **Primary implementation slice:** Slice 10.
 
 - **Starting condition:** Riley has an active or suspended delegation for Dad.
 - **Actor:** Dad.

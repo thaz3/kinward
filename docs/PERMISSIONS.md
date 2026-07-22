@@ -1,8 +1,8 @@
 # Kinward Permissions
 
 > **Status:** Current core access requirements; D-8 through D-17 closed and verified by targeted systems audit
-> **Version:** 0.1
-> **Last updated:** 2026-07-16
+> **Version:** 0.2
+> **Last updated:** 2026-07-22
 > **Governing or related decisions:** D-1 through D-5, D-7 through D-17; F-01-R, F-02-R, F-17 through F-19
 
 ## Permission Principles
@@ -121,25 +121,18 @@ The adult Care Recipient is the sole owner and directly controls management of t
 
 ### Shared Management
 
-The Care Recipient may grant selected permissions to one or more adults. Each grant is separate and may have a start date, expiration, and revocation.
+The Care Recipient may grant selected permissions to one or more adults. Each grant is separate. Slice 9 completes Shared Management setup; Delegated Management expiration and lifecycle behavior remains Slice 10.
 
 ### Delegated Management
 
-A Designated Care Representative may receive any combination of:
+A Shared Manager or Designated Care Representative may receive only these Milestone One management scopes:
 
-- Manage daily care.
-- Complete Patient Check-Ins.
-- Access care and medical information.
-- Approve Circle updates.
-- Manage appointments and treatment schedules.
-- Manage Circle membership.
-- Manage privacy settings.
-- Upload and organize documents.
-- Assign caregiving responsibilities.
-- Manage notifications.
-- Manage emergency contact information.
+- Manage roles.
+- Review permissions.
 
-“Grant all Kinward management permissions” selects all available app scopes but does not create legal healthcare authority.
+Change ownership is never grantable. “Grant all current Kinward management permissions” stores both current scopes as explicit versioned rows. It is not a wildcard and does not add future scopes automatically.
+
+Slice 9 may persist a delegated grant only as `Pending` after Screen 20. A pending delegation grants no effective permission. Slice 10 owns expiration or “Until revoked,” delegated consent and representative acceptance, activation, suspension, restoration, expiration, and revocation. Effective-permission evaluation ignores incomplete pending grants.
 
 Every delegation record includes:
 
@@ -148,7 +141,7 @@ Every delegation record includes:
 - Permission scopes.
 - Start date.
 - Optional expiration.
-- Current status: active, suspended, expired, or revoked.
+- Current status: pending, active, suspended, expired, revoked, or disputed.
 - Consent record.
 - Change and revocation history.
 

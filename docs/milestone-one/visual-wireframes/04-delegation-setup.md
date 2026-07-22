@@ -2,6 +2,8 @@
 
 **Low-fidelity planning wireframe — not final interface design.**
 
+**Implementation boundary:** Screens 19–20 are the Slice 9 delegated pre-activation prefix. Completing Screen 20 may persist only a `Pending` grant with explicit, versioned scope rows; it grants no authority. Screens 21–22 and all activation prerequisites belong to Slice 10.
+
 ```text
 ┌──────────────────────────┐  ┌──────────────────────────┐
 │ 19. Delegated Management │  │ 20. Choose exact scope   │
@@ -27,4 +29,4 @@
 └──────────────────────────┘  └──────────────────────────┘
 ```
 
-The representative cannot expand scope. Confirmation requires recent authentication and records explicit consent, scope, lifecycle choice, actor, and Care Recipient.
+The representative cannot expand scope. Slice 10 confirmation requires recent authentication and records the required Care Recipient consent, representative acceptance, scope, lifecycle choice, actor, and Care Recipient before activation.

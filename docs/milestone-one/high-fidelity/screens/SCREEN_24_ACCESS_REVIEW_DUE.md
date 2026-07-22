@@ -2,7 +2,7 @@
 
 > **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
-**Viewport:** 390 × 844 mobile. **Source:** `05-delegation-lifecycle.md`, Screen 24. **Flow:** UF-23. **Tests:** AT-011, AT-036.
+**Primary implementation slice:** Slice 10. **Governing milestone decision:** 6; D-16 review-due behavior. **Viewport:** 390 × 844 mobile. **Source:** `05-delegation-lifecycle.md`, Screen 24. **Flow:** UF-23. **Tests:** AT-011, AT-036.
 
 ## Composition
 

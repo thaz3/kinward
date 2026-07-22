@@ -2,11 +2,11 @@
 
 > **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
-**Purpose:** Let the owner grant discrete management scopes while retaining sole ownership. **Decisions:** D-2, D-3, D-16. **Low fidelity:** `03-roles-and-management-modes.md`, Screen 18. **Flow/tests:** UF-06; AT-007.
+**Purpose:** Let the owner grant discrete management scopes while retaining sole ownership. **Primary implementation slice:** Slice 9. **Governing milestone decision:** 3. **Low fidelity:** `03-roles-and-management-modes.md`, Screen 18. **Flow/tests:** UF-07; AT-007 and S9-01, S9-03–S9-08.
 
 ## Audience, entry, and context
 
-Audience is the verified adult Care Recipient owner with recent authentication. Context is `Circle — Harbor Circle`; `Care Recipient — Dad`. Before authorization show no eligible adults, scopes, roles, or recipient identity. After authorization show only eligible authorized Circle adults, discrete scope choices, lifecycle explanation, and existing shared managers visible to this owner.
+Audience is the verified adult Care Recipient owner with recent authentication. Context is `Circle — Harbor Circle`; `Care Recipient — Dad`. Before authorization show no eligible adults, scopes, roles, or recipient identity. After authorization show only eligible authorized Circle adults, the exact `Manage roles` and `Review permissions` scope choices, lifecycle explanation, and existing shared managers visible to this owner. `Change ownership` is never grantable.
 
 ## Actions and states
 
@@ -16,4 +16,4 @@ Audience is the verified adult Care Recipient owner with recent authentication. 
 
 ## Accessibility, privacy, and lifecycle
 
-Use labeled adult and checkbox groups, complete scope text, selection counts in words, semantic summaries, and verified focus. At narrow and calibrated 200%, cards and actions stack, long identities wrap, and all targets remain 48 px. Shared managers do not become owners, Circle Heads, delegates, legal representatives, or gain unspecified scopes. Access is explicit, recorded, revocable, audit-filtered, and subject to recurring review where governing rules apply. Clear and discard stale context. Excludes automatic spouse/family access, medical interpretation, and uploads. Runtime auth, authorization, atomic writes, audit/review scheduling, focus, and stale-response handling remain implementation-only.
+Use labeled adult and checkbox groups, complete scope text, selection counts in words, semantic summaries, and verified focus. At narrow and calibrated 200%, cards and actions stack, long identities wrap, and all targets remain 48 px. Shared managers do not become owners, Circle Heads, delegates, legal representatives, or gain unspecified scopes. Selected and all-current choices persist explicit current scope rows; neither creates a wildcard or future automatic scope. Access is explicit, recorded, revocable, and audit-filtered. Clear and discard stale context. Excludes automatic spouse/family access, medical interpretation, and uploads. Runtime auth, authorization, atomic writes, audit, focus, and stale-response handling remain implementation-only.

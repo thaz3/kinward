@@ -2,6 +2,8 @@
 
 **Low-fidelity planning wireframe — not final interface design.**
 
+**Implementation boundary:** Screens 23–26 and the complete delegated lifecycle are Slice 10.
+
 ```text
 ┌──────────────────────────┐  ┌──────────────────────────┐
 │ 23. Delegation detail    │  │ 24. Access review due    │

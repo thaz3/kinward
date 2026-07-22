@@ -2,7 +2,7 @@
 
 > **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
-**Purpose:** Obtain explicit consent to no fixed expiry while preserving recurring 90-day review. **Decisions:** D-4, D-5, D-16. **Low fidelity:** `04-delegation-setup.md`, Screen 22. **Flow/tests:** UF-07; AT-011.
+**Purpose:** Obtain explicit consent to no fixed expiry while preserving recurring 90-day review. **Primary implementation slice:** Slice 10. **Governing milestone decision:** 6; D-16 review-due behavior. **Low fidelity:** `04-delegation-setup.md`, Screen 22. **Flow/tests:** UF-08, UF-10; AT-011.
 
 ## Audience, entry, and context
 
@@ -10,7 +10,7 @@ Audience is the verified owner who selected `Until revoked`. Context repeats `Ha
 
 ## Actions and states
 
-**Primary:** `Confirm until revoked`. **Secondary:** `Choose a date`, `Cancel`. Loading clears previous delegation data. No empty state applies. Explicit confirmation is required. Schedule, stale draft, authority, and system errors create no grant. Denial is neutral. Success advances to the final recorded delegation result. Dirty cancel uses `Discard delegation draft?`, with safe action first and focused.
+**Primary:** `Confirm until revoked`. **Secondary:** `Choose a date`, `Cancel`. Loading clears previous delegation data. No empty state applies. Explicit confirmation is required. Schedule, stale pending grant, authority, and system errors create no active grant. Denial is neutral. Success records the duration choice but cannot activate before required delegated consent and representative acceptance also succeed. Dirty cancel uses `Discard delegation draft?`, with safe action first and focused.
 
 ## Accessibility, privacy, and lifecycle
 

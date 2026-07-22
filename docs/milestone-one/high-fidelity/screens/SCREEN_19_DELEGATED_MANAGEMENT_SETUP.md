@@ -2,7 +2,7 @@
 
 > **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
-**Purpose:** Start an explicit, recorded delegation without transferring ownership. **Decisions:** D-3, D-4, D-5, D-16. **Low fidelity:** `04-delegation-setup.md`, Screen 19. **Flow/tests:** UF-07; AT-008–AT-013.
+**Purpose:** Start an explicit, recorded delegation without transferring ownership. **Primary implementation slice:** Slice 9. **Governing milestone decisions:** 3–5. **Low fidelity:** `04-delegation-setup.md`, Screen 19. **Flow/tests:** Slice 9 S9-02 and S9-07–S9-09; UF-08 and AT-008–AT-013 complete in Slice 10.
 
 ## Audience, entry, and context
 
@@ -10,7 +10,7 @@ Audience is the verified adult Care Recipient owner with recent authentication. 
 
 ## Actions and states
 
-**Primary:** `Continue to scope`. **Secondary:** `Cancel`. Loading clears former protected context. Empty says no eligible representative is available without exposing hidden adults. Validation requires one eligible adult. Inactive recipient, dispute, stale authority, and system errors grant nothing. Denial is neutral. Unsaved cancel uses `Discard delegation draft?` with `Keep editing` first and focused. Completion continues to Screen 20; no grant exists yet.
+**Primary:** `Continue to scope`. **Secondary:** `Cancel`. Loading clears former protected context. Empty says no eligible representative is available without exposing hidden adults. Validation requires one eligible adult. Inactive recipient, dispute, stale authority, and system errors grant nothing. Denial is neutral. Unsaved cancel uses `Discard delegation draft?` with `Keep editing` first and focused. Completion continues to Screen 20; no persisted grant exists yet.
 
 **Neutral denied state:** `Information unavailable`, with no recipient, candidate, or draft details. **Success/completion state:** a valid selection advances to Screen 20 and preserves only the authorized draft; it does not activate a delegation.
 

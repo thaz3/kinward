@@ -2,7 +2,7 @@
 
 > **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
-**Purpose:** Designate a dormant Backup Circle Administrator with zero current authority. **Decisions:** D-6, D-7, D-15. **Low fidelity:** `06-minor-backup-and-continuity.md`, Screen 28. **Flow/tests:** UF-10; AT-018.
+**Purpose:** Designate a dormant Backup Circle Administrator with zero current authority. **Decisions:** D-6, D-7, D-15. **Low fidelity:** `06-minor-backup-and-continuity.md`, Screen 28. **Flow/tests:** UF-17; AT-018.
 
 ## Audience, entry, and context
 

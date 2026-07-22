@@ -1,8 +1,8 @@
 # Kinward Milestone One Implementation Plan
 
 > **Status:** Milestone One application coding authorized (D-18); follow slices in order; verified 39-screen high-fidelity baseline (GOV-007 Closed — PASS)
-> **Version:** 0.2
-> **Last updated:** 2026-07-20
+> **Version:** 0.3
+> **Last updated:** 2026-07-22
 > **Governing decisions:** D-1 through D-20; `MILESTONE_ONE_READINESS.md`; GOV-007 Closed — PASS; all files in `docs/milestone-one/`
 
 ## Planning Boundary
@@ -102,33 +102,35 @@ This plan sequences Milestone One implementation slices. D-18 authorizes applica
 - **Screens:** Select Care Management Mode and mode summaries.
 - **Data entities:** Care management mode history.
 - **Authorization rules:** Owner selection only; mode never transfers ownership or becomes legal authority.
-- **Tests:** AT-006 through AT-008 mode preconditions.
+- **Tests:** AT-006 mode behavior and only the management-mode precondition portion later repeated by AT-007–AT-008. AT-007 has primary completion ownership in Slice 9; AT-008 has primary completion ownership in Slice 10.
 - **Completion criteria:** Exactly one active mode per Care Recipient with auditable transitions and safe disputed hold.
 - **Audit checkpoint:** Prior and next mode identifiers are immutable events.
 
 ## Slice 9 — Shared and Delegated Management Grants
 
-- **Objective:** Create explicit grant, scope, consent, and acceptance records.
+- **Objective:** Complete Shared Management setup and persist the non-active Delegated Management grant-and-scope foundation through scope review.
 - **Prerequisites:** Management modes, adult memberships, permission catalog, and recipient RLS.
-- **Governing documents:** D-1 and D-2; milestone decisions 3–5; `DATA_MODEL.md` entities 10–12 and 19.
-- **Screens:** Shared setup, Delegated setup, scope review.
-- **Data entities:** Shared grants, delegated grants, grant scopes, consent records.
-- **Authorization rules:** Owner grant; exact recipient and scopes; no wildcard, self-expansion, co-ownership, or future automatic scope.
-- **Tests:** AT-007 through AT-010.
-- **Completion criteria:** Selected and “all current” scope snapshots are explicit, reviewable, and separately consented.
-- **Audit checkpoint:** Grant and scope creation cannot commit without consent and audit identifiers.
+- **Governing documents:** D-2; milestone decisions 3–5; `DATA_MODEL.md` entities 10–12 and the schema foundation of entity 19.
+- **Screens:** Screen 18 Shared Management setup and Screens 19–20 Delegated Management setup through scope review. Screen 20 advances to Screen 21 but does not activate delegated access.
+- **Data entities:** Shared grants, `Pending` delegated grants, grant scopes, and the consent-record schema foundation. Delegated consent and representative acceptance records are not written until Slice 10.
+- **Authorization rules:** Exact Care Recipient owner only; exact Circle, recipient, eligible adult, and scopes; no wildcard, self-expansion, co-ownership, ownership change, or automatic future scope.
+- **Grantable scopes:** Exactly `Manage roles` and `Review permissions`. “Selected scopes” and “All current Kinward management permissions” both persist explicit, reviewable scope rows at the current catalog version. “All current” is not a wildcard.
+- **Primary acceptance test:** AT-007 only.
+- **Supplemental Slice 9 tests:** S9-01 Shared Management completion; S9-02 Delegated `Pending` creation through Screen 20; S9-03 explicit scope snapshot persistence; S9-04 selected-versus-all-current snapshot behavior; S9-05 no wildcard or future automatic expansion; S9-06 ownership-change exclusion; S9-07 owner-only creation; S9-08 exact-recipient isolation and no cross-Circle pairing; S9-09 pending delegation contributes zero effective authority and Screen 20 advances to Screen 21 without activation.
+- **Completion criteria:** Shared Management setup completes with only explicit allowed scopes. Delegated setup persists one exact-recipient `Pending` grant and its explicit scope snapshot through Screen 20; it grants no authority. No expiration, until-revoked choice, representative consent/acceptance, activation, suspension, restoration, or revocation behavior is part of Slice 9.
+- **Audit checkpoint:** Shared completion and pending delegated grant/scope persistence are atomic and auditable. No `delegation.activated` event exists in Slice 9.
 
 ## Slice 10 — Delegation Lifecycle
 
-- **Objective:** Implement optional expiration, “Until revoked,” recurring review, suspension, expiration, and revocation semantics.
+- **Objective:** Complete delegated setup and activation, then implement its governed lifecycle.
 - **Prerequisites:** Slice 9, time-zone policy, authorization refresh strategy, and review-due representation.
-- **Governing documents:** D-1; milestone decisions 6–8; `USER_FLOWS.md` UF-09–12.
-- **Screens:** Expiration, “Until revoked,” delegation detail, suspend/revoke.
-- **Data entities:** Delegated grants, review timestamps, lifecycle events, restrictions.
+- **Governing documents:** D-1; milestone decisions 6–8; `USER_FLOWS.md` UF-08–12.
+- **Screens:** Screens 21–26: expiration, “Until revoked,” delegated consent and representative acceptance/activation completion, delegation detail/review, suspension, restoration, and revocation.
+- **Data entities:** Pending and active delegated grants, delegated consent and acceptance records, expiration and review timestamps, lifecycle events, and restrictions.
 - **Authorization rules:** Only active exact scopes contribute; suspended/expired/revoked/disputed deny; owner retains access.
-- **Tests:** AT-009 through AT-013.
-- **Completion criteria:** Revocation denies the next request, recurring review schedules correctly, and unrelated roles remain independent.
-- **Audit checkpoint:** Every lifecycle transition and session invalidation result is recorded atomically.
+- **Primary acceptance tests:** AT-008 through AT-013 in full.
+- **Completion criteria:** A `Pending` delegation cannot activate until an expiration or explicit “Until revoked” choice, required owner consent, representative acceptance, exact scope snapshot, and every other Slice 10 precondition are satisfied. Revocation denies the next request, recurring review schedules correctly, restoration is limited to an unexpired suspended grant, and unrelated roles remain independent.
+- **Audit checkpoint:** Consent, representative acceptance, activation, and every lifecycle transition and session-invalidation result are recorded atomically. Effective-permission evaluation ignores incomplete `Pending` delegations.
 
 ## Slice 11 — Managed Minor Profiles
 

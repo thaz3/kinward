@@ -2,7 +2,7 @@
 
 > **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
-**Purpose:** Temporarily remove delegated permissions while preserving history. **Decisions:** D-4, D-5. **Low fidelity:** `05-delegation-lifecycle.md`, Screen 25. **Flow/tests:** UF-08; AT-012.
+**Purpose:** Temporarily remove delegated permissions while preserving history. **Primary implementation slice:** Slice 10. **Governing milestone decisions:** 7–8. **Low fidelity:** `05-delegation-lifecycle.md`, Screen 25. **Flow/tests:** UF-11; AT-012.
 
 ## Audience, entry, and context
 

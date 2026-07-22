@@ -1,8 +1,8 @@
 # Kinward Family Roles
 
 > **Status:** Current core role requirements; D-8 through D-17 closed and verified by targeted systems audit
-> **Version:** 0.1
-> **Last updated:** 2026-07-16
+> **Version:** 0.2
+> **Last updated:** 2026-07-22
 > **Governing or related decisions:** D-1, D-2, D-4, D-7, D-9 through D-11, D-14, D-16; F-01-R, F-02-R, F-17 through F-19
 
 ## Role Model Principles
@@ -233,21 +233,14 @@ The Care Recipient grants selected Kinward management permissions to one or more
 
 The Care Recipient appoints one or more adult Designated Care Representatives and chooses the permissions each person may exercise.
 
-Available delegation scopes are:
+The only grantable Milestone One management scopes are:
 
-- Manage daily care.
-- Complete Patient Check-Ins.
-- Access care and medical information.
-- Approve Circle updates.
-- Manage appointments and treatment schedules.
-- Manage Circle membership.
-- Manage privacy settings.
-- Upload and organize documents.
-- Assign caregiving responsibilities.
-- Manage notifications.
-- Manage emergency contact information.
+- Manage roles.
+- Review permissions.
 
-The Care Recipient may customize scopes or choose “Grant all Kinward management permissions.”
+Change ownership is never grantable. The Care Recipient may select either scope or choose “Grant all current Kinward management permissions,” which stores both current scopes as explicit versioned rows. It creates no wildcard and does not add future scopes automatically.
+
+Slice 9 may persist a Delegated Management grant only in the governed `Pending` state after scope review. Pending grants confer no authority. Slice 10 owns expiration, “Until revoked,” delegated consent and representative acceptance, activation, suspension, restoration, expiration, and revocation.
 
 In Self-Managed mode, other adults may retain non-management coordination or care roles such as Family Coordinator, Care Lead, Medical Lead, or Chemo Care Lead, but those roles grant no management access to the Care Recipient's private information. Other-adult access exists only through explicit role permissions, Shared Management grants, Delegated Management grants, or separately recorded legal authority handled through the approved review process. Family relationship alone creates no access.
 
@@ -258,7 +251,7 @@ Every delegation records:
 - Permission scope.
 - Start date.
 - Expiration date when applicable.
-- Current status: active, suspended, expired, or revoked.
+- Current status: pending, active, suspended, expired, revoked, or disputed.
 - Changes and revocation history.
 
 The interface recommends and prefills a 90-day expiration, but the Care Recipient may deliberately choose “Until revoked.” A delegation without an expiration generates a recurring 90-day access-review reminder. The Care Recipient retains access and may change, suspend, restore, or revoke delegation while able to do so. Immediate suspension or revocation removes permissions, preserves audit history, and invalidates active delegated sessions where technically possible. No family relationship, including spouse, creates an exception. Every delegated action records who acted and on whose behalf. Unclear or disputed delegation results in the more private behavior.

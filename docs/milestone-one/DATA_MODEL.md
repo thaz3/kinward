@@ -1,8 +1,8 @@
 # Kinward Milestone One Data Model
 
 > **Status:** Updated conceptual model reflecting D-8 through D-17; closed and verified by targeted systems audit; no database authorized
-> **Version:** 0.1
-> **Last updated:** 2026-07-16
+> **Version:** 0.2
+> **Last updated:** 2026-07-22
 > **Governing decisions:** D-1 through D-17; `MILESTONE_ONE_DECISIONS.md`; `PERMISSIONS.md`
 
 ## Scope
@@ -206,6 +206,7 @@ all security changes -> consent_records + audit_events
 - **Audit requirements:** Create, scope, consent, activate, suspend, restore, expire, revoke, and dispute.
 - **Deletion/deactivation:** Revoke or expire; preserve scopes and events.
 - **Never combine:** Shared grant with joint ownership or another Care Recipient.
+- **Slice boundary:** Slice 9 owns schema and completed Shared Management grants for Screen 18. Only `Manage roles` and `Review permissions` may be snapshotted. Change ownership is never grantable. Slice 10 delegated-lifecycle work does not broaden Shared Management scope.
 
 ### 11. Delegated Management Grants (`delegated_management_grants`)
 
@@ -222,6 +223,7 @@ all security changes -> consent_records + audit_events
 - **Audit requirements:** Every lifecycle, review, consent, and scope event plus on-behalf-of actions.
 - **Deletion/deactivation:** Revoke; never hard-delete active or historical delegation.
 - **Never combine:** Delegation with legal authority, spouse status, Circle Head status, or future automatic scopes.
+- **Slice boundary:** Slice 9 may persist only a `Pending` exact-recipient delegation after Screen 20 scope review. `Pending` is the approved pre-activation state and contributes zero effective permission. Slice 9 does not persist expiration choice, no-expiration choice, representative acceptance, activation, suspension, restoration, or revocation behavior. Slice 10 owns those fields and transitions and must reject activation until expiration/no-expiration, required consent, representative acceptance, and exact scopes are complete.
 
 ### 12. Grant Scopes (`management_grant_scopes`)
 
@@ -238,6 +240,8 @@ all security changes -> consent_records + audit_events
 - **Audit requirements:** Add and remove scope with before/after snapshot identifiers.
 - **Deletion/deactivation:** Mark removed; preserve consented snapshot.
 - **Never combine:** Scopes from separate grants, Circles, Care Recipients, or future catalog versions automatically.
+- **Milestone One catalog:** Exactly `Manage roles` and `Review permissions`. `Change ownership` is invariantly excluded. Selected scopes persist the selected rows. “All current Kinward management permissions” persists both current rows and their catalog version; it is never stored as `*`, a superuser flag, or an instruction to include future permissions.
+- **Slice boundary:** Slice 9 owns explicit scope snapshots for completed Shared grants and `Pending` Delegated grants. Slice 10 consumes but does not silently expand the snapshot during consent, acceptance, or activation.
 
 ### 13. Managed Minor Profiles (`managed_minor_profiles`)
 
@@ -350,6 +354,7 @@ all security changes -> consent_records + audit_events
 - **Audit requirements:** Consent event links to the corresponding audit event.
 - **Deletion/deactivation:** Preserve minimum history; final retention policy deferred.
 - **Never combine:** Consent across Care Recipients, grants, or future permission versions.
+- **Slice boundary:** Slice 9 may introduce this schema foundation and may record the owner confirmation required for completed Screen 18 Shared Management setup. Delegated consent and representative acceptance are Slice 10 behavior and are not fabricated when Slice 9 creates a `Pending` delegation through Screen 20.
 
 ### 20. Audit Events (`audit_events`)
 

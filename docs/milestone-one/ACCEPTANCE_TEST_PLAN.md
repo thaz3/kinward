@@ -1,8 +1,8 @@
 # Kinward Milestone One Acceptance-Test Plan
 
 > **Status:** Updated objective test plan reflecting D-8 through D-17; closed and verified by targeted systems audit; no implementation authorized
-> **Version:** 0.1
-> **Last updated:** 2026-07-16
+> **Version:** 0.2
+> **Last updated:** 2026-07-22
 > **Governing decisions:** D-1 through D-17; `MILESTONE_ONE_DECISIONS.md`; `PERMISSION_MODEL.md`
 
 ## Test Boundaries
@@ -88,6 +88,8 @@
 
 ### AT-007 — Shared Management
 
+- **Primary implementation slice:** Slice 9.
+
 - **Starting state:** Dad owns the record and grants Sam two explicit management scopes.
 - **Actor:** Sam.
 - **Action:** Use one granted scope, one ungranted scope, and attempt ownership transfer.
@@ -96,7 +98,23 @@
 - **Expected audit event:** Successful action identifies Sam and grant; denials use safe reason codes.
 - **Pass/fail criteria:** Pass if Dad remains sole owner and retains access.
 
+#### Slice 9 supplemental grant-foundation checks
+
+These checks are objective Slice 9 completion evidence, not additional product permissions and not alternate owners for AT-008–AT-013:
+
+- **S9-01:** Screen 18 completes one owner-authorized Shared Management grant with an explicit scope snapshot.
+- **S9-02:** Screens 19–20 persist one exact-recipient Delegated Management grant with status `Pending`, then advance toward Screen 21 without activation.
+- **S9-03:** Selected scopes persist as explicit, reviewable permission rows with the catalog version.
+- **S9-04:** “All current Kinward management permissions” persists the same explicit current catalog rows, distinguishable from a selected subset.
+- **S9-05:** No wildcard, superuser flag, future automatic scope, or silent catalog expansion is stored or evaluated.
+- **S9-06:** The only grantable Milestone One scopes are `Manage roles` and `Review permissions`; `Change ownership` is rejected at validation, RPC, schema, and effective-permission boundaries.
+- **S9-07:** Only the verified active exact Care Recipient owner may create either grant type; role, relationship, Circle authority, self-expansion, and forged actor identity grant nothing.
+- **S9-08:** Grants and scope rows are isolated by exact Circle, Care Recipient, grantee/representative, and grant identifier; malicious identifier pairing and Dad-to-Mom reuse fail without residue.
+- **S9-09:** A `Pending` delegated grant contributes zero effective authority, creates no activation event, and cannot be used for an on-behalf-of action.
+
 ### AT-008 — Delegated Management
+
+- **Primary implementation slice:** Slice 10. Slice 9 provides only the non-active Screens 19–20 foundation exercised again by this end-to-end test.
 
 - **Starting state:** Dad gives Riley an accepted active delegation with selected scopes.
 - **Actor:** Riley.
@@ -108,6 +126,8 @@
 
 ### AT-009 — Optional Expiration
 
+- **Primary implementation slice:** Slice 10.
+
 - **Starting state:** Dad creates a new delegation.
 - **Actor:** Dad.
 - **Action:** Review expiration step and choose a custom future date instead of the suggested date.
@@ -117,6 +137,8 @@
 - **Pass/fail criteria:** Pass if expiration is optional and 90 days is not enforced as a mandatory duration.
 
 ### AT-010 — Suggested 90-Day Expiration
+
+- **Primary implementation slice:** Slice 10.
 
 - **Starting state:** Delegation start time and Dad’s time zone are fixed in the fixture.
 - **Actor:** Dad.
@@ -128,6 +150,8 @@
 
 ### AT-011 — “Until Revoked” and Recurring Review
 
+- **Primary implementation slice:** Slice 10.
+
 - **Starting state:** Dad creates a delegation with no expiration.
 - **Actor:** Dad.
 - **Action:** Deliberately choose “Until revoked” and confirm.
@@ -138,6 +162,8 @@
 
 ### AT-012 — Delegation Suspension
 
+- **Primary implementation slice:** Slice 10.
+
 - **Starting state:** Riley’s Dad delegation is active.
 - **Actor:** Dad.
 - **Action:** Suspend after recent authentication; Riley retries a granted action.
@@ -147,6 +173,8 @@
 - **Pass/fail criteria:** Pass if grant history remains and unrelated Circle roles are unchanged.
 
 ### AT-013 — Delegation Revocation
+
+- **Primary implementation slice:** Slice 10.
 
 - **Starting state:** Riley’s delegation is active or suspended.
 - **Actor:** Dad.

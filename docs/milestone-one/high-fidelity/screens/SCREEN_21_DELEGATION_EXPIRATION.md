@@ -2,15 +2,15 @@
 
 > **Verified Milestone One high-fidelity screen — coding authorized (D-18 / GOV-006); non-medical foundation only. Part of the verified thirty-nine-screen baseline (GOV-007 Closed — PASS).**
 
-**Purpose:** Choose a bounded duration or explicitly continue to the governed until-revoked choice. **Decisions:** D-4, D-5, D-16. **Low fidelity:** `04-delegation-setup.md`, Screen 21. **Flow/tests:** UF-07; AT-009, AT-010.
+**Purpose:** Choose a bounded duration or explicitly continue to the governed until-revoked choice. **Primary implementation slice:** Slice 10. **Governing milestone decision:** 6; D-16 review-due behavior. **Low fidelity:** `04-delegation-setup.md`, Screen 21. **Flow/tests:** UF-08–UF-09; AT-009, AT-010.
 
 ## Audience, entry, and context
 
-Audience is the verified owner continuing the same delegation draft. Context is `Harbor Circle`, `Dad`, representative `Riley Chen`. No context or dates appear before authorization. After authorization show suggested 90 days, custom date with format/help, and `Until revoked` with its recurring-review consequence.
+Audience is the verified owner continuing the same `Pending` delegation from Screen 20. Context is `Harbor Circle`, `Dad`, representative `Riley Chen`. No context or dates appear before authorization. After authorization show suggested 90 days, custom date with format/help, and `Until revoked` with its recurring-review consequence.
 
 ## Actions and states
 
-**Primary:** `Review delegation`, or `Continue` to Screen 22 for Until revoked. **Secondary:** `Back`, `Cancel`. Loading withholds prior dates. Validation requires one choice and rejects past/invalid dates. Schedule, stale-draft, authority, and system errors grant nothing. Denial is neutral. Success of this step only saves the draft; access is not active. Dirty cancel confirms discard with safe `Keep editing` focused.
+**Primary:** `Review delegation`, or `Continue` to Screen 22 for Until revoked. **Secondary:** `Back`, `Cancel`. Loading withholds prior dates. Validation requires one choice and rejects past/invalid dates. Schedule, stale-pending-grant, authority, and system errors grant nothing. Denial is neutral. Success of this step only saves the duration choice; access is not active. Dirty cancel confirms discard with safe `Keep editing` focused.
 
 ## Accessibility, privacy, and lifecycle
 

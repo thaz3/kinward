@@ -2,6 +2,8 @@
 
 **Low-fidelity planning wireframe — not final interface design.**
 
+**Implementation boundary:** Screen 18 is Slice 9 shared-management completion.
+
 ```text
 ┌──────────────────────────┐  ┌──────────────────────────┐
 │ 14. Harbor members       │  │ 15. Circle-wide role     │

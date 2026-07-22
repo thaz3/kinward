@@ -1,8 +1,8 @@
 # Kinward Document Governance
 
-> **Status:** Active document-governance policy; D-18 Milestone One coding authorized; GOV-007 Closed — PASS
-> **Version:** 0.2
-> **Last updated:** 2026-07-20
+> **Status:** Active document-governance policy; D-18 Milestone One coding authorized; GOV-007 Closed — PASS; GOV-008 Ready for Audit
+> **Version:** 0.3
+> **Last updated:** 2026-07-22
 > **Governing or related decisions:** D-1 through D-18; GOV-007 Closed — PASS; F-01-R, F-02-R, F-17 through F-19
 
 ## Purpose
@@ -154,6 +154,19 @@ Gate B, Gate C, and Gate D restrictions remain in force for later stages. The re
 - **Owner and gate:** Kinward product owner; targeted final high-fidelity artifact re-audit.
 - **Status:** Closed — PASS
 - **Closure date:** 2026-07-20
+
+### GOV-008 — Slice 9/10 Delegation Setup and Lifecycle Boundary
+
+- **Conflict ID:** GOV-008
+- **Documents involved:** `milestone-one/IMPLEMENTATION_PLAN.md`; `milestone-one/ACCEPTANCE_TEST_PLAN.md`; `milestone-one/USER_FLOWS.md`; `milestone-one/DATA_MODEL.md`; `PERMISSIONS.md`; `FAMILY_ROLES.md`; high-fidelity and wireframe traceability for Screens 18–26
+- **Conflict:** Slice 9 was assigned AT-007–AT-010 even though AT-008–AT-010 require expiration, consent/acceptance, activation, or other Screens 21–26 behavior assigned to Slice 10. Screen 20 explicitly advances to Screen 21 without activating access.
+- **Source-of-truth tiers:** Milestone decisions 3–5 govern the grant-and-scope foundation; milestone decisions 6–8 govern delegated expiration and lifecycle. The product-owner-approved repair boundary governs propagation without changing either decision set.
+- **Resolution:** Slice 9 owns completed Shared Management setup and Delegated Management setup only through Screen 20 persistence of an exact-recipient `Pending` grant and explicit scope snapshot. `Pending` is the existing approved pre-activation state and grants zero authority. Slice 10 owns Screens 21–26, AT-008–AT-013, expiration/no-expiration, delegated consent and representative acceptance, activation, and lifecycle. Effective-permission evaluation ignores incomplete pending grants.
+- **Scope catalog:** Exactly `Manage roles` and `Review permissions`; change ownership is never grantable; selected and all-current choices store explicit versioned rows with no wildcard or future automatic expansion.
+- **Temporary restriction:** No Slice 9 implementation may activate delegated access or implement Screen 21+ behavior. No Slice 10 activation may occur before every required duration, consent, acceptance, scope, authorization, and audit condition succeeds.
+- **Owner and gate:** Kinward product owner; Slice 9 governing-scope approval before Slice 9 implementation.
+- **Status:** Ready for Audit
+- **Repair date:** 2026-07-22
 
 ## 2026-07-17 Full High-Fidelity Package Authorization Record
 
