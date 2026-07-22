@@ -1,9 +1,9 @@
 # Kinward Document Governance
 
-> **Status:** Active document-governance policy; D-18 Milestone One coding authorized; GOV-007 Closed — PASS; GOV-008 Ready for Audit
+> **Status:** Active document-governance policy; D-18 Milestone One coding authorized; GOV-007 Closed — PASS; GOV-008 Closed — Approved
 > **Version:** 0.3
 > **Last updated:** 2026-07-22
-> **Governing or related decisions:** D-1 through D-18; GOV-007 Closed — PASS; F-01-R, F-02-R, F-17 through F-19
+> **Governing or related decisions:** D-1 through D-18; GOV-007 Closed — PASS; GOV-008 Closed — Approved; F-01-R, F-02-R, F-17 through F-19
 
 ## Purpose
 
@@ -165,8 +165,10 @@ Gate B, Gate C, and Gate D restrictions remain in force for later stages. The re
 - **Scope catalog:** Exactly `Manage roles` and `Review permissions`; change ownership is never grantable; selected and all-current choices store explicit versioned rows with no wildcard or future automatic expansion.
 - **Temporary restriction:** No Slice 9 implementation may activate delegated access or implement Screen 21+ behavior. No Slice 10 activation may occur before every required duration, consent, acceptance, scope, authorization, and audit condition succeeds.
 - **Owner and gate:** Kinward product owner; Slice 9 governing-scope approval before Slice 9 implementation.
-- **Status:** Ready for Audit
+- **Status:** Closed — Approved
 - **Repair date:** 2026-07-22
+- **Closure date:** 2026-07-22
+- **Closure basis:** Product-owner approval of the GOV-008 Slice 9/10 governing boundary. Slice 9 implementation is authorized within that boundary only.
 
 ## 2026-07-17 Full High-Fidelity Package Authorization Record
 
@@ -175,4 +177,4 @@ Gate B, Gate C, and Gate D restrictions remain in force for later stages. The re
 - **Package status (updated 2026-07-20):** All thirty-nine screens are verified. The twenty-one formerly draft screens (11, 12, 14–23, 25, 26, 28–30, 33, 34, 36, 37) passed the targeted final artifact re-audit under GOV-007.
 - **Audit boundary:** Runtime browser, device, keyboard, screen-reader, authorization, concurrency, and stale-response behavior remain implementation verification requirements; they are not claimed by this static package PASS.
 - **Implementation boundary:** Application coding is authorized by D-18 / GOV-006 within Milestone One foundation scope and exclusions. The verified thirty-nine-screen high-fidelity package is the visual source of truth.
-- **Open governance:** GOV-004 trace remains preserved. GOV-005 remains open and the membership-only adult invitation path remains excluded without deciding future policy. GOV-007 is Closed — PASS.
+- **Open governance:** GOV-004 trace remains preserved. GOV-005 remains open and the membership-only adult invitation path remains excluded without deciding future policy. GOV-007 is Closed — PASS. GOV-008 is Closed — Approved.
