@@ -20,7 +20,7 @@ export default async function DelegatedScopePage({
   searchParams,
 }: {
   params: Promise<{ circleId: string; careRecipientId: string }>;
-  searchParams: Promise<{ membershipId?: string; pending?: string }>;
+  searchParams: Promise<{ membershipId?: string }>;
 }) {
   const account = await requireAuthenticatedAdult();
   const { circleId, careRecipientId } = await params;
@@ -58,28 +58,13 @@ export default async function DelegatedScopePage({
         ],
       }}
     >
-      {query.pending === "1" ? (
-        <section className="content-card" role="status" aria-live="polite">
-          <h2>Pending grant saved</h2>
-          <p>
-            Exact scopes are recorded for {member.displayName}. This pending
-            grant grants no authority. Continue to duration is the next step and
-            is not available in this slice.
-          </p>
-          <p>
-            Duration is the next step in the approved sequence. It is not
-            available in Slice 9, and this pending grant remains inactive.
-          </p>
-        </section>
-      ) : (
-        <PendingDelegatedScopeForm
-          key={`${circleId}:${careRecipientId}:${member.membershipId}:scopes`}
-          circleId={circleId}
-          careRecipientId={careRecipientId}
-          membershipId={member.membershipId}
-          representativeName={member.displayName}
-        />
-      )}
+      <PendingDelegatedScopeForm
+        key={`${circleId}:${careRecipientId}:${member.membershipId}:scopes`}
+        circleId={circleId}
+        careRecipientId={careRecipientId}
+        membershipId={member.membershipId}
+        representativeName={member.displayName}
+      />
       <p>
         <Link
           className="button secondary"

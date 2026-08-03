@@ -1,12 +1,16 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import {
   acceptOwnershipInvitation,
   declineOwnershipInvitation,
 } from "@/app/actions/care-recipients";
-import { OWNERSHIP_CONSEQUENCE_COPY } from "@/lib/care-recipients";
+import {
+  OWNERSHIP_CONSEQUENCE_COPY,
+  ownershipAcceptPath,
+} from "@/lib/care-recipients";
 
 type Step = "review" | "accept";
 
@@ -17,6 +21,7 @@ export function OwnershipDecision({
   displayLabel,
   expiresAt,
   error,
+  initialStep = "review",
 }: {
   token: string;
   circleName: string;
@@ -24,8 +29,12 @@ export function OwnershipDecision({
   displayLabel: string;
   expiresAt: string;
   error?: string;
+  initialStep?: Step;
 }) {
-  const [step, setStep] = useState<Step>(error ? "accept" : "review");
+  const router = useRouter();
+  const reviewHref = ownershipAcceptPath(token);
+  const acceptHref = `${reviewHref}?step=accept`;
+  const step: Step = error || initialStep === "accept" ? "accept" : "review";
   const [consentChecked, setConsentChecked] = useState(false);
   const [idempotencyKey] = useState(() => crypto.randomUUID());
 
@@ -50,13 +59,14 @@ export function OwnershipDecision({
       if (!leave) return;
     }
     setConsentChecked(false);
-    setStep("review");
+    router.push(reviewHref);
   }
 
   const expiryLabel = new Date(expiresAt).toLocaleDateString("en-US", {
     month: "long",
     day: "numeric",
     year: "numeric",
+    timeZone: "UTC",
   });
 
   if (step === "accept") {
@@ -118,7 +128,7 @@ export function OwnershipDecision({
                   I consent to becoming the sole owner of “{displayLabel}”.
                 </strong>
                 <span className="choice-help">
-                  Acceptance activates sole ownership and any required{" "}
+                  Acceptance activates sole ownership and required{" "}
                   {circleName} membership together.
                 </span>
               </span>
@@ -177,27 +187,25 @@ export function OwnershipDecision({
           </ul>
         </section>
         <p>You may decline. You do not need to explain why.</p>
-        <button
-          className="button primary"
-          type="button"
-          onClick={() => setStep("accept")}
-        >
-          Review and accept
-        </button>
-        <button
-          ref={declineButton}
-          className="button destructive"
-          type="button"
-          onClick={() => {
-            declineDialog.current?.showModal();
-            keep.current?.focus();
-          }}
-        >
-          Decline
-        </button>
-        <Link className="button secondary" href="/my-kinward">
-          Return safely
-        </Link>
+        <div className="form-stack">
+          <Link className="button primary" href={acceptHref}>
+            Review and accept
+          </Link>
+          <button
+            ref={declineButton}
+            className="button destructive"
+            type="button"
+            onClick={() => {
+              declineDialog.current?.showModal();
+              keep.current?.focus();
+            }}
+          >
+            Decline
+          </button>
+          <Link className="button secondary" href="/my-kinward">
+            Return safely
+          </Link>
+        </div>
       </section>
       <dialog
         ref={declineDialog}

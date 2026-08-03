@@ -22,7 +22,7 @@ export default async function AcceptOwnershipPage({
   searchParams,
 }: {
   params: Promise<{ token: string }>;
-  searchParams: Promise<{ error?: string }>;
+  searchParams: Promise<{ error?: string; step?: string }>;
 }) {
   const { token: rawToken } = await params;
   const query = await searchParams;
@@ -69,6 +69,9 @@ export default async function AcceptOwnershipPage({
     );
   }
 
+  const initialStep =
+    query.error || query.step === "accept" ? "accept" : "review";
+
   return (
     <AccountShell email={account.email} title="Care Recipient ownership">
       <OwnershipDecision
@@ -78,6 +81,7 @@ export default async function AcceptOwnershipPage({
         circleName={preview.circle_name}
         expiresAt={preview.expires_at}
         error={query.error}
+        initialStep={initialStep}
       />
     </AccountShell>
   );

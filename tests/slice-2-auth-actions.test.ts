@@ -28,8 +28,10 @@ vi.mock("next/navigation", () => ({
     throw new Error(`REDIRECT:${path}`);
   }),
 }));
+const rpc = vi.fn(async () => ({ data: null, error: null }));
+
 vi.mock("@/lib/supabase/server", () => ({
-  createSupabaseServerClient: vi.fn(async () => ({ auth })),
+  createSupabaseServerClient: vi.fn(async () => ({ auth, rpc })),
 }));
 
 describe("Slice 2 authentication actions", () => {
@@ -149,6 +151,9 @@ describe("Slice 2 authentication actions", () => {
       "REDIRECT:/my-kinward",
     );
     expect(cookieStore.delete).toHaveBeenCalledWith("kinward-pending-email");
+    expect(rpc).toHaveBeenCalledWith("record_trusted_authentication", {
+      p_authentication_method: "email_verification",
+    });
   });
 
   it("invalidates the local session on logout", async () => {

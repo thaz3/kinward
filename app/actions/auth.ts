@@ -16,6 +16,7 @@ import {
 } from "@/lib/auth/security-log";
 import { safeAuthRedirect } from "@/lib/auth/redirects";
 import { toAuthenticatedAdult } from "@/lib/auth/account";
+import { recordTrustedAuthentication } from "@/lib/auth/trusted-authentication";
 import { getPublicEnvironment, getServerEnvironment } from "@/lib/env";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
@@ -133,6 +134,7 @@ export async function verifyEmailCode(
     };
   }
   cookieStore.delete(PENDING_EMAIL_COOKIE);
+  await recordTrustedAuthentication("email_verification");
   writeAuthSecurityLog(
     createAuthSecurityLog({
       event: "auth.verified",
@@ -169,7 +171,12 @@ export async function resendEmailCode(): Promise<AuthActionState> {
   };
 }
 
-export async function signOut() {
+// An optional return path lets a consequential action that needs a fresh
+// trusted authentication resume at exactly the screen it was interrupted on.
+// The screen re-reads and revalidates every condition before it writes.
+export async function signOut(formData?: FormData) {
+  const requestedNext = formData?.get("next")?.toString();
+  const next = requestedNext ? safeAuthRedirect(requestedNext) : null;
   const supabase = await createSupabaseServerClient();
   if (supabase) {
     const { data } = await supabase.auth.getUser();
@@ -185,5 +192,9 @@ export async function signOut() {
     );
   }
   (await cookies()).delete(PENDING_EMAIL_COOKIE);
-  redirect("/sign-in?signedOut=1");
+  redirect(
+    next && next !== "/my-kinward"
+      ? `/sign-in?signedOut=1&next=${encodeURIComponent(next)}`
+      : "/sign-in?signedOut=1",
+  );
 }

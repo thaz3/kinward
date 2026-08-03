@@ -119,7 +119,11 @@ export async function createPendingDelegatedGrant(
     event: "delegated_pending_create",
     result: "success",
   });
+  const payload = result.data as { grant_id?: unknown } | null;
+  const grantId =
+    typeof payload?.grant_id === "string" ? payload.grant_id : null;
+  if (!grantId) return unavailable();
   redirect(
-    `/circles/${input.data.circleId}/care-recipients/${input.data.careRecipientId}/management/delegated/scopes?pending=1&membershipId=${input.data.membershipId}`,
+    `/circles/${input.data.circleId}/care-recipients/${input.data.careRecipientId}/management/delegated/${grantId}/duration?pending=1`,
   );
 }

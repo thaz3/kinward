@@ -12,7 +12,17 @@ function isSafeInvitationPath(value: string): boolean {
   return (
     /^\/invitations\/accept\/[A-Za-z0-9_-]+$/.test(value) ||
     /^\/invitations\/mine\/[0-9a-f-]{36}$/i.test(value) ||
-    /^\/ownership\/accept\/[A-Za-z0-9_-]+$/.test(value)
+    /^\/ownership\/accept\/[A-Za-z0-9_-]+$/.test(value) ||
+    isSafeDelegationPath(value)
+  );
+}
+
+// A consequential delegation change may require a fresh trusted authentication.
+// Only these read-only delegation screens may be resumed afterwards; each one
+// re-reads the grant and revalidates every condition before any write.
+function isSafeDelegationPath(value: string): boolean {
+  return /^\/circles\/[0-9a-f-]{36}\/care-recipients\/[0-9a-f-]{36}\/management\/delegated\/[0-9a-f-]{36}(\/(duration|until-revoked|review|suspend|restore|revoke))?$/i.test(
+    value,
   );
 }
 

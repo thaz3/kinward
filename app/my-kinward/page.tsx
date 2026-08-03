@@ -3,6 +3,10 @@ import { ProfileForm } from "@/components/profile-form";
 import { CircleList } from "@/components/circle-list";
 import { EmptyState, UnavailableState } from "@/components/system-states";
 import { requireAuthenticatedAdult } from "@/lib/auth/session";
+import {
+  formatInGoverningZone,
+  listDelegationReviewsDue,
+} from "@/lib/delegated-grants";
 import type { UserProfile } from "@/lib/profile";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { listAuthorizedCircles } from "@/lib/circles";
@@ -43,6 +47,7 @@ export default async function MyKinwardPage({
     ? await supabase.rpc("list_my_pending_invitations")
     : null;
   const pending = (pendingResult?.data ?? []) as PendingInvite[];
+  const reviewsDue = await listDelegationReviewsDue();
   return (
     <AccountShell email={account.email}>
       {query.invitation === "declined" && (
@@ -59,6 +64,42 @@ export default async function MyKinwardPage({
         <UnavailableState />
       ) : (
         <>
+          {reviewsDue.length ? (
+            <section
+              className="content-card"
+              aria-labelledby="access-review-due-heading"
+            >
+              <h2 id="access-review-due-heading">Access review due</h2>
+              <p>
+                Access is not changed automatically. Nothing happens until you
+                make a decision.
+              </p>
+              <ul className="stack-list">
+                {reviewsDue.map((review) => (
+                  <li key={review.grantId}>
+                    <strong>
+                      {review.careRecipientLabel} · {review.representativeName}{" "}
+                      access
+                    </strong>
+                    <span>
+                      Review due{" "}
+                      {formatInGoverningZone(
+                        review.nextReviewAt,
+                        review.governingTimeZone,
+                      ) ?? "now"}
+                      .
+                    </span>
+                    <Link
+                      className="button primary"
+                      href={`/circles/${review.circleId}/care-recipients/${review.careRecipientId}/management/delegated/${review.grantId}/review`}
+                    >
+                      Review access
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
           <section aria-labelledby="circles-heading">
             <h2 id="circles-heading">Your Family Circles</h2>
             {circles === null ? (

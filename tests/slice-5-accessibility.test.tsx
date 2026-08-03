@@ -1,10 +1,13 @@
 /** @vitest-environment jsdom */
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 import { OwnershipDecision } from "@/components/ownership-decision";
 import { ProposeCareRecipientForm } from "@/components/propose-care-recipient-form";
 import { RecipientSwitcher } from "@/components/recipient-switcher";
+
+vi.mock("next/navigation", () => ({
+  useRouter: () => ({ push: vi.fn(), replace: vi.fn(), back: vi.fn() }),
+}));
 
 vi.mock("@/app/actions/care-recipients", () => ({
   proposeCareRecipient: vi.fn(async () => ({ status: "idle" })),
@@ -34,9 +37,8 @@ describe("Slice 5 accessibility foundations", () => {
     ).toBeTruthy();
   });
 
-  it("ownership decision associates consent with an explicit control", async () => {
-    const user = userEvent.setup();
-    render(
+  it("ownership review links to the consent step and associates consent with an explicit control", async () => {
+    const { rerender } = render(
       <OwnershipDecision
         token="abcdefghijklmnopqrstuvwxyz0123456789_-"
         circleName="Harbor Circle"
@@ -45,8 +47,20 @@ describe("Slice 5 accessibility foundations", () => {
         expiresAt={new Date(Date.now() + 86400000).toISOString()}
       />,
     );
-    await user.click(
-      screen.getByRole("button", { name: /review and accept/i }),
+    const reviewLink = screen.getByRole("link", {
+      name: /review and accept/i,
+    });
+    expect(reviewLink.getAttribute("href")).toContain("step=accept");
+
+    rerender(
+      <OwnershipDecision
+        token="abcdefghijklmnopqrstuvwxyz0123456789_-"
+        circleName="Harbor Circle"
+        proposerLabel="Avery"
+        displayLabel="Dad"
+        expiresAt={new Date(Date.now() + 86400000).toISOString()}
+        initialStep="accept"
+      />,
     );
     expect(
       screen.getByRole("checkbox", {

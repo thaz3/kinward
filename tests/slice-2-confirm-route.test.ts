@@ -3,9 +3,11 @@ import { NextRequest } from "next/server";
 
 const verifyOtp = vi.fn();
 const exchangeCodeForSession = vi.fn();
+const rpc = vi.fn(async () => ({ data: null, error: null }));
 vi.mock("@/lib/supabase/server", () => ({
   createSupabaseServerClient: vi.fn(async () => ({
     auth: { verifyOtp, exchangeCodeForSession },
+    rpc,
   })),
 }));
 
@@ -35,6 +37,9 @@ describe("Slice 2 email-link confirmation route", () => {
     expect(response.headers.get("location")).toBe(
       "https://kinward.example.test/my-kinward",
     );
+    expect(rpc).toHaveBeenCalledWith("record_trusted_authentication", {
+      p_authentication_method: "email_link",
+    });
   });
 
   it("returns a privacy-safe sign-in route for an invalid callback code", async () => {
