@@ -329,9 +329,9 @@ export async function switchCareRecipient(formData: FormData) {
     redirect(`/circles/${circle.id}/switch-recipient?notice=unavailable`);
   }
 
-  const { getOwnedCareRecipient } =
+  const { getAccessibleCareRecipient } =
     await import("@/lib/care-recipients/access");
-  const recipient = await getOwnedCareRecipient(
+  const recipient = await getAccessibleCareRecipient(
     account.userId,
     circle.id,
     careRecipientId.data,

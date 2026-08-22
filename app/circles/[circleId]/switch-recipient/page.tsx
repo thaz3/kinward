@@ -6,7 +6,7 @@ import {
 } from "@/components/system-states";
 import { requireAuthenticatedAdult } from "@/lib/auth/session";
 import { getAuthorizedCircle } from "@/lib/circles";
-import { listOwnedCareRecipients } from "@/lib/care-recipients/access";
+import { listAccessibleCareRecipientContexts } from "@/lib/care-recipients/access";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Switch Care Recipient" };
@@ -38,7 +38,10 @@ export default async function SwitchRecipientPage({
     );
   }
 
-  const owned = await listOwnedCareRecipients(account.userId, circle.id);
+  const accessible = await listAccessibleCareRecipientContexts(
+    account.userId,
+    circle.id,
+  );
 
   return (
     <AppShell
@@ -56,7 +59,7 @@ export default async function SwitchRecipientPage({
         ],
       }}
     >
-      {owned === null ? (
+      {accessible === null ? (
         <UnavailableState />
       ) : (
         <>
@@ -68,7 +71,7 @@ export default async function SwitchRecipientPage({
           <RecipientSwitcher
             circleId={circle.id}
             circleName={circle.displayName}
-            recipients={owned}
+            recipients={accessible}
           />
         </>
       )}

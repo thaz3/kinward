@@ -75,7 +75,17 @@ export function DelegationSummary({
           </div>
         ))}
       </dl>
-      <h3>Included scopes</h3>
+      <h3>
+        {grant.scopeSnapshotKind === "historical"
+          ? "Granted scopes at end of delegation"
+          : "Included scopes"}
+      </h3>
+      {grant.scopeSnapshotKind === "historical" ? (
+        <p className="status-copy" role="status">
+          These scopes are shown for audit history only. They no longer grant
+          access.
+        </p>
+      ) : null}
       {grant.permissionCodes.length ? (
         <ul className="stack-list">
           {grant.permissionCodes.map((code) => (

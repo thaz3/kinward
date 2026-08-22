@@ -2,9 +2,10 @@ import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { UnavailableState } from "@/components/system-states";
 import { requireAuthenticatedAdult } from "@/lib/auth/session";
-import { getOwnedCareRecipient } from "@/lib/care-recipients/access";
+import { getAccessibleCareRecipient } from "@/lib/care-recipients/access";
 import {
   canManageRecipientRoles,
+  canReviewRecipientPermissions,
   listRecipientRoleMembers,
   RECIPIENT_ROLE_COPY,
 } from "@/lib/recipient-roles";
@@ -19,23 +20,27 @@ export default async function RecipientRolesPage({
 }) {
   const account = await requireAuthenticatedAdult();
   const { circleId, careRecipientId } = await params;
-  if (!(await canManageRecipientRoles(circleId, careRecipientId)))
+  if (!(await canReviewRecipientPermissions(circleId, careRecipientId)))
     return <UnavailableState />;
-  const recipient = await getOwnedCareRecipient(
+  const context = await getAccessibleCareRecipient(
     account.userId,
     circleId,
     careRecipientId,
   );
+  const canManage = await canManageRecipientRoles(circleId, careRecipientId);
   const members = await listRecipientRoleMembers(circleId, careRecipientId);
-  if (!recipient || !members) return <UnavailableState />;
+  if (!context || !members) return <UnavailableState />;
   const query = await searchParams;
+  const readOnly = context.accessKind === "delegated" && !canManage;
   return (
     <AppShell
       currentPath={`/circles/${circleId}/care-recipients/${careRecipientId}/roles`}
-      pageTitle="Care Recipient roles"
+      pageTitle={
+        readOnly ? "Care Recipient role assignments" : "Care Recipient roles"
+      }
       context={{
         circleLabel: "Current Circle",
-        careRecipientLabel: recipient.displayLabel,
+        careRecipientLabel: context.displayLabel,
         destinations: [
           {
             href: `/circles/${circleId}/care-recipients/${careRecipientId}`,
@@ -46,10 +51,16 @@ export default async function RecipientRolesPage({
     >
       {query.role ? <p role="status">Role {query.role}.</p> : null}
       <p>
-        Every role below applies only to {recipient.displayLabel}. It creates no
+        Every role below applies only to {context.displayLabel}. It creates no
         ownership, management, delegation, legal, or automatic medical
         authority.
       </p>
+      {readOnly ? (
+        <p className="status-copy" role="status">
+          You may review these assignments only. Changes require Manage roles
+          authority.
+        </p>
+      ) : null}
       <ul className="stack-list">
         {members.map((member) => (
           <li className="content-card" key={member.membershipId}>
@@ -66,12 +77,14 @@ export default async function RecipientRolesPage({
             ) : (
               <p>No roles for this Care Recipient.</p>
             )}
-            <Link
-              className="button secondary"
-              href={`/circles/${circleId}/care-recipients/${careRecipientId}/roles/${member.membershipId}`}
-            >
-              Manage roles for this member
-            </Link>
+            {canManage ? (
+              <Link
+                className="button secondary"
+                href={`/circles/${circleId}/care-recipients/${careRecipientId}/roles/${member.membershipId}`}
+              >
+                Manage roles for this member
+              </Link>
+            ) : null}
           </li>
         ))}
       </ul>

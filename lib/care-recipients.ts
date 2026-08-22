@@ -45,6 +45,20 @@ export type OwnedCareRecipient = {
   status: "active";
 };
 
+export type AccessibleCareRecipientAccessKind = "owner" | "delegated";
+
+export type AccessibleCareRecipientContext = {
+  id: string;
+  circleId: string;
+  displayLabel: string;
+  status: "active";
+  accessKind: AccessibleCareRecipientAccessKind;
+  permissionCodes: Array<
+    "recipient.manage_roles" | "recipient.review_permissions"
+  >;
+  delegatedGrantId: string | null;
+};
+
 export type PendingCareRecipient = {
   id: string;
   circleId: string;

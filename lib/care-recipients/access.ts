@@ -2,9 +2,14 @@ import { randomUUID } from "node:crypto";
 import { circleIdSchema, getAuthorizedCircle } from "@/lib/circles";
 import {
   careRecipientIdSchema,
+  type AccessibleCareRecipientContext,
   type OwnedCareRecipient,
   type PendingCareRecipient,
 } from "@/lib/care-recipients";
+import {
+  MANAGEMENT_SCOPE_CODES,
+  type ManagementScopeCode,
+} from "@/lib/management-grant-catalog";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
 export async function listOwnedCareRecipients(
@@ -35,6 +40,145 @@ export async function listOwnedCareRecipients(
       ];
     },
   );
+}
+
+function parseAccessibleContext(
+  circleId: string,
+  payload: Record<string, unknown>,
+): AccessibleCareRecipientContext | null {
+  if (payload.outcome !== "ready") return null;
+  const id = careRecipientIdSchema.safeParse(payload.care_recipient_id);
+  const label =
+    typeof payload.display_label === "string" ? payload.display_label : null;
+  const accessKind =
+    payload.access_kind === "delegated"
+      ? "delegated"
+      : payload.access_kind === "owner"
+        ? "owner"
+        : null;
+  if (!id.success || !label || !accessKind) return null;
+  const permissionCodes = (
+    Array.isArray(payload.permission_codes) ? payload.permission_codes : []
+  ).flatMap((value) => {
+    const code = MANAGEMENT_SCOPE_CODES.find((item) => item === value);
+    return code ? [code as ManagementScopeCode] : [];
+  });
+  const delegatedGrantId =
+    typeof payload.delegated_grant_id === "string"
+      ? careRecipientIdSchema.safeParse(payload.delegated_grant_id)
+      : null;
+  if (accessKind === "delegated" && !delegatedGrantId?.success) return null;
+  if (accessKind === "delegated" && permissionCodes.length === 0) return null;
+  return {
+    id: id.data,
+    circleId,
+    displayLabel: label,
+    status: "active",
+    accessKind,
+    permissionCodes:
+      accessKind === "owner"
+        ? ["recipient.manage_roles", "recipient.review_permissions"]
+        : permissionCodes,
+    delegatedGrantId:
+      accessKind === "delegated" && delegatedGrantId?.success
+        ? delegatedGrantId.data
+        : null,
+  };
+}
+
+export async function listAccessibleCareRecipientContexts(
+  userId: string,
+  circleId: string,
+): Promise<AccessibleCareRecipientContext[] | null> {
+  const circle = await getAuthorizedCircle(userId, circleId);
+  if (!circle) return null;
+  const supabase = await createSupabaseServerClient();
+  if (!supabase) return null;
+  const { data, error } = await supabase.rpc(
+    "list_accessible_care_recipient_contexts",
+    { p_circle_id: circle.id },
+  );
+  if (error) return null;
+  return ((data as Array<Record<string, unknown>> | null) ?? []).flatMap(
+    (row) => {
+      const id = careRecipientIdSchema.safeParse(row.care_recipient_id);
+      const label =
+        typeof row.display_label === "string" ? row.display_label : null;
+      const accessKind =
+        row.access_kind === "delegated"
+          ? "delegated"
+          : row.access_kind === "owner"
+            ? "owner"
+            : null;
+      if (!id.success || !label || !accessKind) return [];
+      const permissionCodes = (
+        Array.isArray(row.permission_codes) ? row.permission_codes : []
+      ).flatMap((value) => {
+        const code = MANAGEMENT_SCOPE_CODES.find((item) => item === value);
+        return code ? [code as ManagementScopeCode] : [];
+      });
+      const delegatedGrantId =
+        typeof row.delegated_grant_id === "string"
+          ? careRecipientIdSchema.safeParse(row.delegated_grant_id)
+          : null;
+      return [
+        {
+          id: id.data,
+          circleId: circle.id,
+          displayLabel: label,
+          status: "active" as const,
+          accessKind,
+          permissionCodes:
+            accessKind === "owner"
+              ? ["recipient.manage_roles", "recipient.review_permissions"]
+              : permissionCodes,
+          delegatedGrantId:
+            accessKind === "delegated" && delegatedGrantId?.success
+              ? delegatedGrantId.data
+              : null,
+        },
+      ];
+    },
+  );
+}
+
+export async function getAccessibleCareRecipient(
+  userId: string,
+  circleId: string,
+  careRecipientId: string,
+): Promise<AccessibleCareRecipientContext | null> {
+  const parsedCircle = circleIdSchema.safeParse(circleId);
+  const parsedRecipient = careRecipientIdSchema.safeParse(careRecipientId);
+  if (!parsedCircle.success || !parsedRecipient.success) {
+    await recordCareRecipientAccessDenied();
+    return null;
+  }
+
+  const circle = await getAuthorizedCircle(userId, parsedCircle.data);
+  if (!circle) {
+    await recordCareRecipientAccessDenied(parsedRecipient.data);
+    return null;
+  }
+
+  const supabase = await createSupabaseServerClient();
+  if (!supabase) return null;
+  const { data, error } = await supabase.rpc("get_accessible_care_recipient", {
+    p_circle_id: circle.id,
+    p_care_recipient_id: parsedRecipient.data,
+  });
+  if (error) {
+    await recordCareRecipientAccessDenied(parsedRecipient.data);
+    return null;
+  }
+  const context = parseAccessibleContext(
+    circle.id,
+    (data as Record<string, unknown> | null) ?? {},
+  );
+  if (!context) {
+    await recordCareRecipientAccessDenied(parsedRecipient.data);
+    return null;
+  }
+  return context;
 }
 
 export async function getOwnedCareRecipient(

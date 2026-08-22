@@ -89,6 +89,7 @@ export type DelegatedGrantDetail = {
   lastReviewedAt: string | null;
   lastReviewDecision: "keep_access" | null;
   reviewDue: boolean;
+  scopeSnapshotKind: "current" | "historical";
   termsFingerprint: string | null;
   representativeAccepted: boolean;
   ownerActivationConsented: boolean;
@@ -273,6 +274,8 @@ export async function getDelegatedGrantDetail(
     lastReviewDecision:
       payload.last_review_decision === "keep_access" ? "keep_access" : null,
     reviewDue: payload.review_due === true,
+    scopeSnapshotKind:
+      payload.scope_snapshot_kind === "historical" ? "historical" : "current",
     termsFingerprint: text(payload.terms_fingerprint),
     representativeAccepted: payload.representative_accepted === true,
     ownerActivationConsented: payload.owner_activation_consented === true,

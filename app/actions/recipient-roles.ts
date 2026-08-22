@@ -2,9 +2,11 @@
 
 import { redirect } from "next/navigation";
 import { requireAuthenticatedAdult } from "@/lib/auth/session";
-import { getOwnedCareRecipient } from "@/lib/care-recipients/access";
 import { writeRecipientRoleOperationalLog } from "@/lib/recipient-role-logging";
-import { recipientRoleMutationSchema } from "@/lib/recipient-roles";
+import {
+  getManageRecipientRolesContext,
+  recipientRoleMutationSchema,
+} from "@/lib/recipient-roles";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
 export type RecipientRoleActionState = {
@@ -25,12 +27,12 @@ export async function assignRecipientRole(
     Object.fromEntries(formData),
   );
   if (!input.success || !input.data.roleCode) return unavailable();
-  const recipient = await getOwnedCareRecipient(
+  const context = await getManageRecipientRolesContext(
     account.userId,
     input.data.circleId,
     input.data.careRecipientId,
   );
-  if (!recipient) return unavailable();
+  if (!context) return unavailable();
   const supabase = await createSupabaseServerClient();
   const result = supabase
     ? await supabase.rpc("assign_recipient_role", {
@@ -67,12 +69,12 @@ export async function transitionRecipientRole(
     (operation !== "suspend" && operation !== "remove")
   )
     return unavailable();
-  const recipient = await getOwnedCareRecipient(
+  const context = await getManageRecipientRolesContext(
     account.userId,
     input.data.circleId,
     input.data.careRecipientId,
   );
-  if (!recipient) return unavailable();
+  if (!context) return unavailable();
   const supabase = await createSupabaseServerClient();
   const result = supabase
     ? await supabase.rpc("transition_recipient_role", {

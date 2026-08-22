@@ -85,6 +85,7 @@ const grant = (overrides: Record<string, unknown> = {}) => ({
   lastReviewedAt: null,
   lastReviewDecision: null,
   reviewDue: false,
+  scopeSnapshotKind: "current",
   termsFingerprint: "b".repeat(64),
   representativeAccepted: true,
   ownerActivationConsented: true,

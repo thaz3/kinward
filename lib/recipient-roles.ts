@@ -1,4 +1,6 @@
 import { z } from "zod";
+import type { AccessibleCareRecipientContext } from "@/lib/care-recipients";
+import { getAccessibleCareRecipient } from "@/lib/care-recipients/access";
 import { RECIPIENT_ROLE_CODES } from "@/lib/recipient-role-catalog";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
@@ -40,11 +42,54 @@ export async function canManageRecipientRoles(
   return !result.error && result.data === true;
 }
 
+/**
+ * Route/action precheck for Manage roles: database can_manage_recipient_roles
+ * plus accessible-recipient context. Owners keep the owner path. Delegated
+ * representatives need an exact active recipient.manage_roles scope. Review
+ * permissions alone never qualifies. Permission codes come from the server
+ * accessor, never from the client.
+ */
+export async function getManageRecipientRolesContext(
+  userId: string,
+  circleId: string,
+  careRecipientId: string,
+): Promise<AccessibleCareRecipientContext | null> {
+  if (!(await canManageRecipientRoles(circleId, careRecipientId))) return null;
+  const context = await getAccessibleCareRecipient(
+    userId,
+    circleId,
+    careRecipientId,
+  );
+  if (!context) return null;
+  if (context.accessKind === "owner") return context;
+  if (
+    context.accessKind === "delegated" &&
+    context.permissionCodes.includes("recipient.manage_roles")
+  ) {
+    return context;
+  }
+  return null;
+}
+
+export async function canReviewRecipientPermissions(
+  circleId: string,
+  careRecipientId: string,
+) {
+  const supabase = await createSupabaseServerClient();
+  if (!supabase) return false;
+  const result = await supabase.rpc("can_review_recipient_permissions", {
+    p_circle_id: circleId,
+    p_care_recipient_id: careRecipientId,
+  });
+  return !result.error && result.data === true;
+}
+
 export async function listRecipientRoleMembers(
   circleId: string,
   careRecipientId: string,
 ) {
-  if (!(await canManageRecipientRoles(circleId, careRecipientId))) return null;
+  if (!(await canReviewRecipientPermissions(circleId, careRecipientId)))
+    return null;
   const supabase = await createSupabaseServerClient();
   if (!supabase) return null;
   const result = await supabase.rpc("list_recipient_role_members", {

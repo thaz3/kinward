@@ -6,7 +6,7 @@ import {
 } from "@/components/recipient-role-management";
 import { UnavailableState } from "@/components/system-states";
 import { requireAuthenticatedAdult } from "@/lib/auth/session";
-import { getOwnedCareRecipient } from "@/lib/care-recipients/access";
+import { getAccessibleCareRecipient } from "@/lib/care-recipients/access";
 import {
   canManageRecipientRoles,
   listRecipientRoleMembers,
@@ -27,21 +27,28 @@ export default async function RecipientMemberRolesPage({
   const { circleId, careRecipientId, membershipId } = await params;
   if (!(await canManageRecipientRoles(circleId, careRecipientId)))
     return <UnavailableState />;
-  const recipient = await getOwnedCareRecipient(
+  const context = await getAccessibleCareRecipient(
     account.userId,
     circleId,
     careRecipientId,
   );
+  if (
+    !context ||
+    (context.accessKind === "delegated" &&
+      !context.permissionCodes.includes("recipient.manage_roles"))
+  ) {
+    return <UnavailableState />;
+  }
   const members = await listRecipientRoleMembers(circleId, careRecipientId);
   const member = members?.find((item) => item.membershipId === membershipId);
-  if (!recipient || !member) return <UnavailableState />;
+  if (!member) return <UnavailableState />;
   return (
     <AppShell
       currentPath={`/circles/${circleId}/care-recipients/${careRecipientId}/roles`}
       pageTitle="Manage Care Recipient roles"
       context={{
         circleLabel: "Current Circle",
-        careRecipientLabel: recipient.displayLabel,
+        careRecipientLabel: context.displayLabel,
         destinations: [
           {
             href: `/circles/${circleId}/care-recipients/${careRecipientId}/roles`,
@@ -52,7 +59,7 @@ export default async function RecipientMemberRolesPage({
     >
       <p>
         Selected member: {member.displayName}. Exact Care Recipient:{" "}
-        {recipient.displayLabel}.
+        {context.displayLabel}.
       </p>
       {member.assignments.map((assignment) => (
         <section className="content-card" key={assignment.id}>

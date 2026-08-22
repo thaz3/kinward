@@ -4,7 +4,7 @@ import { ProtectedRecipientContent } from "@/components/recipient-context-transi
 import { PermissionDeniedState } from "@/components/system-states";
 import { requireAuthenticatedAdult } from "@/lib/auth/session";
 import { getAuthorizedCircle } from "@/lib/circles";
-import { getOwnedCareRecipient } from "@/lib/care-recipients/access";
+import { getAccessibleCareRecipient } from "@/lib/care-recipients/access";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Care Recipient" };
@@ -20,11 +20,15 @@ export default async function CareRecipientPage({
   const { circleId, careRecipientId } = await params;
   const query = await searchParams;
   const circle = await getAuthorizedCircle(account.userId, circleId);
-  const recipient = circle
-    ? await getOwnedCareRecipient(account.userId, circle.id, careRecipientId)
+  const context = circle
+    ? await getAccessibleCareRecipient(
+        account.userId,
+        circle.id,
+        careRecipientId,
+      )
     : null;
 
-  if (!circle || !recipient) {
+  if (!circle || !context) {
     return (
       <AppShell
         currentPath=""
@@ -41,15 +45,22 @@ export default async function CareRecipientPage({
   }
 
   const justAccepted =
-    query.ownership === "accepted" || query.activated === "1";
+    context.accessKind === "owner" &&
+    (query.ownership === "accepted" || query.activated === "1");
+  const canManageRoles = context.permissionCodes.includes(
+    "recipient.manage_roles",
+  );
+  const canReviewPermissions = context.permissionCodes.includes(
+    "recipient.review_permissions",
+  );
 
   return (
     <AppShell
-      currentPath={`/circles/${circle.id}/care-recipients/${recipient.id}`}
-      pageTitle={recipient.displayLabel}
+      currentPath={`/circles/${circle.id}/care-recipients/${context.id}`}
+      pageTitle={context.displayLabel}
       context={{
         circleLabel: circle.displayName,
-        careRecipientLabel: recipient.displayLabel,
+        careRecipientLabel: context.displayLabel,
         destinations: [
           { href: `/circles/${circle.id}`, label: "Overview" },
           {
@@ -69,7 +80,7 @@ export default async function CareRecipientPage({
           >
             <h2 id="ownership-success">You are the sole owner</h2>
             <p>
-              Sole ownership of {recipient.displayLabel} is active. You control
+              Sole ownership of {context.displayLabel} is active. You control
               who receives access under Kinward’s approved permission model.
             </p>
           </section>
@@ -78,34 +89,78 @@ export default async function CareRecipientPage({
           className="content-card"
           aria-labelledby="care-recipient-heading"
         >
-          <h2 id="care-recipient-heading">{recipient.displayLabel}</h2>
-          <p>
-            You are the sole owner of this Care Recipient profile. No one else
-            has access, and family relationship or Circle-wide roles grant none.
-          </p>
-          <p>
-            This is a structural placeholder. Care Recipient information is not
-            available in this implementation slice.
-          </p>
+          <h2 id="care-recipient-heading">{context.displayLabel}</h2>
+          {context.accessKind === "owner" ? (
+            <>
+              <p>
+                You are the sole owner of this Care Recipient profile. No one
+                else has access, and family relationship or Circle-wide roles
+                grant none.
+              </p>
+              <p>
+                This is a structural placeholder. Care Recipient information is
+                not available in this implementation slice.
+              </p>
+            </>
+          ) : (
+            <>
+              <p>
+                You are viewing {context.displayLabel} under an active delegated
+                grant. Your access is limited to the exact scopes recorded for
+                this grant.
+              </p>
+              <p>
+                This is a structural placeholder. Care Recipient information is
+                not available in this implementation slice.
+              </p>
+            </>
+          )}
         </section>
         <section className="content-card" aria-labelledby="care-recipient-nav">
           <h2 id="care-recipient-nav">Navigate</h2>
-          <p>
-            <Link
-              className="button secondary"
-              href={`/circles/${circle.id}/care-recipients/${recipient.id}/roles`}
-            >
-              Manage Care Recipient roles
-            </Link>
-          </p>
-          <p>
-            <Link
-              className="button secondary"
-              href={`/circles/${circle.id}/care-recipients/${recipient.id}/management-mode`}
-            >
-              Select Care Management Mode
-            </Link>
-          </p>
+          {context.accessKind === "owner" ? (
+            <>
+              <p>
+                <Link
+                  className="button secondary"
+                  href={`/circles/${circle.id}/care-recipients/${context.id}/roles`}
+                >
+                  Manage Care Recipient roles
+                </Link>
+              </p>
+              <p>
+                <Link
+                  className="button secondary"
+                  href={`/circles/${circle.id}/care-recipients/${context.id}/management-mode`}
+                >
+                  Select Care Management Mode
+                </Link>
+              </p>
+            </>
+          ) : (
+            <>
+              {canManageRoles ? (
+                <p>
+                  <Link
+                    className="button secondary"
+                    href={`/circles/${circle.id}/care-recipients/${context.id}/roles`}
+                  >
+                    Manage Care Recipient roles
+                  </Link>
+                </p>
+              ) : null}
+              {canReviewPermissions && !canManageRoles ? (
+                <p>
+                  <Link
+                    className="button secondary"
+                    href={`/circles/${circle.id}/care-recipients/${context.id}/roles`}
+                  >
+                    View Care Recipient role assignments
+                  </Link>
+                </p>
+              ) : null}
+            </>
+          )}
           <p>
             <Link
               className="button secondary"

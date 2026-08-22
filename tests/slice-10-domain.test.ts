@@ -44,6 +44,7 @@ const grant = (
   lastReviewedAt: null,
   lastReviewDecision: null,
   reviewDue: false,
+  scopeSnapshotKind: "current",
   termsFingerprint: fingerprint,
   representativeAccepted: true,
   ownerActivationConsented: false,
